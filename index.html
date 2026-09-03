@@ -71,18 +71,12 @@
         40px 210px;
 
       opacity: 0.3;
-
       animation: twinkle 7s ease-in-out infinite alternate;
     }
 
     @keyframes twinkle {
-      from {
-        opacity: 0.2;
-      }
-
-      to {
-        opacity: 0.38;
-      }
+      from { opacity: 0.2; }
+      to { opacity: 0.38; }
     }
 
     /* ==================== HERO ==================== */
@@ -115,12 +109,9 @@
 
     .moon {
       position: relative;
-
       width: 82px;
       height: 82px;
-
       border-radius: 50%;
-
       background: #eeeaf4;
 
       box-shadow:
@@ -128,24 +119,17 @@
         0 0 55px rgba(210,205,235,0.12);
 
       margin-bottom: 32px;
-
       opacity: 0.92;
-
       z-index: 4;
     }
 
     .moon::after {
       content: "";
-
       position: absolute;
-
       width: 82px;
       height: 82px;
-
       border-radius: 50%;
-
       background: #10101a;
-
       left: 22px;
       top: -8px;
     }
@@ -154,36 +138,26 @@
 
     .cloud {
       position: absolute;
-
       width: 230px;
       height: 55px;
-
       background: rgba(170,166,185,0.09);
-
       border-radius: 50px;
-
       filter: blur(4px);
-
       opacity: 0.65;
-
       z-index: 2;
     }
 
     .cloud::before,
     .cloud::after {
       content: "";
-
       position: absolute;
-
       background: rgba(170,166,185,0.09);
-
       border-radius: 50%;
     }
 
     .cloud::before {
       width: 95px;
       height: 75px;
-
       left: 35px;
       bottom: 5px;
     }
@@ -191,7 +165,6 @@
     .cloud::after {
       width: 120px;
       height: 85px;
-
       right: 28px;
       bottom: 3px;
     }
@@ -199,46 +172,31 @@
     .cloud.one {
       top: 24%;
       left: -80px;
-
       animation: cloudOne 32s linear infinite;
     }
 
     .cloud.two {
       top: 37%;
       right: -100px;
-
       transform: scale(0.75);
-
       opacity: 0.4;
-
       animation: cloudTwo 42s linear infinite;
     }
 
     @keyframes cloudOne {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(calc(100vw + 300px));
-      }
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(100vw + 300px)); }
     }
 
     @keyframes cloudTwo {
-      from {
-        transform: translateX(0) scale(0.75);
-      }
-
-      to {
-        transform: translateX(calc(-100vw - 300px)) scale(0.75);
-      }
+      from { transform: translateX(0) scale(0.75); }
+      to { transform: translateX(calc(-100vw - 300px)) scale(0.75); }
     }
 
     /* ==================== SHOOTING STAR ==================== */
 
     .shooting-star {
       position: absolute;
-
       width: 75px;
       height: 1px;
 
@@ -250,12 +208,9 @@
       );
 
       transform: rotate(-32deg);
-
       top: 18%;
       left: -120px;
-
       opacity: 0;
-
       z-index: 3;
 
       animation: shootingStar 12s ease-in-out infinite;
@@ -263,24 +218,19 @@
 
     .shooting-star::after {
       content: "";
-
       position: absolute;
-
       right: 0;
       top: -1.5px;
 
       width: 4px;
       height: 4px;
-
       border-radius: 50%;
 
       background: rgba(255,255,255,0.85);
-
       box-shadow: 0 0 6px rgba(255,255,255,0.6);
     }
 
     @keyframes shootingStar {
-
       0% {
         left: -120px;
         top: 17%;
@@ -310,147 +260,199 @@
       }
     }
 
-    /* ==================== THE CAT ==================== */
+    /* ==================== MIDNIGHT CAT ==================== */
 
     .cat {
       position: absolute;
-
-      bottom: 34px;
-      left: -80px;
-
-      width: 48px;
-      height: 38px;
-
-      background: #020204;
-
-      border-radius: 50% 50% 45% 45%;
-
-      opacity: 1;
-
+      width: 82px;
+      height: 72px;
+      bottom: 28px;
+      left: -100px;
       z-index: 8;
 
-      animation: catAdventure 24s ease-in-out infinite;
+      animation: catJourney 24s ease-in-out infinite;
     }
 
-    /* ears */
-
-    .cat::before {
-      content: "";
-
+    /* Body */
+    .cat-body {
       position: absolute;
+      width: 52px;
+      height: 30px;
+      left: 20px;
+      bottom: 18px;
 
-      top: -15px;
-      left: 5px;
-
-      width: 0;
-      height: 0;
-
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 21px solid #020204;
-
-      filter: drop-shadow(18px 0 0 #020204);
+      background: #020204;
+      border-radius: 55% 48% 45% 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     }
 
-    /* tail */
-
-    .cat::after {
-      content: "";
-
+    /* Head */
+    .cat-head {
       position: absolute;
+      width: 30px;
+      height: 29px;
+      left: 4px;
+      bottom: 34px;
 
-      width: 38px;
-      height: 20px;
-
-      border-top: 4px solid #020204;
-
+      background: #020204;
       border-radius: 50%;
-
-      right: -28px;
-      bottom: 4px;
-
-      transform: rotate(25deg);
-
-      animation: tailFlick 24s ease-in-out infinite;
     }
 
-    /*
-      The cat:
-      walks in,
-      stops,
-      looks at you,
-      then walks away.
-    */
+    /* Ears */
+    .cat-head::before,
+    .cat-head::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 17px;
+      top: -8px;
 
-    @keyframes catAdventure {
+      background: #020204;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
 
-      /* enters */
+    .cat-head::before {
+      left: 2px;
+      transform: rotate(-8deg);
+    }
 
+    .cat-head::after {
+      right: 2px;
+      transform: rotate(8deg);
+    }
+
+    /* Eyes */
+    .cat-eye {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #eeeaa9;
+      box-shadow: 0 0 7px rgba(238,234,169,0.8);
+      z-index: 3;
+      bottom: 45px;
+    }
+
+    .cat-eye.left {
+      left: 12px;
+    }
+
+    .cat-eye.right {
+      left: 22px;
+    }
+
+    /* Legs */
+    .leg {
+      position: absolute;
+      width: 7px;
+      height: 23px;
+      bottom: 2px;
+
+      background: #020204;
+      border-radius: 0 0 5px 5px;
+      transform-origin: top center;
+    }
+
+    .leg.one {
+      left: 25px;
+      animation: frontLeg 0.65s ease-in-out infinite alternate;
+    }
+
+    .leg.two {
+      left: 38px;
+      animation: backLeg 0.65s ease-in-out infinite alternate-reverse;
+    }
+
+    .leg.three {
+      left: 56px;
+      animation: frontLeg 0.65s ease-in-out infinite alternate-reverse;
+    }
+
+    .leg.four {
+      left: 67px;
+      animation: backLeg 0.65s ease-in-out infinite alternate;
+    }
+
+    @keyframes frontLeg {
+      from { transform: rotate(13deg); }
+      to { transform: rotate(-13deg); }
+    }
+
+    @keyframes backLeg {
+      from { transform: rotate(-13deg); }
+      to { transform: rotate(13deg); }
+    }
+
+    /* Tail */
+    .tail {
+      position: absolute;
+      width: 42px;
+      height: 32px;
+      right: -19px;
+      bottom: 25px;
+
+      border-top: 6px solid #020204;
+      border-right: 6px solid #020204;
+      border-radius: 0 100% 0 0;
+
+      transform: rotate(12deg);
+      transform-origin: left bottom;
+
+      animation: tailWave 2s ease-in-out infinite;
+    }
+
+    @keyframes tailWave {
+      0%, 100% {
+        transform: rotate(12deg);
+      }
+
+      50% {
+        transform: rotate(-12deg);
+      }
+    }
+
+    /* Cat movement:
+       walks in → stops → looks → walks away */
+
+    @keyframes catJourney {
       0% {
-        left: -80px;
+        left: -100px;
         transform: scaleX(1);
       }
 
       25% {
-        left: 20%;
+        left: 22%;
         transform: scaleX(1);
       }
 
-      /* stops */
-
-      35% {
-        left: 20%;
+      38% {
+        left: 22%;
         transform: scaleX(1);
       }
 
-      /* turns toward reader */
-
-      42% {
-        left: 20%;
+      43% {
+        left: 22%;
         transform: scaleX(-1);
       }
 
-      /* stays and stares */
-
-      55% {
-        left: 20%;
+      58% {
+        left: 22%;
         transform: scaleX(-1);
       }
 
-      /* turns away */
-
-      62% {
-        left: 20%;
+      63% {
+        left: 22%;
         transform: scaleX(1);
       }
-
-      /* walks away */
 
       88% {
-        left: 90%;
+        left: 88%;
         transform: scaleX(1);
       }
-
-      /* disappears */
 
       100% {
-        left: 105%;
+        left: 110%;
         transform: scaleX(1);
-      }
-    }
-
-    @keyframes tailFlick {
-
-      0%, 25% {
-        transform: rotate(25deg);
-      }
-
-      35%, 55% {
-        transform: rotate(-5deg);
-      }
-
-      65%, 100% {
-        transform: rotate(25deg);
       }
     }
 
@@ -458,15 +460,10 @@
 
     h1 {
       position: relative;
-
       font-size: 64px;
-
       font-weight: normal;
-
       letter-spacing: 8px;
-
       margin-bottom: 15px;
-
       z-index: 7;
 
       text-shadow:
@@ -475,15 +472,10 @@
 
     .subtitle {
       position: relative;
-
       font-size: 17px;
-
       font-style: italic;
-
       color: #aaa2b5;
-
       letter-spacing: 2px;
-
       z-index: 7;
     }
 
@@ -491,33 +483,24 @@
 
     nav {
       position: sticky;
-
       top: 0;
 
       background: rgba(8,8,14,0.92);
-
       backdrop-filter: blur(8px);
 
       padding: 18px;
-
       text-align: center;
 
       border-bottom: 1px solid rgba(100,95,115,0.25);
-
       z-index: 20;
     }
 
     nav a {
       color: #c9c0d1;
-
       text-decoration: none;
-
       margin: 0 18px;
-
       font-size: 14px;
-
       letter-spacing: 2px;
-
       transition: color 0.3s ease;
     }
 
@@ -529,25 +512,17 @@
 
     section {
       position: relative;
-
       max-width: 850px;
-
       margin: auto;
-
       padding: 90px 25px;
-
       z-index: 2;
     }
 
     h2 {
       font-size: 32px;
-
       font-weight: normal;
-
       text-align: center;
-
       margin-bottom: 50px;
-
       letter-spacing: 3px;
     }
 
@@ -555,11 +530,9 @@
 
     .poem {
       margin-bottom: 90px;
-
       padding: 35px;
 
       border-left: 1px solid rgba(100,94,115,0.5);
-
       background: rgba(255,255,255,0.018);
 
       backdrop-filter: blur(2px);
@@ -567,29 +540,21 @@
 
     .poem h3 {
       font-size: 25px;
-
       font-weight: normal;
-
       margin-bottom: 25px;
     }
 
     .poem p {
       white-space: pre-line;
-
       color: #cfc8d5;
-
       font-size: 17px;
     }
 
     .date {
       display: block;
-
       margin-top: 25px;
-
       color: #777080;
-
       font-size: 12px;
-
       letter-spacing: 2px;
     }
 
@@ -597,9 +562,7 @@
 
     .about {
       text-align: center;
-
       color: #aaa2b5;
-
       font-size: 17px;
     }
 
@@ -607,15 +570,12 @@
 
     footer {
       position: relative;
-
       text-align: center;
 
       padding: 50px 20px;
 
       border-top: 1px solid rgba(100,95,115,0.25);
-
       color: #66606d;
-
       font-size: 13px;
 
       z-index: 2;
@@ -652,8 +612,12 @@
       .cloud {
         transform: scale(0.7);
       }
-    }
 
+      .cat {
+        transform: scale(0.85);
+        transform-origin: bottom left;
+      }
+    }
   </style>
 </head>
 
@@ -674,7 +638,25 @@
       words written after midnight
     </p>
 
-    <div class="cat"></div>
+    <!-- THE CAT 🐈‍⬛ -->
+
+    <div class="cat">
+
+      <div class="cat-head"></div>
+
+      <div class="cat-eye left"></div>
+      <div class="cat-eye right"></div>
+
+      <div class="cat-body"></div>
+
+      <div class="leg one"></div>
+      <div class="leg two"></div>
+      <div class="leg three"></div>
+      <div class="leg four"></div>
+
+      <div class="tail"></div>
+
+    </div>
 
   </header>
 
@@ -690,7 +672,6 @@
 
     <article class="poem">
       <h3>After Midnight</h3>
-
       <p>
 There are things
 I only remember
@@ -707,13 +688,11 @@ Perhaps it is simply
 learning how to remember
 without reaching back.
       </p>
-
       <span class="date">z.midnight</span>
     </article>
 
     <article class="poem">
       <h3>Things I Never Said</h3>
-
       <p>
 I kept the words
 behind my teeth,
@@ -728,13 +707,11 @@ until silence
 became heavier
 than the truth.
       </p>
-
       <span class="date">z.midnight</span>
     </article>
 
     <article class="poem">
       <h3>Somewhere Between</h3>
-
       <p>
 I am somewhere between
 missing you
@@ -747,13 +724,11 @@ I think I have moved on.
 Other nights
 the moon remembers for me.
       </p>
-
       <span class="date">z.midnight</span>
     </article>
 
     <article class="poem">
       <h3>The Poems I Buried</h3>
-
       <p>
 I deleted every poem I wrote for you,
 every tender line I once thought true.
@@ -770,13 +745,11 @@ but learning how to write without writing you.
 No more leaving empty spaces for you to stay—
 some stories must be mourned, then fade away.
       </p>
-
       <span class="date">z.midnight</span>
     </article>
 
     <article class="poem">
       <h3>I Hold It In</h3>
-
       <p>
 Sometimes I want to tell you
 the things I hide inside,
@@ -803,7 +776,6 @@ and let my feelings fade,
 you’ll never know what you mean to me—
 or how much love I’ve betrayed.
       </p>
-
       <span class="date">z.midnight</span>
     </article>
 
@@ -817,10 +789,14 @@ or how much love I’ve betrayed.
       z.midnight is a quiet little collection of thoughts,
       feelings, memories, and words that found their way
       onto a page after dark.
+
       <br><br>
+
       No biography is necessary here.
       Just the poems.
+
       <br><br>
+
       Stay awhile. Read slowly.
     </p>
 
