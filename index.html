@@ -27,7 +27,7 @@
       position: relative;
     }
 
-    /* -------------------- STARS -------------------- */
+    /* ==================== STARS ==================== */
 
     body::before {
       content: "";
@@ -71,6 +71,7 @@
         40px 210px;
 
       opacity: 0.3;
+
       animation: twinkle 7s ease-in-out infinite alternate;
     }
 
@@ -84,7 +85,7 @@
       }
     }
 
-    /* -------------------- HERO -------------------- */
+    /* ==================== HERO ==================== */
 
     header {
       min-height: 88vh;
@@ -110,12 +111,14 @@
       z-index: 1;
     }
 
-    /* -------------------- MOON -------------------- */
+    /* ==================== MOON ==================== */
 
     .moon {
       position: relative;
+
       width: 82px;
       height: 82px;
+
       border-radius: 50%;
 
       background: #eeeaf4;
@@ -133,6 +136,7 @@
 
     .moon::after {
       content: "";
+
       position: absolute;
 
       width: 82px;
@@ -146,20 +150,21 @@
       top: -8px;
     }
 
-    /* -------------------- SOFT CLOUDS -------------------- */
+    /* ==================== CLOUDS ==================== */
 
     .cloud {
       position: absolute;
+
       width: 230px;
       height: 55px;
 
-      background: rgba(170, 166, 185, 0.10);
+      background: rgba(170,166,185,0.09);
 
       border-radius: 50px;
 
-      filter: blur(3px);
+      filter: blur(4px);
 
-      opacity: 0.7;
+      opacity: 0.65;
 
       z-index: 2;
     }
@@ -167,9 +172,10 @@
     .cloud::before,
     .cloud::after {
       content: "";
+
       position: absolute;
 
-      background: rgba(170, 166, 185, 0.10);
+      background: rgba(170,166,185,0.09);
 
       border-radius: 50%;
     }
@@ -177,6 +183,7 @@
     .cloud::before {
       width: 95px;
       height: 75px;
+
       left: 35px;
       bottom: 5px;
     }
@@ -184,6 +191,7 @@
     .cloud::after {
       width: 120px;
       height: 85px;
+
       right: 28px;
       bottom: 3px;
     }
@@ -191,14 +199,18 @@
     .cloud.one {
       top: 24%;
       left: -80px;
+
       animation: cloudOne 32s linear infinite;
     }
 
     .cloud.two {
       top: 37%;
       right: -100px;
+
       transform: scale(0.75);
-      opacity: 0.45;
+
+      opacity: 0.4;
+
       animation: cloudTwo 42s linear infinite;
     }
 
@@ -222,19 +234,19 @@
       }
     }
 
-    /* -------------------- SHOOTING STAR -------------------- */
+    /* ==================== SHOOTING STAR ==================== */
 
     .shooting-star {
       position: absolute;
 
-      width: 85px;
+      width: 75px;
       height: 1px;
 
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.55),
-        rgba(255,255,255,0.85)
+        rgba(255,255,255,0.45),
+        rgba(255,255,255,0.8)
       );
 
       transform: rotate(-32deg);
@@ -246,7 +258,7 @@
 
       z-index: 3;
 
-      animation: shootingStar 11s ease-in-out infinite;
+      animation: shootingStar 12s ease-in-out infinite;
     }
 
     .shooting-star::after {
@@ -262,9 +274,9 @@
 
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.85);
 
-      box-shadow: 0 0 7px rgba(255,255,255,0.7);
+      box-shadow: 0 0 6px rgba(255,255,255,0.6);
     }
 
     @keyframes shootingStar {
@@ -276,13 +288,13 @@
       }
 
       8% {
-        opacity: 0.65;
+        opacity: 0.55;
       }
 
       18% {
         left: 38%;
         top: 30%;
-        opacity: 0.65;
+        opacity: 0.55;
       }
 
       23% {
@@ -298,87 +310,164 @@
       }
     }
 
-    /* -------------------- CAT -------------------- */
+    /* ==================== THE CAT ==================== */
 
     .cat {
       position: absolute;
 
       bottom: 34px;
-      right: 9%;
+      left: -80px;
 
-      width: 43px;
-      height: 35px;
+      width: 48px;
+      height: 38px;
 
-      background: #030305;
+      background: #020204;
 
       border-radius: 50% 50% 45% 45%;
 
-      opacity: 0.95;
+      opacity: 1;
 
-      z-index: 5;
+      z-index: 8;
 
-      animation: catFloat 5s ease-in-out infinite;
+      animation: catAdventure 24s ease-in-out infinite;
     }
+
+    /* ears */
 
     .cat::before {
       content: "";
 
       position: absolute;
 
-      top: -13px;
-      left: 4px;
+      top: -15px;
+      left: 5px;
 
       width: 0;
       height: 0;
 
-      border-left: 9px solid transparent;
-      border-right: 9px solid transparent;
-      border-bottom: 18px solid #030305;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 21px solid #020204;
 
-      filter: drop-shadow(17px 0 0 #030305);
+      filter: drop-shadow(18px 0 0 #020204);
     }
+
+    /* tail */
 
     .cat::after {
       content: "";
 
       position: absolute;
 
-      width: 34px;
-      height: 17px;
+      width: 38px;
+      height: 20px;
 
-      border-top: 4px solid #030305;
+      border-top: 4px solid #020204;
 
       border-radius: 50%;
 
-      right: -26px;
+      right: -28px;
       bottom: 4px;
 
       transform: rotate(25deg);
+
+      animation: tailFlick 24s ease-in-out infinite;
     }
 
-    @keyframes catFloat {
-      0%, 100% {
-        transform: translateY(0);
+    /*
+      The cat:
+      walks in,
+      stops,
+      looks at you,
+      then walks away.
+    */
+
+    @keyframes catAdventure {
+
+      /* enters */
+
+      0% {
+        left: -80px;
+        transform: scaleX(1);
       }
 
-      50% {
-        transform: translateY(-5px);
+      25% {
+        left: 20%;
+        transform: scaleX(1);
+      }
+
+      /* stops */
+
+      35% {
+        left: 20%;
+        transform: scaleX(1);
+      }
+
+      /* turns toward reader */
+
+      42% {
+        left: 20%;
+        transform: scaleX(-1);
+      }
+
+      /* stays and stares */
+
+      55% {
+        left: 20%;
+        transform: scaleX(-1);
+      }
+
+      /* turns away */
+
+      62% {
+        left: 20%;
+        transform: scaleX(1);
+      }
+
+      /* walks away */
+
+      88% {
+        left: 90%;
+        transform: scaleX(1);
+      }
+
+      /* disappears */
+
+      100% {
+        left: 105%;
+        transform: scaleX(1);
       }
     }
 
-    /* -------------------- TITLE -------------------- */
+    @keyframes tailFlick {
+
+      0%, 25% {
+        transform: rotate(25deg);
+      }
+
+      35%, 55% {
+        transform: rotate(-5deg);
+      }
+
+      65%, 100% {
+        transform: rotate(25deg);
+      }
+    }
+
+    /* ==================== TITLE ==================== */
 
     h1 {
       position: relative;
 
       font-size: 64px;
+
       font-weight: normal;
 
       letter-spacing: 8px;
 
       margin-bottom: 15px;
 
-      z-index: 5;
+      z-index: 7;
 
       text-shadow:
         0 0 18px rgba(210,205,235,0.18);
@@ -388,22 +477,24 @@
       position: relative;
 
       font-size: 17px;
+
       font-style: italic;
 
       color: #aaa2b5;
 
       letter-spacing: 2px;
 
-      z-index: 5;
+      z-index: 7;
     }
 
-    /* -------------------- NAV -------------------- */
+    /* ==================== NAV ==================== */
 
     nav {
       position: sticky;
+
       top: 0;
 
-      background: rgba(8, 8, 14, 0.92);
+      background: rgba(8,8,14,0.92);
 
       backdrop-filter: blur(8px);
 
@@ -411,7 +502,7 @@
 
       text-align: center;
 
-      border-bottom: 1px solid rgba(100, 95, 115, 0.25);
+      border-bottom: 1px solid rgba(100,95,115,0.25);
 
       z-index: 20;
     }
@@ -431,10 +522,10 @@
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: white;
     }
 
-    /* -------------------- SECTIONS -------------------- */
+    /* ==================== SECTIONS ==================== */
 
     section {
       position: relative;
@@ -460,16 +551,16 @@
       letter-spacing: 3px;
     }
 
-    /* -------------------- POEMS -------------------- */
+    /* ==================== POEMS ==================== */
 
     .poem {
       margin-bottom: 90px;
 
       padding: 35px;
 
-      border-left: 1px solid rgba(100, 94, 115, 0.5);
+      border-left: 1px solid rgba(100,94,115,0.5);
 
-      background: rgba(255, 255, 255, 0.018);
+      background: rgba(255,255,255,0.018);
 
       backdrop-filter: blur(2px);
     }
@@ -502,7 +593,7 @@
       letter-spacing: 2px;
     }
 
-    /* -------------------- ABOUT -------------------- */
+    /* ==================== ABOUT ==================== */
 
     .about {
       text-align: center;
@@ -512,7 +603,7 @@
       font-size: 17px;
     }
 
-    /* -------------------- FOOTER -------------------- */
+    /* ==================== FOOTER ==================== */
 
     footer {
       position: relative;
@@ -521,7 +612,7 @@
 
       padding: 50px 20px;
 
-      border-top: 1px solid rgba(100, 95, 115, 0.25);
+      border-top: 1px solid rgba(100,95,115,0.25);
 
       color: #66606d;
 
@@ -530,7 +621,7 @@
       z-index: 2;
     }
 
-    /* -------------------- MOBILE -------------------- */
+    /* ==================== MOBILE ==================== */
 
     @media (max-width: 600px) {
 
@@ -598,7 +689,6 @@
     <h2>Poems in the Quiet</h2>
 
     <article class="poem">
-
       <h3>After Midnight</h3>
 
       <p>
@@ -619,11 +709,9 @@ without reaching back.
       </p>
 
       <span class="date">z.midnight</span>
-
     </article>
 
     <article class="poem">
-
       <h3>Things I Never Said</h3>
 
       <p>
@@ -642,11 +730,9 @@ than the truth.
       </p>
 
       <span class="date">z.midnight</span>
-
     </article>
 
     <article class="poem">
-
       <h3>Somewhere Between</h3>
 
       <p>
@@ -663,11 +749,9 @@ the moon remembers for me.
       </p>
 
       <span class="date">z.midnight</span>
-
     </article>
 
     <article class="poem">
-
       <h3>The Poems I Buried</h3>
 
       <p>
@@ -688,11 +772,9 @@ some stories must be mourned, then fade away.
       </p>
 
       <span class="date">z.midnight</span>
-
     </article>
 
     <article class="poem">
-
       <h3>I Hold It In</h3>
 
       <p>
@@ -723,7 +805,6 @@ or how much love I’ve betrayed.
       </p>
 
       <span class="date">z.midnight</span>
-
     </article>
 
   </section>
