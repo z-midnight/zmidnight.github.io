@@ -40,14 +40,8 @@
         radial-gradient(circle, rgba(255,255,255,0.75) 0.8px, transparent 1.4px),
         radial-gradient(circle, rgba(220,215,235,0.45) 0.7px, transparent 1.3px);
 
-      background-size:
-        190px 190px,
-        280px 280px;
-
-      background-position:
-        20px 30px,
-        90px 120px;
-
+      background-size: 190px 190px, 280px 280px;
+      background-position: 20px 30px, 90px 120px;
       opacity: 0.42;
     }
 
@@ -62,15 +56,10 @@
         radial-gradient(circle, rgba(255,255,255,0.5) 0.7px, transparent 1.4px),
         radial-gradient(circle, rgba(190,185,220,0.35) 0.8px, transparent 1.4px);
 
-      background-size:
-        340px 340px,
-        430px 430px;
-
-      background-position:
-        150px 80px,
-        40px 210px;
-
+      background-size: 340px 340px, 430px 430px;
+      background-position: 150px 80px, 40px 210px;
       opacity: 0.3;
+
       animation: twinkle 7s ease-in-out infinite alternate;
     }
 
@@ -260,163 +249,192 @@
       }
     }
 
-    /* ==================== MIDNIGHT CAT ==================== */
+    /* ==================== CUTE MIDNIGHT CAT ==================== */
 
     .cat {
       position: absolute;
-      width: 82px;
-      height: 72px;
-      bottom: 28px;
-      left: -100px;
+      left: -110px;
+      bottom: 32px;
+
+      width: 90px;
+      height: 65px;
+
       z-index: 8;
 
-      animation: catJourney 24s ease-in-out infinite;
+      animation: catWalk 25s ease-in-out infinite;
     }
 
-    /* Body */
+    /* body */
+
     .cat-body {
       position: absolute;
-      width: 52px;
-      height: 30px;
-      left: 20px;
-      bottom: 18px;
+      left: 25px;
+      bottom: 15px;
 
-      background: #020204;
-      border-radius: 55% 48% 45% 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    }
+      width: 50px;
+      height: 28px;
 
-    /* Head */
-    .cat-head {
-      position: absolute;
-      width: 30px;
-      height: 29px;
-      left: 4px;
-      bottom: 34px;
-
-      background: #020204;
+      background: #08080b;
       border-radius: 50%;
     }
 
-    /* Ears */
-    .cat-head::before,
-    .cat-head::after {
-      content: "";
-      position: absolute;
-      width: 13px;
-      height: 17px;
-      top: -8px;
+    /* head */
 
-      background: #020204;
-      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    .cat-head {
+      position: absolute;
+      left: 5px;
+      bottom: 30px;
+
+      width: 32px;
+      height: 30px;
+
+      background: #08080b;
+      border-radius: 50%;
     }
 
-    .cat-head::before {
-      left: 2px;
+    /* ears */
+
+    .ear {
+      position: absolute;
+      top: -7px;
+
+      width: 12px;
+      height: 14px;
+
+      background: #08080b;
+
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+
+    .ear.left {
+      left: 3px;
       transform: rotate(-8deg);
     }
 
-    .cat-head::after {
-      right: 2px;
+    .ear.right {
+      right: 3px;
       transform: rotate(8deg);
     }
 
-    /* Eyes */
-    .cat-eye {
+    /* eyes */
+
+    .eye {
       position: absolute;
+
       width: 5px;
-      height: 5px;
+      height: 6px;
+
+      top: 12px;
+
       border-radius: 50%;
-      background: #eeeaa9;
-      box-shadow: 0 0 7px rgba(238,234,169,0.8);
-      z-index: 3;
-      bottom: 45px;
+
+      background: #d8d39a;
+
+      box-shadow: 0 0 4px rgba(216,211,154,0.45);
     }
 
-    .cat-eye.left {
-      left: 12px;
+    .eye.left {
+      left: 9px;
     }
 
-    .cat-eye.right {
-      left: 22px;
+    .eye.right {
+      right: 9px;
     }
 
-    /* Legs */
+    /* little nose */
+
+    .nose {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+
+      background: #b7aebd;
+      border-radius: 50%;
+
+      left: 14px;
+      top: 20px;
+    }
+
+    /* four legs */
+
     .leg {
       position: absolute;
-      width: 7px;
-      height: 23px;
+
+      width: 6px;
+      height: 18px;
+
+      background: #08080b;
+
+      border-radius: 0 0 5px 5px;
+
       bottom: 2px;
 
-      background: #020204;
-      border-radius: 0 0 5px 5px;
       transform-origin: top center;
     }
 
     .leg.one {
-      left: 25px;
-      animation: frontLeg 0.65s ease-in-out infinite alternate;
+      left: 28px;
+      animation: legMove 0.6s infinite alternate;
     }
 
     .leg.two {
-      left: 38px;
-      animation: backLeg 0.65s ease-in-out infinite alternate-reverse;
+      left: 39px;
+      animation: legMove 0.6s infinite alternate-reverse;
     }
 
     .leg.three {
-      left: 56px;
-      animation: frontLeg 0.65s ease-in-out infinite alternate-reverse;
+      left: 58px;
+      animation: legMove 0.6s infinite alternate-reverse;
     }
 
     .leg.four {
-      left: 67px;
-      animation: backLeg 0.65s ease-in-out infinite alternate;
+      left: 68px;
+      animation: legMove 0.6s infinite alternate;
     }
 
-    @keyframes frontLeg {
-      from { transform: rotate(13deg); }
-      to { transform: rotate(-13deg); }
+    @keyframes legMove {
+      from { transform: rotate(8deg); }
+      to { transform: rotate(-8deg); }
     }
 
-    @keyframes backLeg {
-      from { transform: rotate(-13deg); }
-      to { transform: rotate(13deg); }
-    }
+    /* tail */
 
-    /* Tail */
     .tail {
       position: absolute;
-      width: 42px;
-      height: 32px;
-      right: -19px;
-      bottom: 25px;
 
-      border-top: 6px solid #020204;
-      border-right: 6px solid #020204;
+      right: -10px;
+      bottom: 27px;
+
+      width: 34px;
+      height: 25px;
+
+      border-top: 5px solid #08080b;
+      border-right: 5px solid #08080b;
+
       border-radius: 0 100% 0 0;
 
-      transform: rotate(12deg);
+      transform: rotate(10deg);
       transform-origin: left bottom;
 
-      animation: tailWave 2s ease-in-out infinite;
+      animation: tailMove 2s ease-in-out infinite;
     }
 
-    @keyframes tailWave {
+    @keyframes tailMove {
       0%, 100% {
-        transform: rotate(12deg);
+        transform: rotate(10deg);
       }
 
       50% {
-        transform: rotate(-12deg);
+        transform: rotate(-8deg);
       }
     }
 
-    /* Cat movement:
-       walks in → stops → looks → walks away */
+    /* walking + stopping + looking */
 
-    @keyframes catJourney {
+    @keyframes catWalk {
+
       0% {
-        left: -100px;
+        left: -110px;
         transform: scaleX(1);
       }
 
@@ -425,27 +443,34 @@
         transform: scaleX(1);
       }
 
-      38% {
+      /* STOP */
+
+      25%, 42% {
         left: 22%;
-        transform: scaleX(1);
       }
 
-      43% {
-        left: 22%;
-        transform: scaleX(-1);
-      }
+      /* TURN AROUND */
 
-      58% {
+      45% {
         left: 22%;
         transform: scaleX(-1);
       }
 
-      63% {
+      /* LOOK */
+
+      45%, 58% {
+        left: 22%;
+        transform: scaleX(-1);
+      }
+
+      /* WALK AWAY */
+
+      62% {
         left: 22%;
         transform: scaleX(1);
       }
 
-      88% {
+      90% {
         left: 88%;
         transform: scaleX(1);
       }
@@ -460,10 +485,13 @@
 
     h1 {
       position: relative;
+
       font-size: 64px;
       font-weight: normal;
       letter-spacing: 8px;
+
       margin-bottom: 15px;
+
       z-index: 7;
 
       text-shadow:
@@ -472,10 +500,13 @@
 
     .subtitle {
       position: relative;
+
       font-size: 17px;
       font-style: italic;
+
       color: #aaa2b5;
       letter-spacing: 2px;
+
       z-index: 7;
     }
 
@@ -492,15 +523,19 @@
       text-align: center;
 
       border-bottom: 1px solid rgba(100,95,115,0.25);
+
       z-index: 20;
     }
 
     nav a {
       color: #c9c0d1;
       text-decoration: none;
+
       margin: 0 18px;
+
       font-size: 14px;
       letter-spacing: 2px;
+
       transition: color 0.3s ease;
     }
 
@@ -512,17 +547,23 @@
 
     section {
       position: relative;
+
       max-width: 850px;
       margin: auto;
+
       padding: 90px 25px;
+
       z-index: 2;
     }
 
     h2 {
       font-size: 32px;
       font-weight: normal;
+
       text-align: center;
+
       margin-bottom: 50px;
+
       letter-spacing: 3px;
     }
 
@@ -533,6 +574,7 @@
       padding: 35px;
 
       border-left: 1px solid rgba(100,94,115,0.5);
+
       background: rgba(255,255,255,0.018);
 
       backdrop-filter: blur(2px);
@@ -541,19 +583,25 @@
     .poem h3 {
       font-size: 25px;
       font-weight: normal;
+
       margin-bottom: 25px;
     }
 
     .poem p {
       white-space: pre-line;
+
       color: #cfc8d5;
+
       font-size: 17px;
     }
 
     .date {
       display: block;
+
       margin-top: 25px;
+
       color: #777080;
+
       font-size: 12px;
       letter-spacing: 2px;
     }
@@ -562,7 +610,9 @@
 
     .about {
       text-align: center;
+
       color: #aaa2b5;
+
       font-size: 17px;
     }
 
@@ -570,12 +620,15 @@
 
     footer {
       position: relative;
+
       text-align: center;
 
       padding: 50px 20px;
 
       border-top: 1px solid rgba(100,95,115,0.25);
+
       color: #66606d;
+
       font-size: 13px;
 
       z-index: 2;
@@ -614,7 +667,7 @@
       }
 
       .cat {
-        transform: scale(0.85);
+        transform: scale(0.9);
         transform-origin: bottom left;
       }
     }
@@ -638,14 +691,19 @@
       words written after midnight
     </p>
 
-    <!-- THE CAT 🐈‍⬛ -->
+    <!-- 🐈‍⬛ THE NON-DEMON CAT -->
 
     <div class="cat">
 
-      <div class="cat-head"></div>
+      <div class="cat-head">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
 
-      <div class="cat-eye left"></div>
-      <div class="cat-eye right"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+
+        <div class="nose"></div>
+      </div>
 
       <div class="cat-body"></div>
 
