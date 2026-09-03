@@ -13,15 +13,23 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #0b0b12;
+      background: #080812;
       color: #e8e3ec;
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.8;
+      overflow-x: hidden;
     }
 
+    /* NIGHT SKY */
     header {
-      min-height: 85vh;
+      min-height: 90vh;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -29,13 +37,127 @@
       text-align: center;
       padding: 40px 20px;
       background:
-        radial-gradient(circle at center, #242036 0%, #0b0b12 65%);
+        radial-gradient(circle at 50% 35%, #30294a 0%, #171528 30%, #080812 75%);
     }
 
+    /* MOON */
     .moon {
-      font-size: 60px;
-      margin-bottom: 25px;
-      opacity: 0.9;
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #eee9d8;
+      box-shadow:
+        0 0 20px rgba(238, 233, 216, 0.5),
+        0 0 60px rgba(180, 170, 210, 0.25);
+      margin-bottom: 35px;
+      z-index: 2;
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      background: #242039;
+      top: -8px;
+      left: 25px;
+    }
+
+    /* STARS */
+    .stars,
+    .stars::before,
+    .stars::after {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .stars {
+      background-image:
+        radial-gradient(circle, #fff 1px, transparent 1.5px),
+        radial-gradient(circle, #fff 1px, transparent 1.5px),
+        radial-gradient(circle, #d8d1ff 1px, transparent 1.5px),
+        radial-gradient(circle, #fff 1px, transparent 1.5px);
+      background-size: 180px 180px, 250px 250px, 320px 320px, 140px 140px;
+      background-position: 10px 20px, 80px 100px, 150px 40px, 30px 140px;
+      animation: twinkle 5s infinite alternate;
+      opacity: 0.7;
+    }
+
+    .stars::before {
+      content: "";
+      background-image:
+        radial-gradient(circle, #fff 1px, transparent 1.5px),
+        radial-gradient(circle, #cfc7ed 1px, transparent 1.5px);
+      background-size: 220px 220px, 370px 370px;
+      animation: twinkle 7s infinite alternate-reverse;
+      opacity: 0.5;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 0.25;
+      }
+      to {
+        opacity: 0.85;
+      }
+    }
+
+    /* CLOUDS */
+    .cloud {
+      position: absolute;
+      width: 180px;
+      height: 45px;
+      border-radius: 50px;
+      background: rgba(150, 145, 180, 0.07);
+      filter: blur(2px);
+      animation: drift 35s linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .cloud::before {
+      width: 75px;
+      height: 75px;
+      left: 30px;
+      bottom: 5px;
+    }
+
+    .cloud::after {
+      width: 60px;
+      height: 60px;
+      right: 25px;
+      bottom: 5px;
+    }
+
+    .cloud.one {
+      top: 25%;
+      left: -220px;
+    }
+
+    .cloud.two {
+      top: 55%;
+      left: -250px;
+      animation-delay: 15s;
+      animation-duration: 45s;
+      transform: scale(0.7);
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(120vw);
+      }
     }
 
     h1 {
@@ -43,6 +165,8 @@
       font-weight: normal;
       letter-spacing: 8px;
       margin-bottom: 15px;
+      position: relative;
+      z-index: 3;
     }
 
     .subtitle {
@@ -50,16 +174,40 @@
       font-style: italic;
       color: #aaa2b5;
       letter-spacing: 2px;
+      position: relative;
+      z-index: 3;
     }
 
+    /* CAT */
+    .cat {
+      position: absolute;
+      bottom: 35px;
+      right: 8%;
+      font-size: 32px;
+      opacity: 0.55;
+      animation: catFloat 4s ease-in-out infinite;
+      z-index: 4;
+    }
+
+    @keyframes catFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* NAVIGATION */
     nav {
       position: sticky;
       top: 0;
-      background: rgba(11, 11, 18, 0.95);
+      background: rgba(8, 8, 18, 0.95);
       padding: 18px;
       text-align: center;
       border-bottom: 1px solid #292632;
       z-index: 10;
+      backdrop-filter: blur(8px);
     }
 
     nav a {
@@ -68,12 +216,14 @@
       margin: 0 18px;
       font-size: 14px;
       letter-spacing: 2px;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: white;
     }
 
+    /* SECTIONS */
     section {
       max-width: 850px;
       margin: auto;
@@ -88,11 +238,19 @@
       letter-spacing: 3px;
     }
 
+    /* POEMS */
     .poem {
       margin-bottom: 90px;
       padding: 35px;
       border-left: 1px solid #4a4354;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.025);
+      transition: transform 0.4s, background 0.4s, box-shadow 0.4s;
+    }
+
+    .poem:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     }
 
     .poem h3 {
@@ -115,12 +273,14 @@
       letter-spacing: 2px;
     }
 
+    /* ABOUT */
     .about {
       text-align: center;
       color: #aaa2b5;
       font-size: 17px;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 50px 20px;
@@ -129,10 +289,22 @@
       font-size: 13px;
     }
 
+    /* MOBILE */
     @media (max-width: 600px) {
       h1 {
         font-size: 42px;
         letter-spacing: 5px;
+      }
+
+      .moon {
+        width: 85px;
+        height: 85px;
+      }
+
+      .moon::after {
+        width: 82px;
+        height: 82px;
+        left: 19px;
       }
 
       nav a {
@@ -143,6 +315,11 @@
       .poem {
         padding: 25px;
       }
+
+      .cat {
+        right: 5%;
+        font-size: 25px;
+      }
     }
   </style>
 </head>
@@ -150,14 +327,24 @@
 <body>
 
   <header id="home">
-    <div class="moon">☾</div>
+
+    <div class="stars"></div>
+
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+
+    <div class="moon"></div>
 
     <h1>z.midnight</h1>
 
     <p class="subtitle">
       words written after midnight
     </p>
+
+    <div class="cat">🐈‍⬛</div>
+
   </header>
+
 
   <nav>
     <a href="#home">HOME</a>
@@ -165,9 +352,11 @@
     <a href="#about">ABOUT</a>
   </nav>
 
+
   <section id="poems">
 
     <h2>Poems in the Quiet</h2>
+
 
     <article class="poem">
       <h3>After Midnight</h3>
@@ -234,7 +423,8 @@ the moon remembers for me.
       <span class="date">z.midnight</span>
     </article>
 
-        <article class="poem">
+
+    <article class="poem">
       <h3>The Poems I Buried</h3>
 
       <p>
@@ -257,10 +447,11 @@ some stories must be mourned, then fade away.
       <span class="date">z.midnight</span>
     </article>
 
-    <article class="poem">
-  <h3>I Hold It In</h3>
 
-  <p>
+    <article class="poem">
+      <h3>I Hold It In</h3>
+
+      <p>
 Sometimes I want to tell you
 the things I hide inside,
 the words I long to tell you,
@@ -285,10 +476,10 @@ So I’ll hold back every plea,
 and let my feelings fade,
 you’ll never know what you mean to me—
 or how much love I’ve betrayed.
-  </p>
+      </p>
 
-  <span class="date">z.midnight</span>
-</article>
+      <span class="date">z.midnight</span>
+    </article>
 
   </section>
 
