@@ -23,34 +23,33 @@
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.8;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* WHOLE-PAGE STARFIELD */
+    /* STARS ACROSS THE WHOLE WEBSITE */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -2;
+      z-index: 20;
 
       background-image:
-        radial-gradient(circle, rgba(255,255,255,0.75) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(220,215,255,0.55) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1.5px);
+        radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(220,215,255,0.7) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1.5px);
 
       background-size:
-        180px 180px,
-        260px 260px,
-        340px 340px;
+        170px 170px,
+        240px 240px,
+        330px 330px;
 
       background-position:
         20px 30px,
-        90px 120px,
-        150px 70px;
+        80px 100px,
+        150px 60px;
 
-      opacity: 0.45;
-      animation: starsMove 30s linear infinite;
+      opacity: 0.5;
+      animation: starDrift 35s linear infinite;
     }
 
     body::after {
@@ -58,51 +57,51 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
+      z-index: 21;
 
       background-image:
-        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(210,205,245,0.5) 1px, transparent 1.5px);
+        radial-gradient(circle, white 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(210,205,245,0.8) 1px, transparent 1.5px);
 
       background-size:
-        230px 230px,
+        260px 260px,
         390px 390px;
 
       background-position:
-        60px 80px,
-        170px 20px;
+        50px 80px,
+        180px 20px;
 
-      opacity: 0.3;
-      animation: twinkle 6s ease-in-out infinite alternate;
+      opacity: 0.25;
+      animation: twinkle 5s ease-in-out infinite alternate;
     }
 
-    @keyframes starsMove {
+    @keyframes starDrift {
       from {
         background-position:
           20px 30px,
-          90px 120px,
-          150px 70px;
+          80px 100px,
+          150px 60px;
       }
 
       to {
         background-position:
           70px 80px,
-          140px 170px,
-          200px 120px;
+          130px 150px,
+          200px 110px;
       }
     }
 
     @keyframes twinkle {
       from {
-        opacity: 0.18;
+        opacity: 0.15;
       }
 
       to {
-        opacity: 0.55;
+        opacity: 0.65;
       }
     }
 
-    /* HERO */
+    /* NIGHT SKY */
     header {
       min-height: 90vh;
       position: relative;
@@ -120,30 +119,29 @@
         radial-gradient(
           circle at 50% 35%,
           #30294a 0%,
-          #171528 30%,
-          rgba(8,8,18,0.92) 70%
+          #171528 35%,
+          #080812 75%
         );
+
+      z-index: 1;
     }
 
     /* MOON */
     .moon {
       position: relative;
-
       width: 110px;
       height: 110px;
-
       border-radius: 50%;
 
       background: #eee9d8;
 
       box-shadow:
-        0 0 20px rgba(238,233,216,0.55),
-        0 0 60px rgba(180,170,210,0.3),
-        0 0 110px rgba(150,140,190,0.15);
+        0 0 25px rgba(238,233,216,0.6),
+        0 0 70px rgba(180,170,210,0.35),
+        0 0 120px rgba(150,140,190,0.2);
 
       margin-bottom: 35px;
-
-      z-index: 3;
+      z-index: 5;
 
       animation: moonGlow 5s ease-in-out infinite alternate;
     }
@@ -173,8 +171,8 @@
 
       to {
         box-shadow:
-          0 0 30px rgba(238,233,216,0.7),
-          0 0 80px rgba(180,170,210,0.4);
+          0 0 35px rgba(238,233,216,0.75),
+          0 0 90px rgba(180,170,210,0.45);
       }
     }
 
@@ -187,11 +185,13 @@
 
       border-radius: 50px;
 
-      background: rgba(160,155,185,0.07);
+      background: rgba(170,165,195,0.08);
 
       filter: blur(2px);
 
-      animation: drift 38s linear infinite;
+      z-index: 4;
+
+      animation: drift 40s linear infinite;
     }
 
     .cloud::before,
@@ -230,8 +230,8 @@
       top: 55%;
       left: -260px;
 
-      animation-delay: 14s;
-      animation-duration: 48s;
+      animation-delay: 15s;
+      animation-duration: 50s;
 
       transform: scale(0.7);
     }
@@ -246,20 +246,91 @@
       }
     }
 
+    /* SHOOTING STAR */
+    .shooting-star {
+      position: absolute;
+
+      width: 120px;
+      height: 2px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.9),
+        white
+      );
+
+      transform: rotate(-35deg);
+
+      top: 22%;
+      left: -150px;
+
+      opacity: 0;
+
+      z-index: 6;
+
+      animation: shootingStar 8s linear infinite;
+    }
+
+    .shooting-star::after {
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      top: -2px;
+
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      box-shadow: 0 0 12px white;
+    }
+
+    @keyframes shootingStar {
+      0% {
+        left: -150px;
+        top: 18%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      20% {
+        left: 35%;
+        top: 32%;
+        opacity: 1;
+      }
+
+      25% {
+        left: 55%;
+        top: 42%;
+        opacity: 0;
+      }
+
+      100% {
+        left: 55%;
+        top: 42%;
+        opacity: 0;
+      }
+    }
+
     /* TITLE */
     h1 {
       font-size: 64px;
       font-weight: normal;
-
       letter-spacing: 8px;
-
       margin-bottom: 15px;
 
       position: relative;
-      z-index: 4;
+      z-index: 7;
 
-      text-shadow:
-        0 0 20px rgba(220,210,240,0.15);
+      text-shadow: 0 0 25px rgba(220,210,240,0.2);
     }
 
     .subtitle {
@@ -272,7 +343,7 @@
       letter-spacing: 2px;
 
       position: relative;
-      z-index: 4;
+      z-index: 7;
     }
 
     /* BLACK CAT */
@@ -285,18 +356,17 @@
       width: 45px;
       height: 38px;
 
-      background: #050509;
+      background: #030305;
 
       border-radius: 50% 50% 45% 45%;
 
-      opacity: 0.9;
+      opacity: 0.95;
 
-      z-index: 5;
+      z-index: 7;
 
       animation: catFloat 4s ease-in-out infinite;
     }
 
-    /* EARS */
     .cat::before {
       content: "";
 
@@ -310,12 +380,11 @@
 
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-      border-bottom: 20px solid #050509;
+      border-bottom: 20px solid #030305;
 
-      filter: drop-shadow(18px 0 0 #050509);
+      filter: drop-shadow(18px 0 0 #030305);
     }
 
-    /* TAIL */
     .cat::after {
       content: "";
 
@@ -324,7 +393,8 @@
       width: 35px;
       height: 18px;
 
-      border-top: 4px solid #050509;
+      border-top: 4px solid #030305;
+
       border-radius: 50%;
 
       right: -27px;
@@ -357,7 +427,7 @@
 
       border-bottom: 1px solid #292632;
 
-      z-index: 10;
+      z-index: 30;
 
       backdrop-filter: blur(10px);
     }
@@ -389,6 +459,8 @@
       padding: 90px 25px;
 
       position: relative;
+
+      z-index: 2;
     }
 
     h2 {
@@ -411,7 +483,9 @@
 
       border-left: 1px solid #4a4354;
 
-      background: rgba(255,255,255,0.025);
+      background: rgba(10,10,20,0.55);
+
+      backdrop-filter: blur(3px);
 
       transition:
         transform 0.4s,
@@ -422,7 +496,7 @@
     .poem:hover {
       transform: translateY(-4px);
 
-      background: rgba(255,255,255,0.045);
+      background: rgba(25,23,38,0.65);
 
       box-shadow:
         0 10px 40px rgba(0,0,0,0.3);
@@ -467,6 +541,9 @@
 
     /* FOOTER */
     footer {
+      position: relative;
+      z-index: 2;
+
       text-align: center;
 
       padding: 50px 20px;
@@ -510,8 +587,11 @@
 
       .cat {
         right: 8%;
-
         transform: scale(0.8);
+      }
+
+      .shooting-star {
+        width: 90px;
       }
     }
   </style>
@@ -523,6 +603,8 @@
 
     <div class="cloud one"></div>
     <div class="cloud two"></div>
+
+    <div class="shooting-star"></div>
 
     <div class="moon"></div>
 
