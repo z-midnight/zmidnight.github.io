@@ -670,8 +670,6 @@
       words written after midnight
     </p>
 
-    <!-- 🐈‍⬛ THE NON-DEMON CAT -->
-
     <div class="cat">
 
       <div class="cat-head">
@@ -707,150 +705,7 @@
 
     <h2>Poems in the Quiet</h2>
 
-    <article class="poem">
-      <h3>After Midnight</h3>
-      <p>
-There are things
-I only remember
-when the world becomes quiet.
-
-Names I no longer say.
-Places I no longer go.
-People I no longer wait for.
-
-Perhaps healing
-is not forgetting.
-
-Perhaps it is simply
-learning how to remember
-without reaching back.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
-
-    <article class="poem">
-      <h3>Things I Never Said</h3>
-      <p>
-I kept the words
-behind my teeth,
-
-afraid that saying them
-would make them real.
-
-So I carried them
-through the nights,
-
-until silence
-became heavier
-than the truth.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
-
-    <article class="poem">
-      <h3>Somewhere Between</h3>
-      <p>
-I am somewhere between
-missing you
-and missing who I was
-before I knew you.
-
-Some nights
-I think I have moved on.
-
-Other nights
-the moon remembers for me.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
-
-    <article class="poem">
-      <h3>The Poems I Buried</h3>
-      <p>
-I deleted every poem I wrote for you,
-every tender line I once thought true.
-Not because the words were never bright,
-but because they kept me waiting every night.
-
-I grew tired of the girl between the lines,
-who held on to ghosts and called them signs.
-So I buried your name where old verses sleep,
-and gave the words to silence, dark and deep.
-
-Perhaps forgetting isn't losing what we knew,
-but learning how to write without writing you.
-No more leaving empty spaces for you to stay—
-some stories must be mourned, then fade away.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
-
-    <article class="poem">
-      <h3>I Hold It In</h3>
-      <p>
-Sometimes I want to tell you
-the things I hide inside,
-the words I long to tell you,
-the tears I cannot hide.
-
-I want to call your name,
-to tell you what I feel,
-but silence is my shame,
-so I pretend to heal.
-
-Because you’re not mine to keep,
-and I know where you belong,
-so I bury what runs deep,
-and swallow every song.
-
-I miss you when it’s night,
-when the world has gone to sleep,
-I love you out of sight,
-where no one sees how deep.
-
-So I’ll hold back every plea,
-and let my feelings fade,
-you’ll never know what you mean to me—
-or how much love I’ve betrayed.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
-
-    <article class="poem">
-      <h3>The Cartography of You</h3>
-      <p>
-I loved you in <em>absentia</em>,
-where longing wears no name,
-a clandestine constellation
-that burns without a flame.
-
-You were my <em>ineffable</em> ache,
-a syllable I couldn’t say,
-an <em>ephemeral</em> kind of forever
-I watched from miles away.
-
-I kept you in the <em>liminal</em> spaces—
-between farewell and desire,
-where proximity is a fiction
-and silence speaks entire.
-
-Perhaps I was merely <em>quixotic</em>,
-mistaking distance for fate,
-yet every road my heart remembered
-still led me to your gate.
-
-So I loved you <em>vicariously</em>,
-through moments never mine,
-a <em>melancholic</em> devotion
-drawn beyond the edge of time.
-
-And if love is an <em>enigma</em>,
-then let me remain unsure—
-for some souls are meant to be cherished,
-but never meant to be yours.
-      </p>
-      <span class="date">z.midnight</span>
-    </article>
+    <div id="poem-list"></div>
 
   </section>
 
@@ -878,6 +733,251 @@ but never meant to be yours.
   <footer>
     © 2026 z.midnight · written in the quiet
   </footer>
+
+
+  <script>
+
+    /*
+      ==========================================================
+      z.MIDNIGHT POEMS
+
+      TO ADD A NEW POEM:
+
+      Copy this format:
+
+      {
+        title: "Your Poem Title",
+        text: `Your poem goes here.
+        
+        Keep your line breaks exactly how you want them.`,
+      },
+
+      Then paste it into the poems list below.
+
+      That's all.
+      ==========================================================
+    */
+
+
+    const poems = [
+
+      {
+        title: "After Midnight",
+        text: `There are things
+I only remember
+when the world becomes quiet.
+
+Names I no longer say.
+Places I no longer go.
+People I no longer wait for.
+
+Perhaps healing
+is not forgetting.
+
+Perhaps it is simply
+learning how to remember
+without reaching back.`
+      },
+
+
+      {
+        title: "Things I Never Said",
+        text: `I kept the words
+behind my teeth,
+
+afraid that saying them
+would make them real.
+
+So I carried them
+through the nights,
+
+until silence
+became heavier
+than the truth.`
+      },
+
+
+      {
+        title: "Somewhere Between",
+        text: `I am somewhere between
+missing you
+and missing who I was
+before I knew you.
+
+Some nights
+I think I have moved on.
+
+Other nights
+the moon remembers for me.`
+      },
+
+
+      {
+        title: "The Poems I Buried",
+        text: `I deleted every poem I wrote for you,
+every tender line I once thought true.
+Not because the words were never bright,
+but because they kept me waiting every night.
+
+I grew tired of the girl between the lines,
+who held on to ghosts and called them signs.
+So I buried your name where old verses sleep,
+and gave the words to silence, dark and deep.
+
+Perhaps forgetting isn't losing what we knew,
+but learning how to write without writing you.
+No more leaving empty spaces for you to stay—
+some stories must be mourned, then fade away.`
+      },
+
+
+      {
+        title: "I Hold It In",
+        text: `Sometimes I want to tell you
+the things I hide inside,
+the words I long to tell you,
+the tears I cannot hide.
+
+I want to call your name,
+to tell you what I feel,
+but silence is my shame,
+so I pretend to heal.
+
+Because you’re not mine to keep,
+and I know where you belong,
+so I bury what runs deep,
+and swallow every song.
+
+I miss you when it’s night,
+when the world has gone to sleep,
+I love you out of sight,
+where no one sees how deep.
+
+So I’ll hold back every plea,
+and let my feelings fade,
+you’ll never know what you mean to me—
+or how much love I’ve betrayed.`
+      },
+
+
+      {
+        title: "The Cartography of You",
+        text: `I loved you in absentia,
+where longing wears no name,
+a clandestine constellation
+that burns without a flame.
+
+You were my ineffable ache,
+a syllable I couldn’t say,
+an ephemeral kind of forever
+I watched from miles away.
+
+I kept you in the liminal spaces—
+between farewell and desire,
+where proximity is a fiction
+and silence speaks entire.
+
+Perhaps I was merely quixotic,
+mistaking distance for fate,
+yet every road my heart remembered
+still led me to your gate.
+
+So I loved you vicariously,
+through moments never mine,
+a melancholic devotion
+drawn beyond the edge of time.
+
+And if love is an enigma,
+then let me remain unsure—
+for some souls are meant to be cherished,
+but never meant to be yours.`
+      },
+
+
+      {
+        title: "An Ontology of Distance",
+        text: `I loved you beyond the epistemology of proximity,
+where presence is merely a conjecture
+and absence, an immutable theorem.
+
+You existed somewhere between
+phenomenology and impossibility—
+a recurring apparition
+my consciousness refused to classify as illusion.
+
+I made an apocryphal cathedral of your existence,
+worshipping the silhouette of a possibility
+whose corporeality was never mine to possess.
+
+How perverse, this affection—
+to be simultaneously intimate
+and infinitely estranged,
+to know the geography of your soul
+without ever being granted its coordinates.
+
+Perhaps I was ontologically delusional,
+mistaking coincidence for providence,
+silence for reciprocity,
+and the gravitational pull of longing
+for some metaphysical indication
+that you, too, remembered me.
+
+Yet I remained—
+an anachronistic heart
+in a chronology that had no room for us,
+loving you in the margins
+of a narrative that never named me.
+
+And if someday you ask
+what became of all that affection—
+
+nothing.
+
+It simply transmuted.
+
+Into distance.
+Into silence.
+Into the quiet atavism of a feeling
+that refuses to die
+simply because it was never allowed to live.`
+      }
+
+    ];
+
+
+    /*
+      ==========================================================
+      THIS PART AUTOMATICALLY CREATES THE POEM CARDS.
+      YOU DO NOT NEED TO EDIT THIS.
+      ==========================================================
+    */
+
+    const poemList = document.getElementById("poem-list");
+
+    poems.forEach(poem => {
+
+      const article = document.createElement("article");
+      article.className = "poem";
+
+      const title = document.createElement("h3");
+      title.textContent = poem.title;
+
+      const body = document.createElement("p");
+      body.textContent = poem.text;
+
+      const author = document.createElement("span");
+      author.className = "date";
+      author.textContent = "z.midnight";
+
+      article.appendChild(title);
+      article.appendChild(body);
+      article.appendChild(author);
+
+      poemList.appendChild(article);
+
+    });
+
+  </script>
 
 </body>
 </html>
