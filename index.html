@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +27,6 @@
       overflow-x: hidden;
       position: relative;
     }
-
-    /* ==================== STARS ==================== */
 
     body::before {
       content: "";
@@ -264,8 +263,6 @@
       animation: catWalk 25s ease-in-out infinite;
     }
 
-    /* body */
-
     .cat-body {
       position: absolute;
       left: 25px;
@@ -278,8 +275,6 @@
       border-radius: 50%;
     }
 
-    /* head */
-
     .cat-head {
       position: absolute;
       left: 5px;
@@ -291,8 +286,6 @@
       background: #08080b;
       border-radius: 50%;
     }
-
-    /* ears */
 
     .ear {
       position: absolute;
@@ -315,8 +308,6 @@
       right: 3px;
       transform: rotate(8deg);
     }
-
-    /* eyes */
 
     .eye {
       position: absolute;
@@ -341,8 +332,6 @@
       right: 9px;
     }
 
-    /* little nose */
-
     .nose {
       position: absolute;
       width: 3px;
@@ -354,8 +343,6 @@
       left: 14px;
       top: 20px;
     }
-
-    /* four legs */
 
     .leg {
       position: absolute;
@@ -397,8 +384,6 @@
       to { transform: rotate(-8deg); }
     }
 
-    /* tail */
-
     .tail {
       position: absolute;
 
@@ -429,8 +414,6 @@
       }
     }
 
-    /* walking + stopping + looking */
-
     @keyframes catWalk {
 
       0% {
@@ -443,27 +426,19 @@
         transform: scaleX(1);
       }
 
-      /* STOP */
-
       25%, 42% {
         left: 22%;
       }
-
-      /* TURN AROUND */
 
       45% {
         left: 22%;
         transform: scaleX(-1);
       }
 
-      /* LOOK */
-
       45%, 58% {
         left: 22%;
         transform: scaleX(-1);
       }
-
-      /* WALK AWAY */
 
       62% {
         left: 22%;
@@ -593,6 +568,10 @@
       color: #cfc8d5;
 
       font-size: 17px;
+    }
+
+    .poem em {
+      color: #ddd7e3;
     }
 
     .date {
@@ -837,38 +816,41 @@ or how much love I’ve betrayed.
       <span class="date">z.midnight</span>
     </article>
 
-    ### **The Cartography of You**
-
-I loved you in **absentia**,
+    <article class="poem">
+      <h3>The Cartography of You</h3>
+      <p>
+I loved you in <em>absentia</em>,
 where longing wears no name,
 a clandestine constellation
 that burns without a flame.
 
-You were my **ineffable** ache,
+You were my <em>ineffable</em> ache,
 a syllable I couldn’t say,
-an **ephemeral** kind of forever
+an <em>ephemeral</em> kind of forever
 I watched from miles away.
 
-I kept you in the **liminal** spaces—
+I kept you in the <em>liminal</em> spaces—
 between farewell and desire,
 where proximity is a fiction
 and silence speaks entire.
 
-Perhaps I was merely **quixotic**,
+Perhaps I was merely <em>quixotic</em>,
 mistaking distance for fate,
 yet every road my heart remembered
 still led me to your gate.
 
-So I loved you **vicariously**,
+So I loved you <em>vicariously</em>,
 through moments never mine,
-a **melancholic** devotion
+a <em>melancholic</em> devotion
 drawn beyond the edge of time.
 
-And if love is an **enigma**,
+And if love is an <em>enigma</em>,
 then let me remain unsure—
 for some souls are meant to be cherished,
 but never meant to be yours.
-
+      </p>
+      <span class="date">z.midnight</span>
+    </article>
 
   </section>
 
@@ -899,3 +881,4 @@ but never meant to be yours.
 
 </body>
 </html>
+```
