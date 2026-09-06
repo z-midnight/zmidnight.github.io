@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,10 +8,6 @@
 <title>z.midnight — Poems in the Quiet</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
 
 * {
   box-sizing: border-box;
@@ -24,14 +21,7 @@ html {
 
 body {
   background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      #172a4d 0%,
-      #0b1830 28%,
-      #050d1d 58%,
-      #02050d 100%
-    );
-
+    radial-gradient(circle at 50% 10%, #172b4d 0%, #0b1932 28%, #050c1b 62%, #01040b 100%);
   color: #e8eaf0;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.8;
@@ -39,9 +29,9 @@ body {
   position: relative;
 }
 
-/* =========================
-   GALAXY STARS
-========================= */
+/* =====================================================
+   CONTINUOUS STAR FIELD
+   ===================================================== */
 
 body::before {
   content: "";
@@ -52,9 +42,9 @@ body::before {
 
   background-image:
     radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(190,210,245,.7) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(200,220,255,.7) 1px, transparent 1.5px),
     radial-gradient(circle, rgba(255,255,255,.55) 1.5px, transparent 2px),
-    radial-gradient(circle, rgba(160,185,225,.45) 1px, transparent 1.5px);
+    radial-gradient(circle, rgba(170,195,235,.45) 1px, transparent 1.5px);
 
   background-size:
     97px 113px,
@@ -71,8 +61,6 @@ body::before {
   opacity: .48;
 }
 
-/* EXTRA TINY STARS */
-
 body::after {
   content: "";
   position: fixed;
@@ -82,7 +70,7 @@ body::after {
 
   background-image:
     radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(210,220,245,.35) 1px, transparent 1.5px);
+    radial-gradient(circle, rgba(210,225,255,.35) 1px, transparent 1.5px);
 
   background-size:
     137px 149px,
@@ -92,12 +80,116 @@ body::after {
     45px 80px,
     120px 15px;
 
-  opacity: .32;
+  opacity: .35;
 }
 
-/* =========================
-   HERO
-========================= */
+/* Individual blinking stars */
+
+.star {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow:
+    0 0 5px rgba(255,255,255,.9),
+    0 0 12px rgba(190,215,255,.65);
+
+  pointer-events: none;
+  z-index: 0;
+
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.star:nth-child(1) {
+  top: 8%;
+  left: 12%;
+  animation-delay: .5s;
+}
+
+.star:nth-child(2) {
+  top: 17%;
+  left: 31%;
+  animation-delay: 2s;
+}
+
+.star:nth-child(3) {
+  top: 12%;
+  right: 18%;
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(4) {
+  top: 27%;
+  right: 34%;
+  animation-delay: 3s;
+}
+
+.star:nth-child(5) {
+  top: 38%;
+  left: 15%;
+  animation-delay: 1.8s;
+}
+
+.star:nth-child(6) {
+  top: 46%;
+  right: 12%;
+  animation-delay: .7s;
+}
+
+.star:nth-child(7) {
+  top: 57%;
+  left: 39%;
+  animation-delay: 2.8s;
+}
+
+.star:nth-child(8) {
+  top: 68%;
+  left: 9%;
+  animation-delay: 1.1s;
+}
+
+.star:nth-child(9) {
+  top: 74%;
+  right: 25%;
+  animation-delay: 3.5s;
+}
+
+.star:nth-child(10) {
+  top: 83%;
+  left: 48%;
+  animation-delay: 2.2s;
+}
+
+.star:nth-child(11) {
+  top: 91%;
+  right: 10%;
+  animation-delay: .9s;
+}
+
+.star:nth-child(12) {
+  top: 62%;
+  right: 47%;
+  animation-delay: 3.8s;
+}
+
+@keyframes twinkle {
+
+  0%, 100% {
+    opacity: .18;
+    transform: scale(.65);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 header {
   min-height: 88vh;
@@ -117,22 +209,20 @@ header {
   z-index: 1;
 }
 
-/* =========================
-   MOON
-========================= */
+/* Moon */
 
 .moon {
-  width: 82px;
-  height: 82px;
+  width: 84px;
+  height: 84px;
 
   border-radius: 50%;
 
   background: #eeeaf4;
 
   box-shadow:
-    0 0 25px rgba(235,230,255,.35),
-    0 0 60px rgba(210,220,255,.18),
-    0 0 100px rgba(180,200,255,.08);
+    0 0 25px rgba(235,230,255,.45),
+    0 0 65px rgba(210,220,255,.22),
+    0 0 110px rgba(180,200,255,.10);
 
   margin-bottom: 30px;
 
@@ -144,20 +234,18 @@ header {
 
   position: absolute;
 
-  width: 82px;
-  height: 82px;
+  width: 84px;
+  height: 84px;
 
   border-radius: 50%;
 
-  background: #0c1730;
+  background: #0b1830;
 
-  left: 23px;
+  left: 24px;
   top: -9px;
 }
 
-/* =========================
-   TITLE
-========================= */
+/* Title */
 
 h1 {
   font-size: 64px;
@@ -169,7 +257,7 @@ h1 {
 
   text-shadow:
     0 0 20px rgba(220,230,255,.22),
-    0 0 45px rgba(180,200,255,.08);
+    0 0 50px rgba(180,200,255,.10);
 }
 
 .subtitle {
@@ -184,91 +272,9 @@ h1 {
   letter-spacing: 2px;
 }
 
-/* =========================
-   TWINKLING STARS
-========================= */
-
-.twinkle {
-  position: absolute;
-
-  width: 3px;
-  height: 3px;
-
-  border-radius: 50%;
-
-  background: #ffffff;
-
-  box-shadow:
-    0 0 5px rgba(255,255,255,.8),
-    0 0 10px rgba(190,210,255,.5);
-
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-.twinkle.one {
-  top: 14%;
-  left: 12%;
-  animation-delay: .3s;
-}
-
-.twinkle.two {
-  top: 25%;
-  left: 30%;
-  animation-delay: 1.7s;
-}
-
-.twinkle.three {
-  top: 18%;
-  right: 18%;
-  animation-delay: 2.5s;
-}
-
-.twinkle.four {
-  top: 42%;
-  right: 30%;
-  animation-delay: 1s;
-}
-
-.twinkle.five {
-  top: 55%;
-  left: 15%;
-  animation-delay: 2.1s;
-}
-
-.twinkle.six {
-  top: 63%;
-  right: 12%;
-  animation-delay: .7s;
-}
-
-.twinkle.seven {
-  top: 72%;
-  left: 40%;
-  animation-delay: 1.4s;
-}
-
-.twinkle.eight {
-  top: 34%;
-  left: 65%;
-  animation-delay: 2.8s;
-}
-
-@keyframes twinkle {
-
-  0%, 100% {
-    opacity: .25;
-    transform: scale(.7);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-}
-
-/* =========================
+/* =====================================================
    CLOUDS
-========================= */
+   ===================================================== */
 
 .cloud {
   position: absolute;
@@ -276,11 +282,11 @@ h1 {
   width: 230px;
   height: 55px;
 
-  background: rgba(120,145,180,.07);
+  background: rgba(120,145,180,.06);
 
   border-radius: 50px;
 
-  filter: blur(6px);
+  filter: blur(7px);
 }
 
 .cloud::before,
@@ -289,7 +295,7 @@ h1 {
 
   position: absolute;
 
-  background: rgba(120,145,180,.07);
+  background: rgba(120,145,180,.06);
 
   border-radius: 50%;
 }
@@ -314,19 +320,19 @@ h1 {
   top: 25%;
   left: -250px;
 
-  animation: cloud1 35s linear infinite;
+  animation: cloudOne 42s linear infinite;
 }
 
 .cloud.two {
-  top: 40%;
+  top: 48%;
   right: -250px;
 
   transform: scale(.75);
 
-  animation: cloud2 45s linear infinite;
+  animation: cloudTwo 55s linear infinite;
 }
 
-@keyframes cloud1 {
+@keyframes cloudOne {
 
   from {
     left: -250px;
@@ -335,9 +341,10 @@ h1 {
   to {
     left: 110%;
   }
+
 }
 
-@keyframes cloud2 {
+@keyframes cloudTwo {
 
   from {
     right: -250px;
@@ -346,11 +353,12 @@ h1 {
   to {
     right: 110%;
   }
+
 }
 
-/* =========================
+/* =====================================================
    SHOOTING STARS
-========================= */
+   ===================================================== */
 
 .shooting-star {
   position: absolute;
@@ -358,25 +366,26 @@ h1 {
   width: 120px;
   height: 2px;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,.95),
-    transparent
-  );
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.95),
+      transparent
+    );
 
   transform: rotate(-32deg);
 
   opacity: 0;
 
-  animation: shootOne 11s ease-in-out infinite;
+  animation: shootingOne 12s ease-in-out infinite;
 }
 
 .shooting-star.two {
   width: 90px;
 
   animation:
-    shootTwo 17s ease-in-out infinite;
+    shootingTwo 18s ease-in-out infinite;
 
   animation-delay: 4s;
 }
@@ -385,12 +394,12 @@ h1 {
   width: 75px;
 
   animation:
-    shootThree 21s ease-in-out infinite;
+    shootingThree 23s ease-in-out infinite;
 
   animation-delay: 9s;
 }
 
-@keyframes shootOne {
+@keyframes shootingOne {
 
   0%, 68% {
     left: -150px;
@@ -409,12 +418,12 @@ h1 {
   }
 
   100% {
-    left: 75%;
     opacity: 0;
   }
+
 }
 
-@keyframes shootTwo {
+@keyframes shootingTwo {
 
   0%, 72% {
     left: -150px;
@@ -433,12 +442,12 @@ h1 {
   }
 
   100% {
-    left: 80%;
     opacity: 0;
   }
+
 }
 
-@keyframes shootThree {
+@keyframes shootingThree {
 
   0%, 78% {
     left: -150px;
@@ -457,322 +466,40 @@ h1 {
   }
 
   100% {
-    left: 65%;
     opacity: 0;
   }
+
 }
 
-/* =========================
-   CAT
-========================= */
+/* =====================================================
+   CAT AREA
+   ===================================================== */
 
-.cat {
+/*
+   The old CSS cat has been removed.
+
+   When we have the realistic cat artwork,
+   it will go here without changing the rest
+   of the website.
+*/
+
+.cat-area {
   position: absolute;
 
-  left: -120px;
-  bottom: 30px;
+  bottom: 18px;
+  left: 0;
 
-  width: 90px;
-  height: 65px;
+  width: 100%;
+  height: 100px;
 
-  animation: catWalk 24s linear infinite;
+  pointer-events: none;
+
+  z-index: 2;
 }
 
-/* BODY */
-
-.cat-body {
-  position: absolute;
-
-  left: 25px;
-  bottom: 15px;
-
-  width: 50px;
-  height: 28px;
-
-  background: #02030a;
-
-  border-radius: 50%;
-
-  animation:
-    bodyBounce .45s ease-in-out infinite alternate;
-}
-
-/* HEAD */
-
-.cat-head {
-  position: absolute;
-
-  left: 5px;
-  bottom: 30px;
-
-  width: 32px;
-  height: 30px;
-
-  background: #02030a;
-
-  border-radius: 50%;
-}
-
-/* EARS */
-
-.ear {
-  position: absolute;
-
-  top: -7px;
-
-  width: 12px;
-  height: 14px;
-
-  background: #02030a;
-
-  clip-path:
-    polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.ear.left {
-  left: 3px;
-}
-
-.ear.right {
-  right: 3px;
-}
-
-/* EYES */
-
-.eye {
-  position: absolute;
-
-  top: 12px;
-
-  width: 5px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: #d8d39a;
-
-  box-shadow:
-    0 0 5px #d8d39a;
-}
-
-.eye.left {
-  left: 9px;
-}
-
-.eye.right {
-  right: 9px;
-}
-
-/* BLINK */
-
-.cat-head::before {
-  content: "";
-
-  position: absolute;
-
-  left: 7px;
-  top: 10px;
-
-  width: 18px;
-  height: 9px;
-
-  background: #02030a;
-
-  z-index: 5;
-
-  transform: scaleY(0);
-
-  transform-origin: center;
-
-  animation: blink 6s ease-in-out infinite;
-}
-
-@keyframes blink {
-
-  0%, 43% {
-    transform: scaleY(0);
-  }
-
-  44% {
-    transform: scaleY(1);
-  }
-
-  47% {
-    transform: scaleY(1);
-  }
-
-  48%, 100% {
-    transform: scaleY(0);
-  }
-}
-
-/* NOSE */
-
-.nose {
-  position: absolute;
-
-  left: 14px;
-  top: 20px;
-
-  width: 3px;
-  height: 3px;
-
-  border-radius: 50%;
-
-  background: #b7aebd;
-}
-
-/* LEGS */
-
-.leg {
-  position: absolute;
-
-  bottom: 2px;
-
-  width: 6px;
-  height: 18px;
-
-  background: #02030a;
-
-  border-radius: 0 0 5px 5px;
-
-  transform-origin: top center;
-}
-
-.leg.one {
-  left: 28px;
-
-  animation:
-    legOne .45s ease-in-out infinite alternate;
-}
-
-.leg.two {
-  left: 39px;
-
-  animation:
-    legTwo .45s ease-in-out infinite alternate;
-}
-
-.leg.three {
-  left: 58px;
-
-  animation:
-    legTwo .45s ease-in-out infinite alternate;
-}
-
-.leg.four {
-  left: 68px;
-
-  animation:
-    legOne .45s ease-in-out infinite alternate;
-}
-
-@keyframes legOne {
-
-  from {
-    transform: rotate(20deg);
-  }
-
-  to {
-    transform: rotate(-20deg);
-  }
-}
-
-@keyframes legTwo {
-
-  from {
-    transform: rotate(-20deg);
-  }
-
-  to {
-    transform: rotate(20deg);
-  }
-}
-
-/* BODY BOUNCE */
-
-@keyframes bodyBounce {
-
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-2px);
-  }
-}
-
-/* TAIL */
-
-.tail {
-  position: absolute;
-
-  right: -10px;
-  bottom: 27px;
-
-  width: 34px;
-  height: 25px;
-
-  border-top: 5px solid #02030a;
-  border-right: 5px solid #02030a;
-
-  border-radius: 0 100% 0 0;
-
-  transform: rotate(10deg);
-
-  animation:
-    tail 1.2s ease-in-out infinite alternate;
-}
-
-@keyframes tail {
-
-  from {
-    transform: rotate(10deg);
-  }
-
-  to {
-    transform: rotate(-10deg);
-  }
-}
-
-/* CAT WALK */
-
-@keyframes catWalk {
-
-  0% {
-    left: -120px;
-    transform: scaleX(1);
-  }
-
-  38% {
-    left: 25%;
-    transform: scaleX(1);
-  }
-
-  42% {
-    left: 25%;
-    transform: scaleX(1);
-  }
-
-  44% {
-    left: 25%;
-    transform: scaleX(-1);
-  }
-
-  75% {
-    left: 25%;
-    transform: scaleX(-1);
-  }
-
-  100% {
-    left: 110%;
-    transform: scaleX(-1);
-  }
-}
-
-/* =========================
+/* =====================================================
    NAVIGATION
-========================= */
+   ===================================================== */
 
 nav {
   position: sticky;
@@ -785,7 +512,7 @@ nav {
 
   text-align: center;
 
-  background: rgba(3,8,18,.92);
+  background: rgba(3,8,18,.78);
 
   backdrop-filter: blur(10px);
 
@@ -809,11 +536,14 @@ nav a {
 
 nav a:hover {
   color: white;
+
+  text-shadow:
+    0 0 10px rgba(220,230,255,.5);
 }
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+   ===================================================== */
 
 section {
   max-width: 850px;
@@ -839,11 +569,14 @@ h2 {
   letter-spacing: 3px;
 
   color: #e3e6ee;
+
+  text-shadow:
+    0 0 18px rgba(190,210,255,.12);
 }
 
-/* =========================
+/* =====================================================
    POEMS
-========================= */
+   ===================================================== */
 
 .poem {
   margin-bottom: 80px;
@@ -851,15 +584,34 @@ h2 {
   padding: 45px 40px;
 
   border:
-    1px solid rgba(150,165,195,.22);
+    1px solid rgba(190,200,220,.28);
 
   background:
-    rgba(10,18,34,.78);
+    rgba(232,235,240,.055);
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.38);
+    0 15px 40px rgba(0,0,0,.38);
 
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(5px);
+
+  position: relative;
+}
+
+.poem::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.035),
+      transparent 45%
+    );
 }
 
 .poem h3 {
@@ -894,26 +646,14 @@ h2 {
   letter-spacing: 2px;
 }
 
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-  text-align: center;
-
-  color: #aeb8cc;
-
-  font-size: 17px;
-}
-
-/* =========================
+/* =====================================================
    DIVIDER
-========================= */
+   ===================================================== */
 
 .divider {
   text-align: center;
 
-  color: #777f96;
+  color: #8a94aa;
 
   font-size: 18px;
 
@@ -926,9 +666,21 @@ h2 {
   z-index: 1;
 }
 
-/* =========================
+/* =====================================================
+   ABOUT
+   ===================================================== */
+
+.about {
+  text-align: center;
+
+  color: #aeb8cc;
+
+  font-size: 17px;
+}
+
+/* =====================================================
    FOOTER
-========================= */
+   ===================================================== */
 
 footer {
   text-align: center;
@@ -947,9 +699,7 @@ footer {
   z-index: 1;
 }
 
-/* =========================
-   RD.ZIGGY
-========================= */
+/* Signature */
 
 .ziggy-signature {
   text-align: right;
@@ -972,9 +722,9 @@ footer {
   z-index: 1;
 }
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+   ===================================================== */
 
 @media (max-width: 600px) {
 
@@ -1005,52 +755,51 @@ footer {
   }
 
   section {
-    padding: 70px 20px;
+    padding:
+      70px 20px;
   }
 
   .ziggy-signature {
     padding-right: 20px;
   }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- =========================
-     HOME / NIGHT SKY
-========================= -->
+<!-- BLINKING STARS -->
+
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<!-- =====================================================
+     HOME
+     ===================================================== -->
 
 <header id="home">
 
-  <!-- TWINKLING STARS -->
-
-  <div class="twinkle one"></div>
-  <div class="twinkle two"></div>
-  <div class="twinkle three"></div>
-  <div class="twinkle four"></div>
-  <div class="twinkle five"></div>
-  <div class="twinkle six"></div>
-  <div class="twinkle seven"></div>
-  <div class="twinkle eight"></div>
-
-  <!-- CLOUDS -->
-
   <div class="cloud one"></div>
   <div class="cloud two"></div>
-
-  <!-- SHOOTING STARS -->
 
   <div class="shooting-star"></div>
   <div class="shooting-star two"></div>
   <div class="shooting-star three"></div>
 
-  <!-- MOON -->
-
   <div class="moon"></div>
-
-  <!-- TITLE -->
 
   <h1>z.midnight</h1>
 
@@ -1058,63 +807,40 @@ footer {
     words written after midnight
   </p>
 
-  <!-- CAT -->
+  <!-- Realistic cat will go here later -->
 
-  <div class="cat">
-
-    <div class="cat-head">
-
-      <div class="ear left"></div>
-      <div class="ear right"></div>
-
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-
-      <div class="nose"></div>
-
-    </div>
-
-    <div class="cat-body"></div>
-
-    <div class="leg one"></div>
-    <div class="leg two"></div>
-    <div class="leg three"></div>
-    <div class="leg four"></div>
-
-    <div class="tail"></div>
-
-  </div>
+  <div class="cat-area"></div>
 
 </header>
 
-
-<!-- =========================
+<!-- =====================================================
      NAVIGATION
-========================= -->
+     ===================================================== -->
 
 <nav>
 
-  <a href="#home">HOME</a>
-  <a href="#poems">POEMS</a>
-  <a href="#about">ABOUT</a>
+<a href="#home">HOME</a>
+
+<a href="#poems">POEMS</a>
+
+<a href="#about">ABOUT</a>
 
 </nav>
 
-
-<!-- =========================
+<!-- =====================================================
      POEMS
-========================= -->
+     ===================================================== -->
 
 <section id="poems">
 
 <h2>Poems in the Quiet</h2>
 
-
 <article class="poem">
 
 <h3>After Midnight</h3>
 
-<p>There are things
+<p>
+There are things
 I only remember
 when the world becomes quiet.
 
@@ -1127,18 +853,22 @@ is not forgetting.
 
 Perhaps it is simply
 learning how to remember
-without reaching back.</p>
+without reaching back.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>Things I Never Said</h3>
 
-<p>I kept the words
+<p>
+I kept the words
 behind my teeth,
 
 afraid that saying them
@@ -1149,18 +879,22 @@ through the nights,
 
 until silence
 became heavier
-than the truth.</p>
+than the truth.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>Somewhere Between</h3>
 
-<p>I am somewhere between
+<p>
+I am somewhere between
 missing you
 and missing who I was
 before I knew you.
@@ -1169,18 +903,22 @@ Some nights
 I think I have moved on.
 
 Other nights
-the moon remembers for me.</p>
+the moon remembers for me.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>The Poems I Buried</h3>
 
-<p>I deleted every poem I wrote for you,
+<p>
+I deleted every poem I wrote for you,
 every tender line I once thought true.
 Not because the words were never bright,
 but because they kept me waiting every night.
@@ -1193,18 +931,22 @@ and gave the words to silence, dark and deep.
 Perhaps forgetting isn't losing what we knew,
 but learning how to write without writing you.
 No more leaving empty spaces for you to stay—
-some stories must be mourned, then fade away.</p>
+some stories must be mourned, then fade away.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>I Hold It In</h3>
 
-<p>Sometimes I want to tell you
+<p>
+Sometimes I want to tell you
 the things I hide inside,
 the words I long to tell you,
 the tears I cannot hide.
@@ -1227,18 +969,22 @@ where no one sees how deep.
 So I’ll hold back every plea,
 and let my feelings fade,
 you’ll never know what you mean to me—
-or how much love I’ve betrayed.</p>
+or how much love I’ve betrayed.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>The Cartography of You</h3>
 
-<p>I loved you in absentia,
+<p>
+I loved you in absentia,
 where longing wears no name,
 a clandestine constellation
 that burns without a flame.
@@ -1266,18 +1012,22 @@ drawn beyond the edge of time.
 And if love is an enigma,
 then let me remain unsure—
 for some souls are meant to be cherished,
-but never meant to be yours.</p>
+but never meant to be yours.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>An Ontology of Distance</h3>
 
-<p>I loved you beyond the epistemology of proximity,
+<p>
+I loved you beyond the epistemology of proximity,
 where presence is merely a conjecture
 and absence, an immutable theorem.
 
@@ -1320,18 +1070,22 @@ Into distance.
 Into silence.
 Into the quiet atavism of a feeling
 that refuses to die
-simply because it was never allowed to live.</p>
+simply because it was never allowed to live.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
-
 
 <article class="poem">
 
 <h3>An Ontology of Distance (soft version)</h3>
 
-<p>I loved you past the reach of space,
+<p>
+I loved you past the reach of space,
 where absence wore a familiar face.
 You were never truly mine to hold,
 yet losing you still left me cold.
@@ -1386,27 +1140,27 @@ I never had you.
 And still—
 
 I have to learn
-how to say goodbye.</p>
+how to say goodbye.
 
-<span class="signature">z.midnight</span>
+</p>
+
+<span class="signature">
+z.midnight
+</span>
 
 </article>
 
 </section>
 
-
-<!-- =========================
-     DIVIDER
-========================= -->
+<!-- DIVIDER -->
 
 <div class="divider">
   ✦ · · · ☾ · · · ✦
 </div>
 
-
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+     ===================================================== -->
 
 <section id="about">
 
@@ -1431,10 +1185,9 @@ Stay awhile. Read slowly.
 
 </section>
 
-
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+     ===================================================== -->
 
 <footer>
 
@@ -1442,15 +1195,11 @@ Stay awhile. Read slowly.
 
 </footer>
 
-
-<!-- =========================
-     PERSONAL SIGNATURE
-========================= -->
-
 <div class="ziggy-signature">
-  Rd.ziggy
-</div>
 
+Rd.ziggy
+
+</div>
 
 </body>
 </html>
