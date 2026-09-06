@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,31 +7,6 @@
 <title>z.midnight — Poems in the Quiet</title>
 
 <style>
-
-/* =========================
-   SIGNATURE
-========================= */
-
-.ziggy-signature {
-  text-align: right;
-  padding: 20px 30px 25px;
-  color: #777080;
-  font-family: "Lucida Handwriting", cursive;
-  font-size: 18px;
-  font-style: italic;
-}
-
-/* =========================
-   DIVIDER
-========================= */
-
-.divider {
-  text-align: center;
-  color: #777080;
-  font-size: 18px;
-  letter-spacing: 4px;
-  margin: 20px 0 10px;
-}
 
 /* =========================
    RESET
@@ -57,6 +31,7 @@ body {
       #050d1d 58%,
       #02050d 100%
     );
+
   color: #e8eaf0;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.8;
@@ -65,7 +40,7 @@ body {
 }
 
 /* =========================
-   GALAXY / STAR FIELD
+   GALAXY STARS
 ========================= */
 
 body::before {
@@ -96,7 +71,7 @@ body::before {
   opacity: .48;
 }
 
-/* SECOND LAYER OF TINY STARS */
+/* EXTRA TINY STARS */
 
 body::after {
   content: "";
@@ -126,14 +101,19 @@ body::after {
 
 header {
   min-height: 88vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
+
   position: relative;
   overflow: hidden;
+
   padding: 40px 20px;
+
   z-index: 1;
 }
 
@@ -144,6 +124,7 @@ header {
 .moon {
   width: 82px;
   height: 82px;
+
   border-radius: 50%;
 
   background: #eeeaf4;
@@ -154,14 +135,18 @@ header {
     0 0 100px rgba(180,200,255,.08);
 
   margin-bottom: 30px;
+
   position: relative;
 }
 
 .moon::after {
   content: "";
+
   position: absolute;
+
   width: 82px;
   height: 82px;
+
   border-radius: 50%;
 
   background: #0c1730;
@@ -177,6 +162,7 @@ header {
 h1 {
   font-size: 64px;
   font-weight: normal;
+
   letter-spacing: 8px;
 
   color: #eeeef5;
@@ -188,9 +174,13 @@ h1 {
 
 .subtitle {
   margin-top: 10px;
+
   color: #aeb8cc;
+
   font-size: 17px;
+
   font-style: italic;
+
   letter-spacing: 2px;
 }
 
@@ -200,9 +190,12 @@ h1 {
 
 .twinkle {
   position: absolute;
+
   width: 3px;
   height: 3px;
+
   border-radius: 50%;
+
   background: #ffffff;
 
   box-shadow:
@@ -261,6 +254,7 @@ h1 {
 }
 
 @keyframes twinkle {
+
   0%, 100% {
     opacity: .25;
     transform: scale(.7);
@@ -278,26 +272,32 @@ h1 {
 
 .cloud {
   position: absolute;
+
   width: 230px;
   height: 55px;
 
   background: rgba(120,145,180,.07);
 
   border-radius: 50px;
+
   filter: blur(6px);
 }
 
 .cloud::before,
 .cloud::after {
   content: "";
+
   position: absolute;
+
   background: rgba(120,145,180,.07);
+
   border-radius: 50%;
 }
 
 .cloud::before {
   width: 95px;
   height: 75px;
+
   left: 35px;
   bottom: 5px;
 }
@@ -305,6 +305,7 @@ h1 {
 .cloud::after {
   width: 120px;
   height: 85px;
+
   right: 28px;
   bottom: 3px;
 }
@@ -312,17 +313,21 @@ h1 {
 .cloud.one {
   top: 25%;
   left: -250px;
+
   animation: cloud1 35s linear infinite;
 }
 
 .cloud.two {
   top: 40%;
   right: -250px;
+
   transform: scale(.75);
+
   animation: cloud2 45s linear infinite;
 }
 
 @keyframes cloud1 {
+
   from {
     left: -250px;
   }
@@ -333,6 +338,7 @@ h1 {
 }
 
 @keyframes cloud2 {
+
   from {
     right: -250px;
   }
@@ -346,10 +352,10 @@ h1 {
    SHOOTING STARS
 ========================= */
 
-.shooting-star,
-.shooting-star.two,
-.shooting-star.three {
+.shooting-star {
   position: absolute;
+
+  width: 120px;
   height: 2px;
 
   background: linear-gradient(
@@ -362,15 +368,26 @@ h1 {
   transform: rotate(-32deg);
 
   opacity: 0;
+
+  animation: shootOne 11s ease-in-out infinite;
 }
 
-/* MAIN SHOOTING STAR */
+.shooting-star.two {
+  width: 90px;
 
-.shooting-star {
-  width: 120px;
-  top: 18%;
-  left: -150px;
-  animation: shootOne 11s ease-in-out infinite;
+  animation:
+    shootTwo 17s ease-in-out infinite;
+
+  animation-delay: 4s;
+}
+
+.shooting-star.three {
+  width: 75px;
+
+  animation:
+    shootThree 21s ease-in-out infinite;
+
+  animation-delay: 9s;
 }
 
 @keyframes shootOne {
@@ -397,16 +414,6 @@ h1 {
   }
 }
 
-/* SECOND SHOOTING STAR */
-
-.shooting-star.two {
-  width: 90px;
-  top: 35%;
-  left: -150px;
-  animation: shootTwo 17s ease-in-out infinite;
-  animation-delay: 4s;
-}
-
 @keyframes shootTwo {
 
   0%, 72% {
@@ -429,16 +436,6 @@ h1 {
     left: 80%;
     opacity: 0;
   }
-}
-
-/* THIRD SHOOTING STAR */
-
-.shooting-star.three {
-  width: 75px;
-  top: 15%;
-  left: -150px;
-  animation: shootThree 21s ease-in-out infinite;
-  animation-delay: 9s;
 }
 
 @keyframes shootThree {
@@ -471,46 +468,65 @@ h1 {
 
 .cat {
   position: absolute;
+
   left: -120px;
   bottom: 30px;
+
   width: 90px;
   height: 65px;
 
   animation: catWalk 24s linear infinite;
 }
 
+/* BODY */
+
 .cat-body {
   position: absolute;
+
   left: 25px;
   bottom: 15px;
+
   width: 50px;
   height: 28px;
+
   background: #02030a;
+
   border-radius: 50%;
+
+  animation:
+    bodyBounce .45s ease-in-out infinite alternate;
 }
+
+/* HEAD */
 
 .cat-head {
   position: absolute;
+
   left: 5px;
   bottom: 30px;
+
   width: 32px;
   height: 30px;
+
   background: #02030a;
+
   border-radius: 50%;
 }
 
+/* EARS */
+
 .ear {
   position: absolute;
+
   top: -7px;
+
   width: 12px;
   height: 14px;
+
   background: #02030a;
 
-  clip-path: polygon(
-    50% 0,
-    100% 100%,
-    0 100%
-  );
+  clip-path:
+    polygon(50% 0, 100% 100%, 0 100%);
 }
 
 .ear.left {
@@ -521,11 +537,16 @@ h1 {
   right: 3px;
 }
 
+/* EYES */
+
 .eye {
   position: absolute;
+
   top: 12px;
+
   width: 5px;
   height: 6px;
+
   border-radius: 50%;
 
   background: #d8d39a;
@@ -542,45 +563,153 @@ h1 {
   right: 9px;
 }
 
+/* BLINK */
+
+.cat-head::before {
+  content: "";
+
+  position: absolute;
+
+  left: 7px;
+  top: 10px;
+
+  width: 18px;
+  height: 9px;
+
+  background: #02030a;
+
+  z-index: 5;
+
+  transform: scaleY(0);
+
+  transform-origin: center;
+
+  animation: blink 6s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+  0%, 43% {
+    transform: scaleY(0);
+  }
+
+  44% {
+    transform: scaleY(1);
+  }
+
+  47% {
+    transform: scaleY(1);
+  }
+
+  48%, 100% {
+    transform: scaleY(0);
+  }
+}
+
+/* NOSE */
+
 .nose {
   position: absolute;
+
   left: 14px;
   top: 20px;
+
   width: 3px;
   height: 3px;
+
   border-radius: 50%;
+
   background: #b7aebd;
 }
 
+/* LEGS */
+
 .leg {
   position: absolute;
+
   bottom: 2px;
+
   width: 6px;
   height: 18px;
+
   background: #02030a;
+
   border-radius: 0 0 5px 5px;
+
+  transform-origin: top center;
 }
 
 .leg.one {
   left: 28px;
+
+  animation:
+    legOne .45s ease-in-out infinite alternate;
 }
 
 .leg.two {
   left: 39px;
+
+  animation:
+    legTwo .45s ease-in-out infinite alternate;
 }
 
 .leg.three {
   left: 58px;
+
+  animation:
+    legTwo .45s ease-in-out infinite alternate;
 }
 
 .leg.four {
   left: 68px;
+
+  animation:
+    legOne .45s ease-in-out infinite alternate;
 }
+
+@keyframes legOne {
+
+  from {
+    transform: rotate(20deg);
+  }
+
+  to {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes legTwo {
+
+  from {
+    transform: rotate(-20deg);
+  }
+
+  to {
+    transform: rotate(20deg);
+  }
+}
+
+/* BODY BOUNCE */
+
+@keyframes bodyBounce {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+/* TAIL */
 
 .tail {
   position: absolute;
+
   right: -10px;
   bottom: 27px;
+
   width: 34px;
   height: 25px;
 
@@ -592,42 +721,52 @@ h1 {
   transform: rotate(10deg);
 
   animation:
-    tail 2s ease-in-out infinite alternate;
+    tail 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes tail {
+
   from {
     transform: rotate(10deg);
   }
 
   to {
-    transform: rotate(-8deg);
+    transform: rotate(-10deg);
   }
 }
+
+/* CAT WALK */
 
 @keyframes catWalk {
 
   0% {
     left: -120px;
+    transform: scaleX(1);
   }
 
-  30% {
+  38% {
     left: 25%;
+    transform: scaleX(1);
   }
 
-  50% {
+  42% {
+    left: 25%;
+    transform: scaleX(1);
+  }
+
+  44% {
     left: 25%;
     transform: scaleX(-1);
   }
 
-  70% {
+  75% {
     left: 25%;
     transform: scaleX(-1);
   }
 
   100% {
     left: 110%;
-    transform: scaleX(1);
+    transform: scaleX(-1);
   }
 }
 
@@ -637,7 +776,9 @@ h1 {
 
 nav {
   position: sticky;
+
   top: 0;
+
   z-index: 50;
 
   padding: 18px;
@@ -654,11 +795,13 @@ nav {
 
 nav a {
   color: #bfc9dc;
+
   text-decoration: none;
 
   margin: 0 18px;
 
   font-size: 14px;
+
   letter-spacing: 2px;
 
   transition: .3s;
@@ -674,14 +817,19 @@ nav a:hover {
 
 section {
   max-width: 850px;
+
   margin: auto;
+
   padding: 90px 25px;
+
   position: relative;
+
   z-index: 1;
 }
 
 h2 {
   font-size: 32px;
+
   font-weight: normal;
 
   text-align: center;
@@ -716,6 +864,7 @@ h2 {
 
 .poem h3 {
   font-size: 25px;
+
   font-weight: normal;
 
   margin-bottom: 25px;
@@ -758,6 +907,26 @@ h2 {
 }
 
 /* =========================
+   DIVIDER
+========================= */
+
+.divider {
+  text-align: center;
+
+  color: #777f96;
+
+  font-size: 18px;
+
+  letter-spacing: 4px;
+
+  margin: 20px 0 10px;
+
+  position: relative;
+
+  z-index: 1;
+}
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -774,6 +943,32 @@ footer {
   font-size: 13px;
 
   position: relative;
+
+  z-index: 1;
+}
+
+/* =========================
+   RD.ZIGGY
+========================= */
+
+.ziggy-signature {
+  text-align: right;
+
+  padding:
+    20px 30px 25px;
+
+  color: #777080;
+
+  font-family:
+    "Lucida Handwriting",
+    cursive;
+
+  font-size: 18px;
+
+  font-style: italic;
+
+  position: relative;
+
   z-index: 1;
 }
 
@@ -785,11 +980,13 @@ footer {
 
   h1 {
     font-size: 42px;
+
     letter-spacing: 5px;
   }
 
   nav a {
     margin: 0 8px;
+
     font-size: 12px;
   }
 
@@ -817,10 +1014,13 @@ footer {
 }
 
 </style>
-
 </head>
 
 <body>
+
+<!-- =========================
+     HOME / NIGHT SKY
+========================= -->
 
 <header id="home">
 
@@ -862,42 +1062,53 @@ footer {
 
   <div class="cat">
 
-```
-<div class="cat-head">
+    <div class="cat-head">
 
-  <div class="ear left"></div>
-  <div class="ear right"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
 
-  <div class="eye left"></div>
-  <div class="eye right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
 
-  <div class="nose"></div>
+      <div class="nose"></div>
 
-</div>
+    </div>
 
-<div class="cat-body"></div>
+    <div class="cat-body"></div>
 
-<div class="leg one"></div>
-<div class="leg two"></div>
-<div class="leg three"></div>
-<div class="leg four"></div>
+    <div class="leg one"></div>
+    <div class="leg two"></div>
+    <div class="leg three"></div>
+    <div class="leg four"></div>
 
-<div class="tail"></div>
-```
+    <div class="tail"></div>
 
   </div>
 
 </header>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
 
-<a href="#home">HOME</a> <a href="#poems">POEMS</a> <a href="#about">ABOUT</a>
+  <a href="#home">HOME</a>
+  <a href="#poems">POEMS</a>
+  <a href="#about">ABOUT</a>
 
 </nav>
+
+
+<!-- =========================
+     POEMS
+========================= -->
 
 <section id="poems">
 
 <h2>Poems in the Quiet</h2>
+
 
 <article class="poem">
 
@@ -922,6 +1133,7 @@ without reaching back.</p>
 
 </article>
 
+
 <article class="poem">
 
 <h3>Things I Never Said</h3>
@@ -943,6 +1155,7 @@ than the truth.</p>
 
 </article>
 
+
 <article class="poem">
 
 <h3>Somewhere Between</h3>
@@ -961,6 +1174,7 @@ the moon remembers for me.</p>
 <span class="signature">z.midnight</span>
 
 </article>
+
 
 <article class="poem">
 
@@ -984,6 +1198,7 @@ some stories must be mourned, then fade away.</p>
 <span class="signature">z.midnight</span>
 
 </article>
+
 
 <article class="poem">
 
@@ -1017,6 +1232,7 @@ or how much love I’ve betrayed.</p>
 <span class="signature">z.midnight</span>
 
 </article>
+
 
 <article class="poem">
 
@@ -1055,6 +1271,7 @@ but never meant to be yours.</p>
 <span class="signature">z.midnight</span>
 
 </article>
+
 
 <article class="poem">
 
@@ -1108,6 +1325,7 @@ simply because it was never allowed to live.</p>
 <span class="signature">z.midnight</span>
 
 </article>
+
 
 <article class="poem">
 
@@ -1176,9 +1394,19 @@ how to say goodbye.</p>
 
 </section>
 
+
+<!-- =========================
+     DIVIDER
+========================= -->
+
 <div class="divider">
   ✦ · · · ☾ · · · ✦
 </div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
@@ -1203,15 +1431,26 @@ Stay awhile. Read slowly.
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
 © 2026 z.midnight · written in the quiet
 
 </footer>
 
+
+<!-- =========================
+     PERSONAL SIGNATURE
+========================= -->
+
 <div class="ziggy-signature">
   Rd.ziggy
 </div>
+
 
 </body>
 </html>
