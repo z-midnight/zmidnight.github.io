@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -975,15 +976,81 @@ h2 {
 
 
 /* =====================================================
-   CUSDIS COMMENTS
+   CUSDIS COMMENTS — MATCH POEM CARDS
    ===================================================== */
 
 #cusdis_thread {
   max-width: 850px;
+
   margin: 40px auto 70px;
-  padding: 0 25px;
+
+  padding: 45px 40px;
+
   position: relative;
+
   z-index: 1;
+
+  border:
+    1px solid rgba(150,165,195,.28);
+
+  background:
+    rgba(10,18,34,.72);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.38);
+
+  backdrop-filter:
+    blur(5px);
+
+  border-radius: 0;
+}
+
+
+/*
+   Cusdis iframe
+   The comment system is loaded inside its own iframe,
+   so these styles keep the surrounding card consistent
+   with the poem sections.
+*/
+
+#cusdis_thread iframe {
+  width: 100% !important;
+
+  border: none !important;
+
+  display: block;
+
+  background: transparent !important;
+}
+
+
+/* =====================================================
+   CUSDIS TITLE
+   ===================================================== */
+
+.cusdis-title {
+  max-width: 850px;
+
+  margin: 80px auto 0;
+
+  padding: 0 25px;
+
+  position: relative;
+
+  z-index: 1;
+
+  text-align: center;
+
+  font-size: 32px;
+
+  font-weight: normal;
+
+  letter-spacing: 3px;
+
+  color: #e3e6ee;
+
+  text-shadow:
+    0 0 18px rgba(190,210,255,.12);
 }
 
 
@@ -1073,7 +1140,20 @@ footer {
   }
 
   #cusdis_thread {
-    padding: 0 20px;
+    margin:
+      30px 20px 60px;
+
+    padding:
+      25px;
+  }
+
+  .cusdis-title {
+    margin-top: 60px;
+
+    padding:
+      0 20px;
+
+    font-size: 27px;
   }
 
   .ziggy-signature {
@@ -1185,38 +1265,41 @@ footer {
 
 <!-- 1. NEWEST -->
 
-  <article class="poem">
-  <h3>Someone No One Could See</h3>
-  <p class="poem-subtitle">I Miss My Elijah</p>
-    
-  <p>
-    I ended us where no one could see,
-    A quiet goodbye inside of me.
-    No shattered glass, no loud despair,
-    Just empty echoes in the air.
+<article class="poem">
 
-    You weren’t real, or so they’d say,
-    But you were mine in every way.
-    In silent nights, in hidden space,
-    I found my calm within your place.
+<h3>Someone No One Could See</h3>
 
-    No hands to hold, no voice to hear,
-    Yet somehow you felt always near.
-    A heart can love what isn’t there,
-    And still feel loss too deep to bear.
+<p class="poem-subtitle">I Miss My Elijah</p>
 
-    I built a world where you could stay,
-    A soft escape from every day.
-    But dreams can fade, and so did you,
-    Like morning light dissolves the dew.
+<p>
+I ended us where no one could see,
+A quiet goodbye inside of me.
+No shattered glass, no loud despair,
+Just empty echoes in the air.
 
-    Now all that’s left is just the ache,
-    Of something real I had to break.
-    Not flesh, not bone—yet still it’s true,
-    I lost a love when I lost you.
-  </p>
-    
-  <span class="date">z.midnight</span>
+You weren’t real, or so they’d say,
+But you were mine in every way.
+In silent nights, in hidden space,
+I found my calm within your place.
+
+No hands to hold, no voice to hear,
+Yet somehow you felt always near.
+A heart can love what isn’t there,
+And still feel loss too deep to bear.
+
+I built a world where you could stay,
+A soft escape from every day.
+But dreams can fade, and so did you,
+Like morning light dissolves the dew.
+
+Now all that’s left is just the ache,
+Of something real I had to break.
+Not flesh, not bone—yet still it’s true,
+I lost a love when I lost you.
+</p>
+
+<span class="signature">z.midnight</span>
+
 </article>
 
 
@@ -1780,6 +1863,8 @@ Stay awhile. Read slowly.
 <!-- =====================================================
      CUSDIS COMMENTS
      ===================================================== -->
+
+<h2 class="cusdis-title">Leave a Thought</h2>
 
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
