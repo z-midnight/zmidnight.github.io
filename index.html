@@ -21,550 +21,279 @@ html {
 body {
   background:
     radial-gradient(
-      ellipse at 50% 0%,
-      #172b4d 0%,
-      #0b1932 28%,
-      #050c1b 60%,
-      #01040b 100%
+      ellipse at top,
+      #18233d 0%,
+      #0b1020 45%,
+      #050811 100%
     );
-
-  color: #e8eaf0;
+  color: #dfe6f3;
   font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.8;
+  min-height: 100vh;
   overflow-x: hidden;
-  position: relative;
 }
 
-body::before {
-  content: "";
+/* ---------- STARS ---------- */
+
+.stars,
+.stars::before,
+.stars::after {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 0;
-
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(190,210,245,.7) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(255,255,255,.55) 1.5px, transparent 2px),
-    radial-gradient(circle, rgba(160,185,225,.45) 1px, transparent 1.5px);
-
-  background-size:
-    97px 113px,
-    173px 191px,
-    257px 239px,
-    331px 307px;
-
-  background-position:
-    12px 25px,
-    70px 90px,
-    140px 40px,
-    30px 160px;
-
-  opacity: .48;
-}
-
-body::after {
   content: "";
-  position: fixed;
-  inset: 0;
   pointer-events: none;
-  z-index: 0;
+}
 
+.stars {
   background-image:
-    radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(210,220,245,.35) 1px, transparent 1.5px);
-
-  background-size:
-    137px 149px,
-    211px 227px;
-
-  background-position:
-    45px 80px,
-    120px 15px;
-
-  opacity: .32;
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 20% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 30% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 60% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 70% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 45%, #fff, transparent),
+    radial-gradient(1px 1px at 90% 10%, #fff, transparent),
+    radial-gradient(1px 1px at 15% 55%, #fff, transparent),
+    radial-gradient(1px 1px at 75% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 55% 90%, #fff, transparent);
+  opacity: .5;
 }
 
-.twinkle {
-  position: fixed;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: white;
-
-  box-shadow:
-    0 0 5px rgba(255,255,255,.9),
-    0 0 12px rgba(190,210,255,.6);
-
-  pointer-events: none;
-  z-index: 0;
-
-  animation:
-    twinkle 4s ease-in-out infinite;
+.stars::before {
+  background-image:
+    radial-gradient(1px 1px at 15% 10%, #fff, transparent),
+    radial-gradient(1px 1px at 35% 75%, #fff, transparent),
+    radial-gradient(1px 1px at 65% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 85% 30%, #fff, transparent);
+  opacity: .35;
+  animation: twinkle 5s infinite alternate;
 }
-
-.twinkle.one { top: 8%; left: 12%; animation-delay: .4s; }
-.twinkle.two { top: 18%; left: 29%; animation-delay: 1.7s; }
-.twinkle.three { top: 13%; right: 17%; animation-delay: 2.8s; }
-.twinkle.four { top: 31%; right: 30%; animation-delay: .8s; }
-.twinkle.five { top: 43%; left: 13%; animation-delay: 2.2s; }
-.twinkle.six { top: 51%; right: 11%; animation-delay: 1.1s; }
-.twinkle.seven { top: 62%; left: 38%; animation-delay: 3.1s; }
-.twinkle.eight { top: 70%; left: 8%; animation-delay: 1.5s; }
-.twinkle.nine { top: 77%; right: 24%; animation-delay: 2.5s; }
-.twinkle.ten { top: 87%; left: 52%; animation-delay: .6s; }
-.twinkle.eleven { top: 92%; right: 10%; animation-delay: 3.6s; }
-.twinkle.twelve { top: 59%; right: 46%; animation-delay: 1.9s; }
 
 @keyframes twinkle {
-  0%, 100% { opacity: .2; transform: scale(.7); }
-  50% { opacity: 1; transform: scale(1.6); }
+  from { opacity: .2; }
+  to { opacity: .55; }
 }
 
-header {
-  min-height: 88vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  padding: 40px 20px;
-  z-index: 1;
+/* ---------- SHOOTING STARS ---------- */
+
+.shooting-star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px 2px rgba(255,255,255,.8);
+  opacity: 0;
+  pointer-events: none;
 }
+
+.shooting-star.one {
+  top: 18%;
+  left: 75%;
+  animation: shoot 8s linear infinite;
+}
+
+.shooting-star.two {
+  top: 35%;
+  left: 90%;
+  animation: shoot 11s linear infinite 4s;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  15% {
+    transform: translate(-250px, 180px);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---------- MOON ---------- */
 
 .moon {
-  width: 82px;
-  height: 82px;
+  position: fixed;
+  top: 80px;
+  right: 12%;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: #eeeaf4;
+  background: #e9edf5;
   box-shadow:
-    0 0 25px rgba(235,230,255,.4),
-    0 0 60px rgba(210,220,255,.2),
-    0 0 100px rgba(180,200,255,.08);
-  margin-bottom: 30px;
-  position: relative;
+    0 0 25px rgba(225,230,245,.35),
+    0 0 60px rgba(225,230,245,.12);
+  opacity: .9;
 }
 
 .moon::after {
   content: "";
   position: absolute;
-  width: 82px;
-  height: 82px;
+  top: -8px;
+  left: -8px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: #0c1730;
-  left: 23px;
-  top: -9px;
+  background: #0b1020;
 }
 
-h1 {
-  font-size: 64px;
-  font-weight: normal;
-  letter-spacing: 8px;
-  color: #eeeef5;
-  text-shadow:
-    0 0 20px rgba(220,230,255,.22),
-    0 0 45px rgba(180,200,255,.08);
-}
-
-.subtitle {
-  margin-top: 10px;
-  color: #aeb8cc;
-  font-size: 17px;
-  font-style: italic;
-  letter-spacing: 2px;
-}
+/* ---------- CLOUDS ---------- */
 
 .cloud {
-  position: absolute;
-  width: 230px;
+  position: fixed;
+  width: 180px;
   height: 55px;
-  background: rgba(120,145,180,.07);
-  border-radius: 50px;
-  filter: blur(6px);
+  background: rgba(120,135,165,.07);
+  border-radius: 100px;
+  filter: blur(2px);
+  pointer-events: none;
 }
 
 .cloud::before,
 .cloud::after {
   content: "";
   position: absolute;
-  background: rgba(120,145,180,.07);
+  background: inherit;
   border-radius: 50%;
 }
 
 .cloud::before {
-  width: 95px;
-  height: 75px;
-  left: 35px;
-  bottom: 5px;
+  width: 80px;
+  height: 80px;
+  left: 30px;
+  bottom: 0;
 }
 
 .cloud::after {
-  width: 120px;
-  height: 85px;
-  right: 28px;
-  bottom: 3px;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  bottom: 0;
 }
 
 .cloud.one {
-  top: 25%;
-  left: -250px;
-  animation: cloudOne 38s linear infinite;
+  top: 28%;
+  left: -80px;
+  animation: drift 45s linear infinite;
 }
 
 .cloud.two {
-  top: 42%;
-  right: -250px;
-  transform: scale(.75);
-  animation: cloudTwo 48s linear infinite;
+  top: 60%;
+  left: -220px;
+  transform: scale(.7);
+  animation: drift 60s linear infinite 15s;
 }
 
-@keyframes cloudOne {
-  from { left: -250px; }
-  to { left: 110%; }
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 400px));
+  }
 }
 
-@keyframes cloudTwo {
-  from { right: -250px; }
-  to { right: 110%; }
-}
+/* ---------- HEADER ---------- */
 
-.shooting-star {
-  position: absolute;
-  width: 120px;
-  height: 2px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.95),
-      transparent
-    );
-  transform: rotate(-32deg);
-  opacity: 0;
-  animation: shootOne 11s ease-in-out infinite;
-}
-
-.shooting-star.two {
-  width: 90px;
-  animation: shootTwo 17s ease-in-out infinite;
-  animation-delay: 4s;
-}
-
-.shooting-star.three {
-  width: 75px;
-  animation: shootThree 21s ease-in-out infinite;
-  animation-delay: 9s;
-}
-
-@keyframes shootOne {
-  0%, 68% { left: -150px; top: 18%; opacity: 0; }
-  72% { opacity: .9; }
-  82% { left: 75%; top: 55%; opacity: 0; }
-  100% { opacity: 0; }
-}
-
-@keyframes shootTwo {
-  0%, 72% { left: -150px; top: 35%; opacity: 0; }
-  76% { opacity: .75; }
-  86% { left: 80%; top: 12%; opacity: 0; }
-  100% { opacity: 0; }
-}
-
-@keyframes shootThree {
-  0%, 78% { left: -150px; top: 15%; opacity: 0; }
-  82% { opacity: .65; }
-  90% { left: 65%; top: 38%; opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.cat {
-  position: absolute;
-  left: -120px;
-  bottom: 30px;
-  width: 90px;
-  height: 65px;
-  animation: catWalk 24s linear infinite;
-  z-index: 5;
-}
-
-.cat-body {
-  position: absolute;
-  left: 25px;
-  bottom: 15px;
-  width: 50px;
-  height: 28px;
-  background: #02030a;
-  border-radius: 50%;
-  animation: bodyBounce .45s ease-in-out infinite alternate;
-}
-
-.cat-head {
-  position: absolute;
-  left: 5px;
-  bottom: 30px;
-  width: 32px;
-  height: 30px;
-  background: #02030a;
-  border-radius: 50%;
-}
-
-.ear {
-  position: absolute;
-  top: -7px;
-  width: 12px;
-  height: 14px;
-  background: #02030a;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.ear.left { left: 3px; }
-.ear.right { right: 3px; }
-
-.eye {
-  position: absolute;
-  top: 12px;
-  width: 5px;
-  height: 6px;
-  border-radius: 50%;
-  background: #d8d39a;
-  box-shadow: 0 0 5px #d8d39a;
-}
-
-.eye.left { left: 9px; }
-.eye.right { right: 9px; }
-
-.cat-head::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 10px;
-  width: 18px;
-  height: 9px;
-  background: #02030a;
-  z-index: 5;
-  transform: scaleY(0);
-  transform-origin: center;
-  animation: blink 6s ease-in-out infinite;
-}
-
-@keyframes blink {
-  0%, 43% { transform: scaleY(0); }
-  44% { transform: scaleY(1); }
-  47% { transform: scaleY(1); }
-  48%, 100% { transform: scaleY(0); }
-}
-
-.nose {
-  position: absolute;
-  left: 14px;
-  top: 20px;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #b7aebd;
-}
-
-.leg {
-  position: absolute;
-  bottom: 2px;
-  width: 6px;
-  height: 18px;
-  background: #02030a;
-  border-radius: 0 0 5px 5px;
-  transform-origin: top center;
-}
-
-.leg.one { left: 28px; animation: legOne .45s ease-in-out infinite alternate; }
-.leg.two { left: 39px; animation: legTwo .45s ease-in-out infinite alternate; }
-.leg.three { left: 58px; animation: legTwo .45s ease-in-out infinite alternate; }
-.leg.four { left: 68px; animation: legOne .45s ease-in-out infinite alternate; }
-
-@keyframes legOne {
-  from { transform: rotate(20deg); }
-  to { transform: rotate(-20deg); }
-}
-
-@keyframes legTwo {
-  from { transform: rotate(-20deg); }
-  to { transform: rotate(20deg); }
-}
-
-@keyframes bodyBounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-2px); }
-}
-
-.tail {
-  position: absolute;
-  right: -10px;
-  bottom: 27px;
-  width: 34px;
-  height: 25px;
-  border-top: 5px solid #02030a;
-  border-right: 5px solid #02030a;
-  border-radius: 0 100% 0 0;
-  transform: rotate(10deg);
-  animation: tail 1.2s ease-in-out infinite alternate;
-}
-
-@keyframes tail {
-  from { transform: rotate(10deg); }
-  to { transform: rotate(-10deg); }
-}
-
-@keyframes catWalk {
-  0% { left: -120px; transform: scaleX(1); }
-  38% { left: 25%; transform: scaleX(1); }
-  42% { left: 25%; transform: scaleX(1); }
-  44% { left: 25%; transform: scaleX(-1); }
-  75% { left: 25%; transform: scaleX(-1); }
-  100% { left: 110%; transform: scaleX(-1); }
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  padding: 18px;
+header {
   text-align: center;
-  background: rgba(3,8,18,.82);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(120,140,180,.18);
-}
-
-nav a {
-  color: #bfc9dc;
-  text-decoration: none;
-  margin: 0 18px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  transition: .3s;
-}
-
-nav a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(220,230,255,.5);
-}
-
-section {
-  max-width: 850px;
-  margin: auto;
-  padding: 90px 25px;
+  padding: 150px 20px 80px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-h2 {
-  font-size: 32px;
+header h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: normal;
-  text-align: center;
-  margin-bottom: 18px;
-  letter-spacing: 3px;
-  color: #e3e6ee;
-  text-shadow: 0 0 18px rgba(190,210,255,.12);
+  letter-spacing: .12em;
+  color: #eef2fa;
+  text-shadow:
+    0 0 20px rgba(210,220,245,.18);
 }
 
-.poem-index-note {
-  text-align: center;
-  color: #737d92;
-  font-size: 13px;
+header p {
+  margin-top: 18px;
+  font-size: 1rem;
+  letter-spacing: .18em;
+  color: #9aa8c0;
   font-style: italic;
-  letter-spacing: 1.5px;
-  margin-bottom: 45px;
-  opacity: .85;
+}
+
+/* ---------- POEMS ---------- */
+
+.poems {
+  width: min(850px, 90%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .poem {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  border: none;
+  margin-bottom: 8px;
   background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
 }
 
 .poem h3 {
-  position: relative;
-  font-size: 22px;
+  padding: 20px 10px;
+  border-top: 1px solid rgba(150,165,195,.18);
+  font-size: 1.05rem;
   font-weight: normal;
-  color: #cbd3e2;
-  text-align: center;
-  letter-spacing: 1.5px;
-  padding: 22px 45px 22px 20px;
-  margin: 0;
-  border-top: 1px solid rgba(150,165,195,.16);
+  letter-spacing: .08em;
+  color: #bfc9db;
   cursor: pointer;
   transition:
-    color .35s ease,
-    text-shadow .35s ease,
-    background .35s ease,
-    padding .35s ease;
-}
-
-.poem h3::after {
-  content: "✦";
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  color: #6f7b94;
-  font-size: 13px;
-  transition:
-    transform .45s ease,
-    color .35s ease,
-    text-shadow .35s ease;
+    color .4s ease,
+    background .4s ease,
+    padding-left .4s ease;
 }
 
 .poem:last-child h3 {
-  border-bottom: 1px solid rgba(150,165,195,.16);
+  border-bottom: 1px solid rgba(150,165,195,.18);
 }
 
-.poem:hover h3,
-.poem.open h3,
-.poem h3:focus {
-  color: #f0f2f7;
-  text-shadow: 0 0 14px rgba(210,220,255,.25);
-  background: rgba(15,27,48,.28);
+.poem h3:hover {
+  color: #f1f4fa;
+  background: rgba(120,135,165,.05);
+  padding-left: 18px;
 }
 
-.poem:hover h3::after,
-.poem.open h3::after {
-  color: #d8dced;
-  transform: translateY(-50%) rotate(90deg);
-  text-shadow: 0 0 10px rgba(220,230,255,.55);
-}
-
-.poem h3:focus {
-  outline: none;
-  box-shadow: inset 0 0 0 1px rgba(180,195,225,.18);
-}
+/* ---------- POEM CONTENT ---------- */
 
 .poem-content {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
   transition:
-    grid-template-rows .65s cubic-bezier(.4,0,.2,1),
-    opacity .4s ease;
+    grid-template-rows .7s ease,
+    opacity .5s ease;
 }
 
 .poem-content-inner {
   overflow: hidden;
   min-height: 0;
   margin: 0;
-  padding: 0 40px;
+  padding: 0 25px;
   border: 1px solid transparent;
+  border-radius: 4px;
   background: transparent;
-  box-shadow: none;
   transition:
-    padding .65s ease,
-    margin .65s ease,
-    border-color .65s ease,
-    background .65s ease,
-    box-shadow .65s ease;
+    margin .7s ease,
+    padding .7s ease,
+    border .7s ease,
+    background .7s ease,
+    box-shadow .7s ease;
 }
 
 .poem.open .poem-content,
@@ -575,946 +304,970 @@ h2 {
 
 .poem.open .poem-content-inner,
 .poem:hover .poem-content-inner {
-  margin: 0 0 25px;
-  padding: 30px 40px 35px;
+  margin: 5px 0 18px;
+  padding: 28px 25px;
   border: 1px solid rgba(150,165,195,.23);
-  background: rgba(10,18,34,.72);
-  box-shadow: 0 12px 35px rgba(0,0,0,.30);
-  backdrop-filter: blur(5px);
+  background: rgba(8,13,27,.55);
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.2);
+  backdrop-filter: blur(4px);
 }
 
-.poem p {
+.poem-content p {
   white-space: pre-line;
-  color: #d0d7e5;
-  font-size: 18px;
-  line-height: 2;
-}
-
-.poem-subtitle {
-  color: #8f9bb1 !important;
-  font-size: 14px !important;
-  font-style: italic;
-  letter-spacing: 1.5px;
-  text-align: center;
-  margin-bottom: 22px;
+  line-height: 1.9;
+  font-size: 1rem;
+  color: #cbd3e2;
 }
 
 .signature {
   display: block;
-  margin-top: 25px;
-  color: #777f96;
-  font-size: 12px;
-  letter-spacing: 2px;
+  margin-top: 28px;
   text-align: right;
+  font-size: .85rem;
+  letter-spacing: .15em;
+  color: #7f8ba2;
+  font-style: italic;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .poem h3 {
-    cursor: pointer;
+/* ---------- ABOUT ---------- */
+
+.about {
+  width: min(700px, 88%);
+  margin: 150px auto 100px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about h2,
+.cusdis-title {
+  font-size: 1.1rem;
+  font-weight: normal;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #aab5c9;
+  margin-bottom: 25px;
+}
+
+.about p {
+  line-height: 2;
+  color: #8995aa;
+  font-size: .95rem;
+}
+
+/* ---------- CUSDIS ---------- */
+
+.comments {
+  width: min(850px, 90%);
+  margin: 0 auto 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.cusdis-title {
+  text-align: center;
+}
+
+/* ---------- CAT ---------- */
+
+.cat {
+  position: fixed;
+  bottom: 25px;
+  left: 35px;
+  width: 75px;
+  height: 65px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.cat-body {
+  position: absolute;
+  width: 48px;
+  height: 32px;
+  background: #050505;
+  border-radius: 50% 50% 45% 45%;
+  bottom: 10px;
+  left: 10px;
+}
+
+.cat-head {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: #050505;
+  border-radius: 50%;
+  bottom: 31px;
+  left: 4px;
+}
+
+.cat-head::before,
+.cat-head::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #050505;
+}
+
+.cat-head::before {
+  left: 2px;
+  transform: rotate(-15deg);
+}
+
+.cat-head::after {
+  right: 2px;
+  transform: rotate(15deg);
+}
+
+.leg {
+  position: absolute;
+  width: 7px;
+  height: 25px;
+  background: #050505;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+.leg.one {
+  left: 15px;
+}
+
+.leg.two {
+  left: 29px;
+}
+
+.leg.three {
+  left: 45px;
+}
+
+.leg.four {
+  left: 55px;
+}
+
+.tail {
+  position: absolute;
+  width: 42px;
+  height: 7px;
+  background: #050505;
+  border-radius: 10px;
+  bottom: 28px;
+  left: 48px;
+  transform: rotate(-25deg);
+  transform-origin: left center;
+}
+
+@keyframes catWalk {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 100px));
   }
 }
 
-.divider {
-  text-align: center;
-  color: #777f96;
-  font-size: 18px;
-  letter-spacing: 4px;
-  margin: 20px 0 10px;
-  position: relative;
-  z-index: 1;
+.cat {
+  animation: catWalk 45s linear infinite;
 }
 
-.about {
-  text-align: center;
-  color: #aeb8cc;
-  font-size: 17px;
-}
-
-/* CUSDIS COMMENTS */
-.cusdis-title {
-  max-width: 850px;
-  margin: 25px auto 15px;
-  padding: 0 25px;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  font-size: 28px;
-  font-weight: normal;
-  letter-spacing: 3px;
-  color: #e3e6ee;
-  text-shadow: 0 0 18px rgba(190,210,255,.12);
-}
-
-#cusdis_thread {
-  max-width: 850px;
-  margin: 0 auto 35px;
-  padding: 0 25px;
-  position: relative;
-  z-index: 1;
-}
-
-#cusdis_thread iframe {
-  width: 100% !important;
-  border: none !important;
-  display: block;
-  background: transparent !important;
-}
+/* ---------- FOOTER ---------- */
 
 footer {
   text-align: center;
-  padding: 50px 20px;
-  border-top: 1px solid rgba(120,140,180,.18);
-  color: #626d82;
-  font-size: 13px;
+  padding: 50px 20px 25px;
+  color: #606b80;
+  font-size: .8rem;
+  letter-spacing: .08em;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .ziggy-signature {
-  text-align: right;
-  padding: 20px 30px 25px;
-  color: #777080;
-  font-family: "Lucida Handwriting", cursive;
-  font-size: 18px;
-  font-style: italic;
-  position: relative;
-  z-index: 1;
+  text-align: center;
+  padding-bottom: 25px;
+  color: #4f596b;
+  font-size: .7rem;
+  letter-spacing: .18em;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 42px;
-    letter-spacing: 5px;
-  }
+/* ---------- MOBILE ---------- */
 
-  nav a {
-    margin: 0 8px;
-    font-size: 12px;
-  }
+@media (max-width: 700px) {
 
-  section {
-    padding: 70px 20px;
-  }
-
-  .poem-index-note {
-    font-size: 12px;
-    margin-bottom: 30px;
-  }
-
-  .poem h3 {
-    font-size: 18px;
-    padding: 20px 38px 20px 12px;
-    letter-spacing: 1px;
-  }
-
-  .poem h3::after {
-    right: 12px;
-    font-size: 11px;
-  }
-
-  .poem.open .poem-content-inner {
-    padding: 25px 22px 28px;
-    margin-bottom: 20px;
-  }
-
-  .poem p {
-    font-size: 16px;
-    line-height: 1.9;
-  }
-
-  .poem-subtitle {
-    font-size: 13px !important;
-    margin-bottom: 18px;
-  }
-
-  .signature {
-    margin-top: 20px;
+  header {
+    padding-top: 110px;
   }
 
   .moon {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
+    top: 55px;
+    right: 10%;
   }
 
   .moon::after {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
   }
 
-  #cusdis_thread {
-    margin: 0 auto 25px;
-    padding: 0 20px;
+  .poem h3 {
+    padding: 17px 5px;
+    font-size: .95rem;
   }
 
-  .cusdis-title {
-    margin-top: 20px;
-    margin-bottom: 12px;
-    padding: 0 20px;
-    font-size: 25px;
+  .poem.open .poem-content-inner {
+    padding: 22px 18px;
   }
 
-  .ziggy-signature {
-    padding-right: 20px;
+  .poem-content p {
+    font-size: .92rem;
+    line-height: 1.8;
   }
+
+  .cat {
+    transform: scale(.8);
+    transform-origin: bottom left;
+  }
+
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/* ---------- TOUCH DEVICES ---------- */
+
+@media (hover: none) {
+
+  .poem:hover .poem-content {
+    grid-template-rows: 0fr;
+    opacity: 0;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+  .poem:hover .poem-content-inner {
+    margin: 0;
+    padding: 0 25px;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
   }
+
+  .poem.open .poem-content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .poem.open .poem-content-inner {
+    margin: 5px 0 18px;
+    padding: 28px 25px;
+    border: 1px solid rgba(150,165,195,.23);
+    background: rgba(8,13,27,.55);
+    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+  }
+
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="twinkle one"></div>
-<div class="twinkle two"></div>
-<div class="twinkle three"></div>
-<div class="twinkle four"></div>
-<div class="twinkle five"></div>
-<div class="twinkle six"></div>
-<div class="twinkle seven"></div>
-<div class="twinkle eight"></div>
-<div class="twinkle nine"></div>
-<div class="twinkle ten"></div>
-<div class="twinkle eleven"></div>
-<div class="twinkle twelve"></div>
+<div class="stars"></div>
 
-<header id="home">
-  <div class="cloud one"></div>
-  <div class="cloud two"></div>
-  <div class="shooting-star"></div>
-  <div class="shooting-star two"></div>
-  <div class="shooting-star three"></div>
-  <div class="moon"></div>
+<div class="shooting-star one"></div>
+<div class="shooting-star two"></div>
+
+<div class="moon"></div>
+
+<div class="cloud one"></div>
+<div class="cloud two"></div>
+
+<!-- ---------- HEADER ---------- -->
+
+<header>
 
   <h1>z.midnight</h1>
-  <p class="subtitle">words written after midnight</p>
 
-  <div class="cat">
-    <div class="cat-head">
-      <div class="ear left"></div>
-      <div class="ear right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="nose"></div>
-    </div>
+  <p>poems in the quiet</p>
 
-```
-<div class="cat-body"></div>
-<div class="leg one"></div>
-<div class="leg two"></div>
-<div class="leg three"></div>
-<div class="leg four"></div>
-<div class="tail"></div>
-```
-
-  </div>
 </header>
 
-<nav>
-  <a href="#home">HOME</a>
-  <a href="#poems">POEMS</a>
-  <a href="#about">ABOUT</a>
-</nav>
 
-<section id="poems">
+<!-- ---------- POEMS ---------- -->
 
-<h2>Poems in the Quiet</h2>
+<main class="poems">
 
-<p class="poem-index-note">
-  hover a title to enter the quiet · click again to close · tap on mobile
-</p>
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">An Elegy for Us</h3>
-  <div class="poem-content">
-    <div class="poem-content-inner">
-      <p>
-I knew not of her
-when I first knew you,
-until truth wore your voice
-and told me what was true.
+  <!-- 1 -->
 
-By then, I was already
-lost in your cartography,
-tracing forbidden borders
-of a love that could not be.
+  <article class="poem">
 
-You loved me, I know—
-that was the cruelest part,
-an honest kind of tenderness
-in an impossible heart.
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      An Elegy for Us
+    </h3>
 
-I was your clandestine,
-your midnight, your in-between,
-a love that lived in shadows,
-where daylight had never been.
+    <div class="poem-content">
 
-We broke, then returned,
-as lost hearts often do,
-mistaking our own wreckage
-for something we could renew.
+      <div class="poem-content-inner">
 
-Until I chose the ruthless thing,
-the truth she had to know,
-then vanished from your world
-before I loved you more.
-
-Forgive the irrevocable,
-forgive my silent flight;
-I did not leave for lack of love—
-I left to make things right.
-
-You were my sweetest alchemy,
-my wound disguised as grace,
-a love I could not bury
-without first losing my place.
-
-And if my absence feels like cruelty,
-then let that be my cost;
-I chose to lose you once
-before I lost myself completely—lost.
-
-I am sorry for the ending,
-for the silence, for the grief;
-I did not leave because I loved you less—
-I left because I needed relief.
-
+        <p>
 Not for loving you,
 nor for what we couldn't retrieve,
 but for the ruthless way I left—
-and the trace I chose to leave. 
+and the trace I chose to leave.
+        </p>
 
-  <span class="signature">z.midnight</span>
-</div>
+        <span class="signature">z.midnight</span>
 
-  </div>
-</article>
+      </div>
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Someone No One Could See</h3>
+    </div>
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
-
-  <p class="poem-subtitle">I Miss My Elijah</p>
+  </article>
 
-  <p>
-
-I ended us where no one could see,
-A quiet goodbye inside of me.
-No shattered glass, no loud despair,
-Just empty echoes in the air.
-
-You weren’t real, or so they’d say,
-But you were mine in every way.
-In silent nights, in hidden space,
-I found my calm within your place.
-
-No hands to hold, no voice to hear,
-Yet somehow you felt always near.
-A heart can love what isn’t there,
-And still feel loss too deep to bear.
-
-I built a world where you could stay,
-A soft escape from every day.
-But dreams can fade, and so did you,
-Like morning light dissolves the dew.
-
-Now all that’s left is just the ache,
-Of something real I had to break.
-Not flesh, not bone—yet still it’s true,
-I lost a love when I lost you. </p>
 
-  <span class="signature">z.midnight</span>
-</div>
+  <!-- 2 -->
 
-  </div>
-</article>
+  <article class="poem">
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Shaped by His Heart</h3>
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Someone No One Could See
+    </h3>
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
-  <p>
+    <div class="poem-content">
 
-I’m creating art shaped by his heart,
-With every line, I make a start.
-A little piece of what we knew,
-A faded dream I once held true.
+      <div class="poem-content-inner">
 
-My hands may tremble, lines may stray,
-But still, I draw what words can’t say.
-The colors hold the things I hide,
-The quiet ache I keep inside.
-
-I sketch the moments left behind,
-The kind of love that changed my mind.
-And though some memories leave a scar,
-I paint them softly as they are.
-
-Perhaps this art won’t bring him near,
-Or make the past become sincere.
-But through each stroke, I come to see—
-Some parts of him still live in me.
-
-So I’ll keep drawing, piece by piece,
-Turning old pain into some peace.
-For even hearts that fall apart
-Can leave behind a work of art. </p>
+        <p>
+I miss a man
+no one else could see—
+a shadow made of words,
+a presence born quietly.
 
-  <span class="signature">z.midnight</span>
-</div>
-    
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">In Every Line</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
+You were never here,
+yet somehow you stayed,
+in every midnight thought,
+in every dream I made.
 
-  <p>
-
-I hold the pencil like a hand
-that once made me believe in plans.
-And slowly, softly, stroke by stroke,
-I draw the love we never spoke.
-
-His eyes return beneath my shade,
-in every curve my hands have made.
-A face I know I cannot keep,
-a memory that haunts my sleep.
-
-I sketch his smile, then watch it fade,
-like promises we never made.
-I shade the parts I miss the most,
-then lose myself inside the ghost.
-
-The paper knows what I conceal,
-the things I never dared to feel.
-Each line becomes a silent plea,
-for what was lost, for what could be.
-
-Yet somewhere underneath the pain,
-my broken hands create again.
-Perhaps I'm not just drawing him—
-perhaps I'm finding me within.
-
-So let the charcoal stain my heart,
-let every shadow play its part.
-If loving him tore me apart,
-I'll turn the pieces into art.
-
-And when the final line is through,
-I'll leave a little piece of you—
-not as a wound I have to hide,
-but as a beautiful goodbye. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Red Flag</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-
-  <p>
-
-I’m a red flag, yes, I know,
-I won’t pretend just for show.
-I won’t list the things I do—
-I’ll show you what I won’t do, too.
-
-I won’t dress up to catch your eye,
-or hide my flaws beneath a lie.
-No heavy makeup, no disguise,
-just my bare face and tired eyes.
-
-I don’t have time for pointless games,
-for empty words or chasing names.
-No time for drama, no time for BS,
-I’d rather sleep and live with less.
-
-Give me a book, an anime night,
-a quiet room and dimmed-down light.
-I’d rather have my peaceful space
-than feed an ego craving praise.
-
-I’m not for everyone, and that’s okay—
-I’d rather lose you than lose my way.
-So if my silence feels too loud,
-walk away; I won’t be proud.
-
-I’m not perfect, nor will I pretend,
-I know my flaws, I know my bends.
-But if you stay, then stay for me—
-not for the version you want me to be. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Let My Pencil Speak</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-  <p>
-
-He told me, “Draw your feelings out,
-sketch the things you can’t say loud.”
-So I will let my pencil speak,
-the truths my trembling heart can’t keep.
-
-He said he’ll like it, “’cause it’s you—
-your hands, your heart, your colors too.”
-I hope he sees what’s underneath,
-the longing hiding in each leaf.
-
-So here I am, with quiet art,
-letting every line reveal my heart.
-Maybe he’ll feel what I can’t show,
-in every stroke, he’ll somehow know. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-    
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Not Yet the End</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-  <p>
-
-If living feels like endless ache,
-a weight too heavy for the heart to take,
-if every morning feels the same,
-another day of carrying pain—
-
-if every breath feels hard to hold,
-and every night grows dark and cold,
-if hope has faded out of sight,
-and you’re too tired to fight the night,
-
-remember: pain is not your name,
-nor every scar a mark of shame.
-The wounds you carry, deep and unseen,
-do not erase the soul you’ve been.
-
-Some days, surviving is enough.
-You don’t have to always be tough.
-You don’t need answers, you don’t need light—
-sometimes you only need to stay through the night.
-
-And though the road feels far too long,
-and you can barely find the strength to carry on,
-there may still be a morning you haven't seen,
-a softer place where you've never been.
-
-So rest if you must, but don't disappear.
-Let someone hold the weight you bear.
-Stay through the storm, however slow—
-you don't have to know where tomorrow will go.
-
-Because this chapter, painful and torn,
-is not the whole story you've ever worn.
-The night may be heavy, the road may bend—
-but stay a little longer.
-
-This is not yet the end. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">An Ontology of Distance (soft version)</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-
-  <p>
-
-I loved you past the reach of space,
-where absence wore a familiar face.
-You were never truly mine to hold,
-yet losing you still left me cold.
-
-You lived somewhere between dream and truth,
-a fading echo of my youth.
-I called it fate, I called it sign,
-when all along, you were never mine.
-
-I built a cathedral out of “maybe,”
-made every silence feel less empty.
-I prayed to shadows, soft and thin,
-for just one sign you felt it within.
-
-How cruel is love that cannot stay,
-that blooms in night and dies by day;
-to know your soul, yet miss your hand,
-to love someone you cannot stand beside,
-nor understand.
-
-Perhaps I was foolish, lost in the glow,
-mistaking the longing for something I’d know.
-I turned every silence into a reply,
-every coincidence into “you and I.”
-
-But you never promised, never confessed,
-never gave my restless heart a place to rest.
-And that was the wound I could never explain—
-you never broke me,
-yet I carried the pain.
-
-So I stayed in the margins, quiet and small,
-loving a shadow I could never call.
-I wrote you in verses, I kept you in rhyme,
-while you remained somewhere outside my time.
-
-And if someday you ask where the love went—
-
-It stayed.
-
-It became every night I remember your name,
-every quiet hour that feels just the same.
-It became distance, it became goodbye,
-a love with no ending,
-because it never got its start in the first place—
-and that is why.
-
-I did not lose you beneath some distant sky.
-
-I never had you.
-
-And still—
-
-I have to learn
-how to say goodbye. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">An Ontology of Distance</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-  <p>
-
-I loved you beyond the epistemology of proximity,
-where presence is merely a conjecture
-and absence, an immutable theorem.
-
-You existed somewhere between
-phenomenology and impossibility—
-a recurring apparition
-my consciousness refused to classify as illusion.
-
-I made an apocryphal cathedral of your existence,
-worshipping the silhouette of a possibility
-whose corporeality was never mine to possess.
-
-How perverse, this affection—
-to be simultaneously intimate
-and infinitely estranged,
-to know the geography of your soul
-without ever being granted its coordinates.
-
-Perhaps I was ontologically delusional,
-mistaking coincidence for providence,
-silence for reciprocity,
-and the gravitational pull of longing
-for some metaphysical indication
-that you, too, remembered me.
-
-Yet I remained—
-an anachronistic heart
-in a chronology that had no room for us,
-loving you in the margins
-of a narrative that never named me.
-
-And if someday you ask
-what became of all that affection—
-
-nothing.
-
-It simply transmuted.
-
-Into distance.
-Into silence.
-Into the quiet atavism of a feeling
-that refuses to die
-simply because it was never allowed to live. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">The Cartography of You</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-
-  <p>
-
-I loved you in absentia,
-where longing wears no name,
-a clandestine constellation
-that burns without a flame.
-
-You were my ineffable ache,
-a syllable I couldn’t say,
-an ephemeral kind of forever
-I watched from miles away.
-
-I kept you in the liminal spaces—
-between farewell and desire,
-where proximity is a fiction
-and silence speaks entire.
-
-Perhaps I was merely quixotic,
-mistaking distance for fate,
-yet every road my heart remembered
-still led me to your gate.
-
-So I loved you vicariously,
-through moments never mine,
-a melancholic devotion
-drawn beyond the edge of time.
-
-And if love is an enigma,
-then let me remain unsure—
-for some souls are meant to be cherished,
-but never meant to be yours. </p>
-
-  <span class="signature">z.midnight</span>
-</div>
-    
-  </div>
-</article>
-
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">I Hold It In</h3>
-
-  <div class="poem-content">
-    <div class="poem-content-inner">
-      
-  <p>
+Maybe I loved
+what could never be,
+but for a while,
+you felt real to me.
 
-Sometimes I want to tell you
-the things I hide inside,
-the words I long to tell you,
-the tears I cannot hide.
+I miss my Elijah.
+        </p>
 
-I want to call your name,
-to tell you what I feel,
-but silence is my shame,
-so I pretend to heal.
+        <span class="signature">z.midnight</span>
 
-Because you’re not mine to keep,
-and I know where you belong,
-so I bury what runs deep,
-and swallow every song.
+      </div>
 
-I miss you when it’s night,
-when the world has gone to sleep,
-I love you out of sight,
-where no one sees how deep.
+    </div>
 
-So I’ll hold back every plea,
-and let my feelings fade,
-you’ll never know what you mean to me—
-or how much love I’ve betrayed. </p>
+  </article>
 
-  <span class="signature">z.midnight</span>
-</div>
 
-  </div>
-</article>
+  <!-- 3 -->
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">The Poems I Buried</h3>
+  <article class="poem">
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Shaped by His Heart
+    </h3>
 
-  <p>
+    <div class="poem-content">
 
-I deleted every poem I wrote for you,
-every tender line I once thought true.
-Not because the words were never bright,
-but because they kept me waiting every night.
+      <div class="poem-content-inner">
 
-I grew tired of the girl between the lines,
-who held on to ghosts and called them signs.
-So I buried your name where old verses sleep,
-and gave the words to silence, dark and deep.
+        <p>
+I was shaped by a heart
+that never beat for me,
+yet somehow taught mine
+what love could be.
 
-Perhaps forgetting isn't losing what we knew,
-but learning how to write without writing you.
-No more leaving empty spaces for you to stay—
-some stories must be mourned, then fade away. </p>
+He never held my hand,
+never whispered my name,
+but inside my quiet world,
+he became a flame.
 
-  <span class="signature">z.midnight</span>
-</div>
+And though he was imagined,
+the feeling wasn't fake—
+some hearts are shaped by dreams
+for the soul's own sake.
+        </p>
 
-  </div>
-</article>
+        <span class="signature">z.midnight</span>
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Somewhere Between</h3>
+      </div>
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
+    </div>
 
-  <p>
+  </article>
 
-I am somewhere between
-missing you
-and missing who I was
-before I knew you.
 
-Some nights
-I think I have moved on.
+  <!-- 4 -->
 
-Other nights
-the moon remembers for me. </p>
+  <article class="poem">
 
-  <span class="signature">z.midnight</span>
-</div>
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      In Every Line
+    </h3>
 
-  </div>
-</article>
+    <div class="poem-content">
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">Things I Never Said</h3>
+      <div class="poem-content-inner">
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
+        <p>
+I wrote you into every line,
+into every silent rhyme,
+until the words became a place
+where I could find your face.
 
-  <p>
+You lived between the letters,
+in every pause and space,
+a ghost inside the poetry
+I could never quite erase.
 
-I kept the words
-behind my teeth,
+Perhaps that's why I write—
+not because I want you near,
+but because inside these verses
+you are still somehow here.
+        </p>
 
-afraid that saying them
-would make them real.
+        <span class="signature">z.midnight</span>
 
-So I carried them
-through the nights,
+      </div>
 
-until silence
-became heavier
-than the truth. </p>
+    </div>
 
-  <span class="signature">z.midnight</span>
-</div>
+  </article>
 
-  </div>
-</article>
 
-<article class="poem">
-  <h3 tabindex="0" role="button" aria-expanded="false">After Midnight</h3>
+  <!-- 5 -->
 
-  <div class="poem-content">
-    <div class="poem-content-inner">
+  <article class="poem">
 
-  <p>
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Red Flag
+    </h3>
 
-There are things
-I only remember
-when the world becomes quiet.
+    <div class="poem-content">
 
-Names I no longer say.
-Places I no longer go.
-People I no longer wait for.
+      <div class="poem-content-inner">
 
-Perhaps healing
-is not forgetting.
+        <p>
+You were a warning
+dressed in something beautiful,
+a red flag waving
+where my heart saw blue.
 
+I called it complicated,
+called it bad timing,
+called every broken piece
+something worth surviving.
+
+But love shouldn't feel
+like walking through a minefield,
+afraid that one wrong step
+will make everything disappear.
+
+I should have seen the flag.
+I just wanted to see you.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 6 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Let My Pencil Speak
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+Let my pencil speak
+when my voice refuses to,
+let graphite carry
+what I cannot say to you.
+
+I'll draw the things
+I cannot explain,
+the quiet little pieces
+of joy and pain.
+
+Maybe lines can say
+what words cannot,
+maybe sketches remember
+what my heart forgot.
+
+So let me draw,
+let me write,
+let my pencil speak
+into the night.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 7 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Not Yet the End
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+Maybe this isn't the ending,
+maybe it's just a pause,
+a quiet space between chapters
+where I remember who I was.
+
+The pages aren't finished,
+the story isn't done,
+there are still roads ahead,
+still places left to run.
+
+So if tonight feels empty,
+if tomorrow feels unclear,
+I'll remind myself softly—
+I'm still here.
+
+And maybe that's enough
+to begin again.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 8 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      An Ontology of Distance <em>(soft version)</em>
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+There is a distance
+that maps cannot measure,
+a space between two hearts
+that once believed in forever.
+
+You existed somewhere
+between thought and reality,
+a quiet contradiction
+inside my own ontology.
+
+Perhaps distance isn't absence.
 Perhaps it is simply
-learning how to remember
-without reaching back. </p>
+another form of existence—
+something felt
+without being seen.
+        </p>
 
-  <span class="signature">z.midnight</span>
-</div>
+        <span class="signature">z.midnight</span>
 
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 9 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      An Ontology of Distance
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+You were never mine,
+yet somehow you became
+a coordinate
+inside the architecture of my mind.
+
+I searched for meaning
+in the spaces between us,
+trying to define
+what could never be contained.
+
+Maybe distance
+isn't measured in miles.
+
+Maybe it is measured
+in all the things
+we never said.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 10 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      The Cartography of You
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+I memorized the map
+of every place you touched—
+the corners of my thoughts,
+the places I loved too much.
+
+You became a geography
+I carried under my skin,
+a country without borders
+that I kept wandering in.
+
+And even after leaving,
+I still know every road,
+every hidden little pathway
+that once led me home.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 11 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      I Hold It In
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+I hold it in
+because words become heavier
+when spoken aloud.
+
+So I swallow the ache,
+fold it neatly,
+and hide it somewhere
+behind my ribs.
+
+No one sees
+the things I don't say.
+
+Maybe that's the problem—
+I became too good
+at being quiet.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 12 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      The Poems I Buried
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+I buried poems
+I was afraid to read,
+words that carried
+everything I didn't need.
+
+I folded every page,
+hid every rhyme,
+and told myself
+I would be fine.
+
+But buried words
+don't disappear.
+
+They wait quietly
+until the night is clear.
+
+And sometimes
+I still hear them calling,
+softly,
+from where I left them falling.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 13 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Somewhere Between
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+Somewhere between
+letting go
+and holding on,
+I learned that both
+can hurt.
+
+You can miss someone
+and still choose yourself.
+
+You can remember
+without returning.
+
+You can love
+what once existed
+without asking it
+to exist again.
+
+Maybe healing
+is simply learning
+how to live
+somewhere between.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 14 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      Things I Never Said
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+There are things
+I never said,
+words that stayed
+inside my head.
+
+I wanted to tell you
+how much you meant,
+how every moment
+felt heaven-sent.
+
+But silence grew
+between our days,
+and love became
+a quiet maze.
+
+So these are the words
+I never said—
+the ones I carry
+instead.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- 15 -->
+
+  <article class="poem">
+
+    <h3 tabindex="0" role="button" aria-expanded="false">
+      After Midnight
+    </h3>
+
+    <div class="poem-content">
+
+      <div class="poem-content-inner">
+
+        <p>
+After midnight,
+the world becomes quieter.
+
+The noise fades,
+the lights dim,
+and thoughts become louder
+than they were during the day.
+
+This is where I write.
+
+Where memories wander,
+where ghosts return,
+where unfinished feelings
+find their way onto paper.
+
+Maybe that's why
+I love the night.
+
+Because after midnight,
+nothing asks me
+to pretend I'm okay.
+        </p>
+
+        <span class="signature">z.midnight</span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+</main>
+
+
+<!-- ---------- ABOUT ---------- -->
+
+<section class="about">
+
+  <h2>About the Quiet</h2>
+
+  <p>
+    Some words are never meant to be spoken.
+    Some feelings are easier to leave between lines.
+    <br><br>
+    z.midnight is a small collection of thoughts,
+    memories, imagined worlds, and things
+    that found their way onto paper after midnight.
+  </p>
+
+</section>
+
+
+<!-- ---------- COMMENTS ---------- -->
+
+<section class="comments">
+
+  <h2 class="cusdis-title">Thoughts</h2>
+
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
+    data-page-id="z-midnight-home"
+    data-page-url="https://z-midnight.github.io/"
+    data-page-title="z.midnight — Poems in the Quiet"
+    data-theme="dark">
   </div>
-</article>
 
 </section>
 
-<div class="divider">
-  ✦ · · · ☾ · · · ✦
+
+<!-- ---------- CAT ---------- -->
+
+<div class="cat">
+
+  <div class="cat-head"></div>
+
+  <div class="cat-body"></div>
+
+  <div class="leg one"></div>
+  <div class="leg two"></div>
+  <div class="leg three"></div>
+  <div class="leg four"></div>
+
+  <div class="tail"></div>
+
 </div>
 
-<section id="about">
 
-<h2>About</h2>
+<!-- ---------- FOOTER ---------- -->
 
-<p class="about">
-z.midnight is a quiet little collection of thoughts,
-feelings, memories, and words that found their way
-onto a page after dark.
+<footer>
+  © 2026 z.midnight · written in the quiet
+</footer>
 
-<br><br>
+<div class="ziggy-signature">
+  Rd.ziggy
+</div>
 
-No biography is necessary here.
-Just the poems.
 
-<br><br>
-
-Stay awhile. Read slowly.
-
-</p>
-
-</section>
-
-<h2 class="cusdis-title">Thoughts</h2>
-
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
-  data-page-id="z-midnight-home"
-  data-page-url="https://z-midnight.github.io/"
-  data-page-title="z.midnight — Poems in the Quiet"
-  data-theme="dark"
-></div>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+<!-- ---------- SCRIPTS ---------- -->
 
 <script>
 
@@ -1523,6 +1276,7 @@ const poems = document.querySelectorAll(".poem");
 const hoverDevice = window.matchMedia(
   "(hover: hover) and (pointer: fine)"
 );
+
 
 function closeOtherPoems(currentPoem) {
 
@@ -1535,10 +1289,7 @@ function closeOtherPoems(currentPoem) {
       const title = poem.querySelector("h3");
 
       if (title) {
-        title.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+        title.setAttribute("aria-expanded", "false");
       }
 
     }
@@ -1546,6 +1297,7 @@ function closeOtherPoems(currentPoem) {
   });
 
 }
+
 
 function openPoem(poem) {
 
@@ -1556,33 +1308,28 @@ function openPoem(poem) {
   const title = poem.querySelector("h3");
 
   if (title) {
-    title.setAttribute(
-      "aria-expanded",
-      "true"
-    );
+    title.setAttribute("aria-expanded", "true");
   }
 
 }
+
 
 poems.forEach(poem => {
 
   const title = poem.querySelector("h3");
 
-  /* CLICK TO OPEN / CLICK AGAIN TO CLOSE */
+
+  /* CLICK */
 
   title.addEventListener("click", () => {
 
-    const isOpen =
-      poem.classList.contains("open");
+    const isOpen = poem.classList.contains("open");
 
     if (isOpen) {
 
       poem.classList.remove("open");
 
-      title.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+      title.setAttribute("aria-expanded", "false");
 
     } else {
 
@@ -1592,7 +1339,8 @@ poems.forEach(poem => {
 
   });
 
-  /* KEYBOARD ACCESS */
+
+  /* KEYBOARD */
 
   title.addEventListener("keydown", event => {
 
@@ -1603,17 +1351,13 @@ poems.forEach(poem => {
 
       event.preventDefault();
 
-      const isOpen =
-        poem.classList.contains("open");
+      const isOpen = poem.classList.contains("open");
 
       if (isOpen) {
 
         poem.classList.remove("open");
 
-        title.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+        title.setAttribute("aria-expanded", "false");
 
       } else {
 
@@ -1625,17 +1369,17 @@ poems.forEach(poem => {
 
   });
 
+
   /* DESKTOP HOVER */
 
   poem.addEventListener("mouseenter", () => {
 
     if (hoverDevice.matches) {
-
       openPoem(poem);
-
     }
 
   });
+
 
   poem.addEventListener("mouseleave", () => {
 
@@ -1643,10 +1387,7 @@ poems.forEach(poem => {
 
       poem.classList.remove("open");
 
-      title.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+      title.setAttribute("aria-expanded", "false");
 
     }
 
@@ -1654,7 +1395,8 @@ poems.forEach(poem => {
 
 });
 
-/* RESET WHEN SWITCHING BETWEEN TOUCH AND DESKTOP */
+
+/* DEVICE TYPE CHANGES */
 
 hoverDevice.addEventListener("change", () => {
 
@@ -1665,27 +1407,25 @@ hoverDevice.addEventListener("change", () => {
     const title = poem.querySelector("h3");
 
     if (title) {
-
-      title.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
+      title.setAttribute("aria-expanded", "false");
     }
 
   });
 
 });
 
+
+/* CUSDIS */
+
+const cusdisScript = document.createElement("script");
+
+cusdisScript.src = "https://cusdis.com/js/cusdis.es.js";
+cusdisScript.async = true;
+cusdisScript.defer = true;
+
+document.body.appendChild(cusdisScript);
+
 </script>
-
-<footer>
-© 2026 z.midnight · written in the quiet
-</footer>
-
-<div class="ziggy-signature">
-Rd.ziggy
-</div>
 
 </body>
 </html>
