@@ -102,7 +102,7 @@ body::after {
     0 0 12px rgba(190,210,255,.6);
 
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 
   animation:
     twinkle 4s ease-in-out infinite;
@@ -303,6 +303,10 @@ h1 {
   border-radius: 50px;
 
   filter: blur(6px);
+
+  pointer-events: none;
+
+  z-index: 2;
 }
 
 .cloud::before,
@@ -396,6 +400,10 @@ h1 {
   transform: rotate(-32deg);
 
   opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 3;
 
   animation:
     shootOne 11s ease-in-out infinite;
@@ -493,7 +501,7 @@ h1 {
 
 
 /* =====================================================
-   🐈‍⬛ THE CAT IS BACK
+   🐈‍⬛ THE CAT
    ===================================================== */
 
 .cat {
@@ -509,6 +517,8 @@ h1 {
     catWalk 24s linear infinite;
 
   z-index: 5;
+
+  pointer-events: none;
 }
 
 .cat-body {
@@ -1085,6 +1095,22 @@ h2 {
 
 
 /* -----------------------------------------------------
+   FIRST POEM — NO BOX
+   ----------------------------------------------------- */
+
+#poems .poem:first-of-type.open .poem-content-inner,
+#poems .poem:first-of-type:hover .poem-content-inner {
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+
+
+/* -----------------------------------------------------
    POEM TEXT
    ----------------------------------------------------- */
 
@@ -1231,12 +1257,6 @@ h2 {
   letter-spacing: 1px;
 }
 
-
-/*
-   The Cusdis widget stays functional inside this
-   rounded social-style shell.
-*/
-
 .comment-card {
   width: 100%;
 
@@ -1278,11 +1298,6 @@ h2 {
 
   background: transparent !important;
 }
-
-
-/*
-   The old standalone Cusdis heading is no longer used.
-*/
 
 .cusdis-title {
   display: none;
@@ -1455,27 +1470,6 @@ footer {
 
 }
 
-
-/* =====================================================
-   REDUCED MOTION
-   ===================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
-}
-
 </style>
 </head>
 
@@ -1581,9 +1575,7 @@ footer {
 </p>
 
 
-<!-- =====================================================
-     01 — AN ELEGY FOR US
-     ===================================================== -->
+<!-- 01 -->
 
 <article class="poem">
 
@@ -1592,7 +1584,6 @@ footer {
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1655,15 +1646,12 @@ and the trace I chose to leave.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     02 — SOMEONE NO ONE COULD SEE
-     ===================================================== -->
+<!-- 02 -->
 
 <article class="poem">
 
@@ -1672,7 +1660,6 @@ and the trace I chose to leave.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p class="poem-subtitle">I Miss My Elijah</p>
@@ -1707,15 +1694,12 @@ I lost a love when I lost you.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     03 — SHAPED BY HIS HEART
-     ===================================================== -->
+<!-- 03 -->
 
 <article class="poem">
 
@@ -1724,7 +1708,6 @@ I lost a love when I lost you.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1757,15 +1740,12 @@ Can leave behind a work of art.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     04 — IN EVERY LINE
-     ===================================================== -->
+<!-- 04 -->
 
 <article class="poem">
 
@@ -1774,7 +1754,6 @@ Can leave behind a work of art.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1817,15 +1796,12 @@ but as a beautiful goodbye.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     05 — RED FLAG
-     ===================================================== -->
+<!-- 05 -->
 
 <article class="poem">
 
@@ -1834,7 +1810,6 @@ but as a beautiful goodbye.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1872,15 +1847,12 @@ not for the version you want me to be.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     06 — LET MY PENCIL SPEAK
-     ===================================================== -->
+<!-- 06 -->
 
 <article class="poem">
 
@@ -1889,7 +1861,6 @@ not for the version you want me to be.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1912,15 +1883,12 @@ in every stroke, he’ll somehow know.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     07 — NOT YET THE END
-     ===================================================== -->
+<!-- 07 -->
 
 <article class="poem">
 
@@ -1929,7 +1897,6 @@ in every stroke, he’ll somehow know.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -1974,15 +1941,12 @@ This is not yet the end.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     08 — AN ONTOLOGY OF DISTANCE (SOFT VERSION)
-     ===================================================== -->
+<!-- 08 -->
 
 <article class="poem">
 
@@ -1991,7 +1955,6 @@ This is not yet the end.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2056,15 +2019,12 @@ how to say goodbye.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     09 — AN ONTOLOGY OF DISTANCE
-     ===================================================== -->
+<!-- 09 -->
 
 <article class="poem">
 
@@ -2073,7 +2033,6 @@ how to say goodbye.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2126,15 +2085,12 @@ simply because it was never allowed to live.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     10 — THE CARTOGRAPHY OF YOU
-     ===================================================== -->
+<!-- 10 -->
 
 <article class="poem">
 
@@ -2143,7 +2099,6 @@ simply because it was never allowed to live.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2181,15 +2136,12 @@ but never meant to be yours.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     11 — I HOLD IT IN
-     ===================================================== -->
+<!-- 11 -->
 
 <article class="poem">
 
@@ -2198,7 +2150,6 @@ but never meant to be yours.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2231,15 +2182,12 @@ or how much love I’ve betrayed.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     12 — THE POEMS I BURIED
-     ===================================================== -->
+<!-- 12 -->
 
 <article class="poem">
 
@@ -2248,7 +2196,6 @@ or how much love I’ve betrayed.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2271,15 +2218,12 @@ some stories must be mourned, then fade away.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     13 — SOMEWHERE BETWEEN
-     ===================================================== -->
+<!-- 13 -->
 
 <article class="poem">
 
@@ -2288,7 +2232,6 @@ some stories must be mourned, then fade away.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2307,15 +2250,12 @@ the moon remembers for me.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     14 — THINGS I NEVER SAID
-     ===================================================== -->
+<!-- 14 -->
 
 <article class="poem">
 
@@ -2324,7 +2264,6 @@ the moon remembers for me.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2345,15 +2284,12 @@ than the truth.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
 
 
-<!-- =====================================================
-     15 — AFTER MIDNIGHT
-     ===================================================== -->
+<!-- 15 -->
 
 <article class="poem">
 
@@ -2362,7 +2298,6 @@ than the truth.
   </h3>
 
   <div class="poem-content">
-
     <div class="poem-content-inner">
 
       <p>
@@ -2385,7 +2320,6 @@ without reaching back.
       <span class="signature">z.midnight</span>
 
     </div>
-
   </div>
 
 </article>
@@ -2681,4 +2615,3 @@ Rd.ziggy
 
 </body>
 </html>
-```
