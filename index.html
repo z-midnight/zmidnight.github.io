@@ -874,7 +874,7 @@ h2 {
 
   text-align: center;
 
-  margin-bottom: 55px;
+  margin-bottom: 18px;
 
   letter-spacing: 3px;
 
@@ -886,36 +886,222 @@ h2 {
 
 
 /* =====================================================
-   POEMS
+   POEM INDEX
    ===================================================== */
 
-.poem {
-  margin-bottom: 80px;
+.poem-index-note {
+  text-align: center;
 
-  padding: 45px 40px;
+  color: #737d92;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 45px;
+
+  opacity: .85;
+}
+
+.poem {
+  position: relative;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+
+
+/* -----------------------------------------------------
+   POEM TITLE
+   ----------------------------------------------------- */
+
+.poem h3 {
+  position: relative;
+
+  font-size: 22px;
+
+  font-weight: normal;
+
+  color: #cbd3e2;
+
+  text-align: center;
+
+  letter-spacing: 1.5px;
+
+  padding: 22px 45px 22px 20px;
+
+  margin: 0;
+
+  border-top:
+    1px solid rgba(150,165,195,.16);
+
+  cursor: pointer;
+
+  transition:
+    color .35s ease,
+    text-shadow .35s ease,
+    background .35s ease,
+    padding .35s ease;
+}
+
+
+/* little moon/star marker */
+
+.poem h3::after {
+  content: "✦";
+
+  position: absolute;
+
+  right: 18px;
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(0deg);
+
+  color: #6f7b94;
+
+  font-size: 13px;
+
+  transition:
+    transform .45s ease,
+    color .35s ease,
+    text-shadow .35s ease;
+}
+
+
+/* final line of index */
+
+.poem:last-child h3 {
+  border-bottom:
+    1px solid rgba(150,165,195,.16);
+}
+
+
+/* hover/focus title */
+
+.poem:hover h3,
+.poem.open h3,
+.poem h3:focus {
+  color: #f0f2f7;
+
+  text-shadow:
+    0 0 14px rgba(210,220,255,.25);
+
+  background:
+    rgba(15,27,48,.28);
+}
+
+.poem:hover h3::after,
+.poem.open h3::after {
+  color: #d8dced;
+
+  transform:
+    translateY(-50%)
+    rotate(90deg);
+
+  text-shadow:
+    0 0 10px rgba(220,230,255,.55);
+}
+
+
+/* keyboard accessibility */
+
+.poem h3:focus {
+  outline: none;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(180,195,225,.18);
+}
+
+
+/* -----------------------------------------------------
+   EXPANDING POEM
+   ----------------------------------------------------- */
+
+.poem-content {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows .65s cubic-bezier(.4,0,.2,1),
+    opacity .4s ease;
+}
+
+.poem-content-inner {
+  overflow: hidden;
+
+  min-height: 0;
+
+  margin: 0 0;
+  padding: 0 40px;
 
   border:
-    1px solid rgba(150,165,195,.28);
+    1px solid transparent;
+
+  background:
+    transparent;
+
+  box-shadow:
+    none;
+
+  transition:
+    padding .65s ease,
+    margin .65s ease,
+    border-color .65s ease,
+    background .65s ease,
+    box-shadow .65s ease;
+}
+
+
+/* opened state */
+
+.poem.open .poem-content,
+.poem:hover .poem-content {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+.poem.open .poem-content-inner,
+.poem:hover .poem-content-inner {
+  margin:
+    0 0 25px;
+
+  padding:
+    30px 40px 35px;
+
+  border:
+    1px solid rgba(150,165,195,.23);
 
   background:
     rgba(10,18,34,.72);
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.38);
+    0 12px 35px rgba(0,0,0,.30);
 
   backdrop-filter:
     blur(5px);
 }
 
-.poem h3 {
-  font-size: 25px;
 
-  font-weight: normal;
-
-  margin-bottom: 25px;
-
-  color: #e4e6ed;
-}
+/* -----------------------------------------------------
+   POEM TEXT
+   ----------------------------------------------------- */
 
 .poem p {
   white-space: pre-line;
@@ -925,6 +1111,20 @@ h2 {
   font-size: 18px;
 
   line-height: 2;
+}
+
+.poem-subtitle {
+  color: #8f9bb1 !important;
+
+  font-size: 14px !important;
+
+  font-style: italic;
+
+  letter-spacing: 1.5px;
+
+  text-align: center;
+
+  margin-bottom: 22px;
 }
 
 .signature {
@@ -937,6 +1137,27 @@ h2 {
   font-size: 12px;
 
   letter-spacing: 2px;
+
+  text-align: right;
+}
+
+
+/* =====================================================
+   DESKTOP HOVER BEHAVIOR
+   ===================================================== */
+
+/*
+   Hover works only on devices that actually support
+   hover. This prevents mobile browsers from getting
+   stuck in a strange "hover" state.
+*/
+
+@media (hover: hover) and (pointer: fine) {
+
+  .poem h3 {
+    cursor: pointer;
+  }
+
 }
 
 
@@ -1092,8 +1313,54 @@ footer {
     font-size: 12px;
   }
 
-  .poem {
-    padding: 25px;
+  section {
+    padding:
+      70px 20px;
+  }
+
+  .poem-index-note {
+    font-size: 12px;
+
+    margin-bottom: 30px;
+  }
+
+  .poem h3 {
+    font-size: 18px;
+
+    padding:
+      20px 38px 20px 12px;
+
+    letter-spacing: 1px;
+  }
+
+  .poem h3::after {
+    right: 12px;
+
+    font-size: 11px;
+  }
+
+  .poem.open .poem-content-inner {
+    padding:
+      25px 22px 28px;
+
+    margin-bottom:
+      20px;
+  }
+
+  .poem p {
+    font-size: 16px;
+
+    line-height: 1.9;
+  }
+
+  .poem-subtitle {
+    font-size: 13px !important;
+
+    margin-bottom: 18px;
+  }
+
+  .signature {
+    margin-top: 20px;
   }
 
   .moon {
@@ -1104,11 +1371,6 @@ footer {
   .moon::after {
     width: 70px;
     height: 70px;
-  }
-
-  section {
-    padding:
-      70px 20px;
   }
 
   #cusdis_thread {
@@ -1132,6 +1394,27 @@ footer {
 
   .ziggy-signature {
     padding-right: 20px;
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
   }
 
 }
@@ -1236,9 +1519,26 @@ footer {
 
 <h2>Poems in the Quiet</h2>
 
-  <article class="poem">
-  <h3>An Elegy for Us</h3>
-  <p>
+<p class="poem-index-note">
+  hover a title to enter the quiet · tap on mobile
+</p>
+
+
+<!-- =====================================================
+     01 — AN ELEGY FOR US
+     ===================================================== -->
+
+<article class="poem">
+
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    An Elegy for Us
+  </h3>
+
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I knew not of her
 when I first knew you,
 until truth wore your voice
@@ -1293,18 +1593,34 @@ Not for loving you,
 nor for what we couldn't retrieve,
 but for the ruthless way I left—
 and the trace I chose to leave.
-  </p>
-  <span class="signature">z.midnight</span>
+      </p>
+
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
+
 </article>
 
 
+<!-- =====================================================
+     02 — SOMEONE NO ONE COULD SEE
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Someone No One Could See</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Someone No One Could See
+  </h3>
 
-<p class="poem-subtitle">I Miss My Elijah</p>
+  <div class="poem-content">
 
-<p>
+    <div class="poem-content-inner">
+
+      <p class="poem-subtitle">I Miss My Elijah</p>
+
+      <p>
 I ended us where no one could see,
 A quiet goodbye inside of me.
 No shattered glass, no loud despair,
@@ -1329,18 +1645,32 @@ Now all that’s left is just the ache,
 Of something real I had to break.
 Not flesh, not bone—yet still it’s true,
 I lost a love when I lost you.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     03 — SHAPED BY HIS HEART
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Shaped by His Heart</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Shaped by His Heart
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I’m creating art shaped by his heart,
 With every line, I make a start.
 A little piece of what we knew,
@@ -1365,18 +1695,32 @@ So I’ll keep drawing, piece by piece,
 Turning old pain into some peace.
 For even hearts that fall apart
 Can leave behind a work of art.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     04 — IN EVERY LINE
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>In Every Line</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    In Every Line
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I hold the pencil like a hand
 that once made me believe in plans.
 And slowly, softly, stroke by stroke,
@@ -1411,18 +1755,32 @@ And when the final line is through,
 I'll leave a little piece of you—
 not as a wound I have to hide,
 but as a beautiful goodbye.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     05 — RED FLAG
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Red Flag</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Red Flag
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I’m a red flag, yes, I know,
 I won’t pretend just for show.
 I won’t list the things I do—
@@ -1452,18 +1810,32 @@ I’m not perfect, nor will I pretend,
 I know my flaws, I know my bends.
 But if you stay, then stay for me—
 not for the version you want me to be.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     06 — LET MY PENCIL SPEAK
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Let My Pencil Speak</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Let My Pencil Speak
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 He told me, “Draw your feelings out,
 sketch the things you can’t say loud.”
 So I will let my pencil speak,
@@ -1478,18 +1850,32 @@ So here I am, with quiet art,
 letting every line reveal my heart.
 Maybe he’ll feel what I can’t show,
 in every stroke, he’ll somehow know.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     07 — NOT YET THE END
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Not Yet the End</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Not Yet the End
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 If living feels like endless ache,
 a weight too heavy for the heart to take,
 if every morning feels the same,
@@ -1526,18 +1912,32 @@ The night may be heavy, the road may bend—
 but stay a little longer.
 
 This is not yet the end.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     08 — AN ONTOLOGY OF DISTANCE (SOFT VERSION)
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>An Ontology of Distance (soft version)</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    An Ontology of Distance (soft version)
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I loved you past the reach of space,
 where absence wore a familiar face.
 You were never truly mine to hold,
@@ -1594,18 +1994,32 @@ And still—
 
 I have to learn
 how to say goodbye.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     09 — AN ONTOLOGY OF DISTANCE
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>An Ontology of Distance</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    An Ontology of Distance
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I loved you beyond the epistemology of proximity,
 where presence is merely a conjecture
 and absence, an immutable theorem.
@@ -1650,18 +2064,32 @@ Into silence.
 Into the quiet atavism of a feeling
 that refuses to die
 simply because it was never allowed to live.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     10 — THE CARTOGRAPHY OF YOU
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>The Cartography of You</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    The Cartography of You
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I loved you in absentia,
 where longing wears no name,
 a clandestine constellation
@@ -1691,18 +2119,32 @@ And if love is an enigma,
 then let me remain unsure—
 for some souls are meant to be cherished,
 but never meant to be yours.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     11 — I HOLD IT IN
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>I Hold It In</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    I Hold It In
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 Sometimes I want to tell you
 the things I hide inside,
 the words I long to tell you,
@@ -1727,18 +2169,32 @@ So I’ll hold back every plea,
 and let my feelings fade,
 you’ll never know what you mean to me—
 or how much love I’ve betrayed.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     12 — THE POEMS I BURIED
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>The Poems I Buried</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    The Poems I Buried
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I deleted every poem I wrote for you,
 every tender line I once thought true.
 Not because the words were never bright,
@@ -1753,18 +2209,32 @@ Perhaps forgetting isn't losing what we knew,
 but learning how to write without writing you.
 No more leaving empty spaces for you to stay—
 some stories must be mourned, then fade away.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     13 — SOMEWHERE BETWEEN
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Somewhere Between</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Somewhere Between
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I am somewhere between
 missing you
 and missing who I was
@@ -1775,18 +2245,32 @@ I think I have moved on.
 
 Other nights
 the moon remembers for me.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     14 — THINGS I NEVER SAID
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>Things I Never Said</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    Things I Never Said
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 I kept the words
 behind my teeth,
 
@@ -1799,18 +2283,32 @@ through the nights,
 until silence
 became heavier
 than the truth.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
 
+<!-- =====================================================
+     15 — AFTER MIDNIGHT
+     ===================================================== -->
+
 <article class="poem">
 
-<h3>After Midnight</h3>
+  <h3 tabindex="0" role="button" aria-expanded="false">
+    After Midnight
+  </h3>
 
-<p>
+  <div class="poem-content">
+
+    <div class="poem-content-inner">
+
+      <p>
 There are things
 I only remember
 when the world becomes quiet.
@@ -1825,9 +2323,13 @@ is not forgetting.
 Perhaps it is simply
 learning how to remember
 without reaching back.
-</p>
+      </p>
 
-<span class="signature">z.midnight</span>
+      <span class="signature">z.midnight</span>
+
+    </div>
+
+  </div>
 
 </article>
 
@@ -1890,6 +2392,207 @@ Stay awhile. Read slowly.
 
 
 <!-- =====================================================
+     POEM INTERACTION
+     ===================================================== -->
+
+<script>
+
+const poems = document.querySelectorAll(".poem");
+
+const hoverDevice = window.matchMedia(
+  "(hover: hover) and (pointer: fine)"
+);
+
+
+/* -----------------------------------------------------
+   Close every poem except the selected one
+   ----------------------------------------------------- */
+
+function closeOtherPoems(currentPoem) {
+
+  poems.forEach(poem => {
+
+    if (poem !== currentPoem) {
+
+      poem.classList.remove("open");
+
+      const title = poem.querySelector("h3");
+
+      if (title) {
+        title.setAttribute("aria-expanded", "false");
+      }
+
+    }
+
+  });
+
+}
+
+
+/* -----------------------------------------------------
+   Open a poem
+   ----------------------------------------------------- */
+
+function openPoem(poem) {
+
+  closeOtherPoems(poem);
+
+  poem.classList.add("open");
+
+  const title = poem.querySelector("h3");
+
+  if (title) {
+    title.setAttribute("aria-expanded", "true");
+  }
+
+}
+
+
+/* -----------------------------------------------------
+   Mobile tap / keyboard interaction
+   ----------------------------------------------------- */
+
+poems.forEach(poem => {
+
+  const title = poem.querySelector("h3");
+
+
+  title.addEventListener("click", () => {
+
+    /*
+      On desktop, hovering controls the opening.
+      Clicking simply opens the poem while the pointer
+      remains inside it.
+
+      On mobile, tapping toggles the poem.
+    */
+
+    if (hoverDevice.matches) {
+
+      openPoem(poem);
+
+    } else {
+
+      const isOpen = poem.classList.contains("open");
+
+      if (isOpen) {
+
+        poem.classList.remove("open");
+
+        title.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      } else {
+
+        openPoem(poem);
+
+      }
+
+    }
+
+  });
+
+
+  /* ---------------------------------------------------
+     Keyboard support
+     --------------------------------------------------- */
+
+  title.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+
+      event.preventDefault();
+
+      const isOpen =
+        poem.classList.contains("open");
+
+      if (isOpen) {
+
+        poem.classList.remove("open");
+
+        title.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      } else {
+
+        openPoem(poem);
+
+      }
+
+    }
+
+  });
+
+
+  /* ---------------------------------------------------
+     Desktop hover
+     --------------------------------------------------- */
+
+  poem.addEventListener("mouseenter", () => {
+
+    if (hoverDevice.matches) {
+
+      openPoem(poem);
+
+    }
+
+  });
+
+
+  poem.addEventListener("mouseleave", () => {
+
+    if (hoverDevice.matches) {
+
+      poem.classList.remove("open");
+
+      title.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  });
+
+});
+
+
+/* -----------------------------------------------------
+   Update behavior if device capability changes
+   ----------------------------------------------------- */
+
+hoverDevice.addEventListener("change", () => {
+
+  poems.forEach(poem => {
+
+    poem.classList.remove("open");
+
+    const title = poem.querySelector("h3");
+
+    if (title) {
+
+      title.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  });
+
+});
+
+</script>
+
+
+<!-- =====================================================
      FOOTER
      ===================================================== -->
 
@@ -1909,4 +2612,3 @@ Rd.ziggy
 
 </body>
 </html>
-```
