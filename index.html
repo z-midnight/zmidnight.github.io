@@ -955,9 +955,6 @@ h2 {
     padding .35s ease;
 }
 
-
-/* little moon/star marker */
-
 .poem h3::after {
   content: "✦";
 
@@ -980,16 +977,10 @@ h2 {
     text-shadow .35s ease;
 }
 
-
-/* final line of index */
-
 .poem:last-child h3 {
   border-bottom:
     1px solid rgba(150,165,195,.16);
 }
-
-
-/* hover/focus title */
 
 .poem:hover h3,
 .poem.open h3,
@@ -1014,9 +1005,6 @@ h2 {
   text-shadow:
     0 0 10px rgba(220,230,255,.55);
 }
-
-
-/* keyboard accessibility */
 
 .poem h3:focus {
   outline: none;
@@ -1066,9 +1054,6 @@ h2 {
     background .65s ease,
     box-shadow .65s ease;
 }
-
-
-/* opened state */
 
 .poem.open .poem-content,
 .poem:hover .poem-content {
@@ -1146,12 +1131,6 @@ h2 {
    DESKTOP HOVER BEHAVIOR
    ===================================================== */
 
-/*
-   Hover works only on devices that actually support
-   hover. This prevents mobile browsers from getting
-   stuck in a strange "hover" state.
-*/
-
 @media (hover: hover) and (pointer: fine) {
 
   .poem h3 {
@@ -1196,27 +1175,45 @@ h2 {
 
 
 /* =====================================================
-   CUSDIS COMMENTS
+   CUSDIS — QUIET SOCIAL STYLE
    ===================================================== */
 
-.cusdis-title {
-  max-width: 850px;
+#comments {
+  max-width: 720px;
 
-  margin: 25px auto 15px;
+  margin: 40px auto 70px;
 
-  padding: 0 25px;
+  padding: 0 20px;
 
   position: relative;
 
   z-index: 1;
+}
 
+.comment-heading {
   text-align: center;
 
-  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.comment-heading .comment-star {
+  display: block;
+
+  color: #737d92;
+
+  font-size: 12px;
+
+  margin-bottom: 5px;
+}
+
+.comment-heading h2 {
+  margin: 0 0 6px;
+
+  font-size: 25px;
 
   font-weight: normal;
 
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
 
   color: #e3e6ee;
 
@@ -1224,12 +1221,48 @@ h2 {
     0 0 18px rgba(190,210,255,.12);
 }
 
+.comment-heading p {
+  color: #737d92;
+
+  font-size: 13px;
+
+  font-style: italic;
+
+  letter-spacing: 1px;
+}
+
+
+/*
+   The Cusdis widget stays functional inside this
+   rounded social-style shell.
+*/
+
+.comment-card {
+  width: 100%;
+
+  padding: 20px 18px;
+
+  border:
+    1px solid rgba(150,165,195,.16);
+
+  border-radius: 22px;
+
+  background:
+    rgba(7,15,30,.70);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.28);
+
+  backdrop-filter:
+    blur(8px);
+}
+
 #cusdis_thread {
-  max-width: 850px;
+  width: 100%;
 
-  margin: 0 auto 35px;
+  margin: 0;
 
-  padding: 0 25px;
+  padding: 0;
 
   position: relative;
 
@@ -1244,6 +1277,15 @@ h2 {
   display: block;
 
   background: transparent !important;
+}
+
+
+/*
+   The old standalone Cusdis heading is no longer used.
+*/
+
+.cusdis-title {
+  display: none;
 }
 
 
@@ -1373,23 +1415,38 @@ footer {
     height: 70px;
   }
 
-  #cusdis_thread {
+  #comments {
     margin:
-      0 auto 25px;
+      30px auto 55px;
 
     padding:
-      0 20px;
+      0 12px;
   }
 
-  .cusdis-title {
-    margin-top: 20px;
+  .comment-heading {
+    margin-bottom: 20px;
+  }
 
-    margin-bottom: 12px;
+  .comment-heading h2 {
+    font-size: 22px;
+  }
 
+  .comment-heading p {
+    font-size: 12px;
+  }
+
+  .comment-card {
     padding:
-      0 20px;
+      15px 10px;
 
-    font-size: 25px;
+    border-radius:
+      18px;
+  }
+
+  #cusdis_thread {
+    margin: 0;
+
+    padding: 0;
   }
 
   .ziggy-signature {
@@ -2374,19 +2431,39 @@ Stay awhile. Read slowly.
 
 
 <!-- =====================================================
-     CUSDIS COMMENTS
+     COMMENTS
      ===================================================== -->
 
-<h2 class="cusdis-title">Leave a Thought</h2>
+<section id="comments">
 
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
-  data-page-id="z-midnight-home"
-  data-page-url="https://z-midnight.github.io/"
-  data-page-title="z.midnight — Poems in the Quiet"
-  data-theme="dark"
-></div>
+  <div class="comment-heading">
+
+    <span class="comment-star">✦</span>
+
+    <h2>Leave a Thought</h2>
+
+    <p>
+      leave a little piece of yourself here
+    </p>
+
+  </div>
+
+
+  <div class="comment-card">
+
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
+      data-page-id="z-midnight-home"
+      data-page-url="https://z-midnight.github.io/"
+      data-page-title="z.midnight — Poems in the Quiet"
+      data-theme="dark"
+    ></div>
+
+  </div>
+
+</section>
+
 
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
@@ -2458,14 +2535,6 @@ poems.forEach(poem => {
 
 
   title.addEventListener("click", () => {
-
-    /*
-      On desktop, hovering controls the opening.
-      Clicking simply opens the poem while the pointer
-      remains inside it.
-
-      On mobile, tapping toggles the poem.
-    */
 
     if (hoverDevice.matches) {
 
@@ -2612,3 +2681,4 @@ Rd.ziggy
 
 </body>
 </html>
+```
