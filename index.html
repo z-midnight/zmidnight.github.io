@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -933,6 +934,27 @@ h2 {
 
 
 /* -----------------------------------------------------
+   AUTOMATIC POEM NUMBER
+   ----------------------------------------------------- */
+
+.poem-number {
+  display: inline-block;
+
+  width: 32px;
+
+  margin-right: 8px;
+
+  color: #68655f;
+
+  font-size: .75rem;
+
+  letter-spacing: .12em;
+
+  vertical-align: middle;
+}
+
+
+/* -----------------------------------------------------
    POEM TITLE
    ----------------------------------------------------- */
 
@@ -1111,17 +1133,6 @@ h2 {
 
   backdrop-filter:
     blur(5px);
-}
-
-#poems .poem:first-of-type.open .poem-content-inner,
-#poems .poem:first-of-type:hover .poem-content-inner {
-  border: none;
-
-  background: transparent;
-
-  box-shadow: none;
-
-  backdrop-filter: none;
 }
 
 
@@ -1703,10 +1714,12 @@ footer {
     letter-spacing: 1px;
   }
 
-  .poem h3::after {
-    right: 12px;
+  .poem-number {
+    width: 27px;
 
-    font-size: 11px;
+    margin-right: 5px;
+
+    font-size: .68rem;
   }
 
   .poem.open .poem-content-inner {
@@ -1809,11 +1822,10 @@ footer {
 }
 
 </style>
+
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      BLINKING STARS
@@ -1831,7 +1843,6 @@ footer {
 <div class="twinkle ten"></div>
 <div class="twinkle eleven"></div>
 <div class="twinkle twelve"></div>
-
 
 <!-- =====================================================
      HOME
@@ -1854,36 +1865,36 @@ footer {
     words written after midnight
   </p>
 
-
   <!-- 🐈‍⬛ THE CAT -->
 
   <div class="cat">
 
-    <div class="cat-head">
+```
+<div class="cat-head">
 
-      <div class="ear left"></div>
-      <div class="ear right"></div>
+  <div class="ear left"></div>
+  <div class="ear right"></div>
 
-      <div class="eye left"></div>
-      <div class="eye right"></div>
+  <div class="eye left"></div>
+  <div class="eye right"></div>
 
-      <div class="nose"></div>
+  <div class="nose"></div>
 
-    </div>
+</div>
 
-    <div class="cat-body"></div>
+<div class="cat-body"></div>
 
-    <div class="leg one"></div>
-    <div class="leg two"></div>
-    <div class="leg three"></div>
-    <div class="leg four"></div>
+<div class="leg one"></div>
+<div class="leg two"></div>
+<div class="leg three"></div>
+<div class="leg four"></div>
 
-    <div class="tail"></div>
+<div class="tail"></div>
+```
 
   </div>
 
 </header>
-
 
 <!-- =====================================================
      NAVIGATION
@@ -1891,14 +1902,13 @@ footer {
 
 <nav>
 
-  <a href="#home">HOME</a>
+<a href="#home">HOME</a>
 
-  <a href="#poems">POEMS</a>
+<a href="#poems">POEMS</a>
 
-  <a href="#about">ABOUT</a>
+<a href="#about">ABOUT</a>
 
 </nav>
-
 
 <!-- =====================================================
      POEMS — NEWEST TO OLDEST
@@ -1913,6 +1923,7 @@ footer {
 </p>
 
 <!-- 01 -->
+
 <article class="poem">
 
   <h3 tabindex="0" role="button" aria-expanded="false">
@@ -1922,7 +1933,10 @@ footer {
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I have supped with sorrow at midnight’s throne,
 And made of my heart an abbey of stone;
 Where candles burn dim in the draught of the years,
@@ -1966,16 +1980,17 @@ And teach this tired heart that it still can be loved.
 For even old ruins, though broken and gray,
 May shelter a candle till dawn finds its way;
 And even the heart, though exhausted and worn,
-May yet be reclaimed by the mercy of morn.
-      </p>
+May yet be reclaimed by the mercy of morn. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 02 -->
 
@@ -1988,7 +2003,10 @@ May yet be reclaimed by the mercy of morn.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 Why does life keep disappointing me,
 when I have already learned to bend?
 I thought the storms were passing seasons,
@@ -2035,16 +2053,17 @@ I will stop asking,
 
 And start whispering,
 
-“ I survived this one, too.”
-      </p>
+“ I survived this one, too.” </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 03 -->
 
@@ -2057,7 +2076,10 @@ And start whispering,
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I knew not of her
 when I first knew you,
 until truth wore your voice
@@ -2111,16 +2133,17 @@ I left because I needed relief.
 Not for loving you,
 nor for what we couldn't retrieve,
 but for the ruthless way I left—
-and the trace I chose to leave.
-      </p>
+and the trace I chose to leave. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 04 -->
 
@@ -2133,9 +2156,12 @@ and the trace I chose to leave.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p class="poem-subtitle">I Miss My Elijah</p>
+```
+  <p class="poem-subtitle">I Miss My Elijah</p>
 
-      <p>
+  <p>
+```
+
 I ended us where no one could see,
 A quiet goodbye inside of me.
 No shattered glass, no loud despair,
@@ -2159,16 +2185,17 @@ Like morning light dissolves the dew.
 Now all that’s left is just the ache,
 Of something real I had to break.
 Not flesh, not bone—yet still it’s true,
-I lost a love when I lost you.
-      </p>
+I lost a love when I lost you. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 05 -->
 
@@ -2181,7 +2208,10 @@ I lost a love when I lost you.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I’m creating art shaped by his heart,
 With every line, I make a start.
 A little piece of what we knew,
@@ -2205,16 +2235,17 @@ Some parts of him still live in me.
 So I’ll keep drawing, piece by piece,
 Turning old pain into some peace.
 For even hearts that fall apart
-Can leave behind a work of art.
-      </p>
+Can leave behind a work of art. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 06 -->
 
@@ -2227,7 +2258,10 @@ Can leave behind a work of art.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I hold the pencil like a hand
 that once made me believe in plans.
 And slowly, softly, stroke by stroke,
@@ -2261,16 +2295,17 @@ I'll turn the pieces into art.
 And when the final line is through,
 I'll leave a little piece of you—
 not as a wound I have to hide,
-but as a beautiful goodbye.
-      </p>
+but as a beautiful goodbye. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 07 -->
 
@@ -2283,7 +2318,10 @@ but as a beautiful goodbye.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I’m a red flag, yes, I know,
 I won’t pretend just for show.
 I won’t list the things I do—
@@ -2312,16 +2350,17 @@ walk away; I won’t be proud.
 I’m not perfect, nor will I pretend,
 I know my flaws, I know my bends.
 But if you stay, then stay for me—
-not for the version you want me to be.
-      </p>
+not for the version you want me to be. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 08 -->
 
@@ -2334,7 +2373,10 @@ not for the version you want me to be.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 He told me, “Draw your feelings out,
 sketch the things you can’t say loud.”
 So I will let my pencil speak,
@@ -2348,16 +2390,17 @@ the longing hiding in each leaf.
 So here I am, with quiet art,
 letting every line reveal my heart.
 Maybe he’ll feel what I can’t show,
-in every stroke, he’ll somehow know.
-      </p>
+in every stroke, he’ll somehow know. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 09 -->
 
@@ -2370,7 +2413,10 @@ in every stroke, he’ll somehow know.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 If living feels like endless ache,
 a weight too heavy for the heart to take,
 if every morning feels the same,
@@ -2406,16 +2452,17 @@ is not the whole story you've ever worn.
 The night may be heavy, the road may bend—
 but stay a little longer.
 
-This is not yet the end.
-      </p>
+This is not yet the end. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 10 -->
 
@@ -2428,7 +2475,10 @@ This is not yet the end.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I loved you past the reach of space,
 where absence wore a familiar face.
 You were never truly mine to hold,
@@ -2484,16 +2534,17 @@ I never had you.
 And still—
 
 I have to learn
-how to say goodbye.
-      </p>
+how to say goodbye. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 11 -->
 
@@ -2506,7 +2557,10 @@ how to say goodbye.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I loved you beyond the epistemology of proximity,
 where presence is merely a conjecture
 and absence, an immutable theorem.
@@ -2550,16 +2604,17 @@ Into distance.
 Into silence.
 Into the quiet atavism of a feeling
 that refuses to die
-simply because it was never allowed to live.
-      </p>
+simply because it was never allowed to live. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 12 -->
 
@@ -2572,7 +2627,10 @@ simply because it was never allowed to live.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I loved you in absentia,
 where longing wears no name,
 a clandestine constellation
@@ -2601,16 +2659,17 @@ drawn beyond the edge of time.
 And if love is an enigma,
 then let me remain unsure—
 for some souls are meant to be cherished,
-but never meant to be yours.
-      </p>
+but never meant to be yours. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 13 -->
 
@@ -2623,7 +2682,10 @@ but never meant to be yours.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 Sometimes I want to tell you
 the things I hide inside,
 the words I long to tell you,
@@ -2647,16 +2709,17 @@ where no one sees how deep.
 So I’ll hold back every plea,
 and let my feelings fade,
 you’ll never know what you mean to me—
-or how much love I’ve betrayed.
-      </p>
+or how much love I’ve betrayed. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 14 -->
 
@@ -2669,7 +2732,10 @@ or how much love I’ve betrayed.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I deleted every poem I wrote for you,
 every tender line I once thought true.
 Not because the words were never bright,
@@ -2683,16 +2749,17 @@ and gave the words to silence, dark and deep.
 Perhaps forgetting isn't losing what we knew,
 but learning how to write without writing you.
 No more leaving empty spaces for you to stay—
-some stories must be mourned, then fade away.
-      </p>
+some stories must be mourned, then fade away. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 15 -->
 
@@ -2705,7 +2772,10 @@ some stories must be mourned, then fade away.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I am somewhere between
 missing you
 and missing who I was
@@ -2715,16 +2785,17 @@ Some nights
 I think I have moved on.
 
 Other nights
-the moon remembers for me.
-      </p>
+the moon remembers for me. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 16 -->
 
@@ -2737,7 +2808,10 @@ the moon remembers for me.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 I kept the words
 behind my teeth,
 
@@ -2749,16 +2823,17 @@ through the nights,
 
 until silence
 became heavier
-than the truth.
-      </p>
+than the truth. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
-
 
 <!-- 17 -->
 
@@ -2771,7 +2846,10 @@ than the truth.
   <div class="poem-content">
     <div class="poem-content-inner">
 
-      <p>
+```
+  <p>
+```
+
 There are things
 I only remember
 when the world becomes quiet.
@@ -2785,18 +2863,19 @@ is not forgetting.
 
 Perhaps it is simply
 learning how to remember
-without reaching back.
-      </p>
+without reaching back. </p>
 
-      <span class="signature">z.midnight</span>
+```
+  <span class="signature">z.midnight</span>
 
-    </div>
+</div>
+```
+
   </div>
 
 </article>
 
 </section>
-
 
 <!-- =====================================================
      DIVIDER
@@ -2805,7 +2884,6 @@ without reaching back.
 <div class="divider">
   ✦ · · · ☾ · · · ✦
 </div>
-
 
 <!-- =====================================================
      ABOUT
@@ -2834,7 +2912,6 @@ Stay awhile. Read slowly.
 
 </section>
 
-
 <!-- =====================================================
      COMMENTS
      ===================================================== -->
@@ -2843,46 +2920,47 @@ Stay awhile. Read slowly.
 
   <div class="comment-heading">
 
-    <span class="comment-star">✦</span>
+```
+<span class="comment-star">✦</span>
 
-    <h2>Leave a Thought</h2>
+<h2>Leave a Thought</h2>
 
-    <p>
-      leave a little piece of yourself here
-    </p>
+<p>
+  leave a little piece of yourself here
+</p>
+```
 
   </div>
 
-
   <div class="comment-card">
 
-    <div id="cusdis_thread"
-      data-host="https://cusdis.com"
-      data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
-      data-page-id="z-midnight-home"
-      data-page-url="https://z-midnight.github.io/"
-      data-page-title="z.midnight — Poems in the Quiet"
-      data-theme="dark"
-    ></div>
+```
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="32ed9954-f628-4f22-960d-a474a282cb96"
+  data-page-id="z-midnight-home"
+  data-page-url="https://z-midnight.github.io/"
+  data-page-title="z.midnight — Poems in the Quiet"
+  data-theme="dark"
+></div>
+```
 
   </div>
 
 </section>
 
-
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-
 
 <!-- =====================================================
      MIDNIGHT AI
      ===================================================== -->
 
 <button
-  id="midnight-ai-button"
-  type="button"
-  aria-label="Open Midnight AI"
-></button>
+id="midnight-ai-button"
+type="button"
+aria-label="Open Midnight AI"
 
+> </button>
 
 <div
   id="midnight-ai"
@@ -2891,61 +2969,64 @@ Stay awhile. Read slowly.
 
   <div class="midnight-header">
 
-    <div class="midnight-mini-moon"></div>
+```
+<div class="midnight-mini-moon"></div>
 
-    <div class="midnight-title">
+<div class="midnight-title">
 
-      <strong>midnight</strong>
+  <strong>midnight</strong>
 
-      <span>
-        a quiet little AI
-      </span>
+  <span>
+    a quiet little AI
+  </span>
 
-    </div>
+</div>
 
-    <button
-      id="midnight-close"
-      type="button"
-      aria-label="Close Midnight AI"
-    >
-      ×
-    </button>
+<button
+  id="midnight-close"
+  type="button"
+  aria-label="Close Midnight AI"
+>
+  ×
+</button>
+```
 
   </div>
-
 
   <div id="midnight-messages">
 
-    <div class="midnight-message ai">
-      You're awake. I'm here. You can tell me something, ask me something, or simply stay for a while.
-    </div>
+```
+<div class="midnight-message ai">
+  You're awake. I'm here. You can tell me something, ask me something, or simply stay for a while.
+</div>
+```
 
   </div>
 
-
   <form id="midnight-form">
 
-    <input
-      id="midnight-input"
-      type="text"
-      maxlength="1000"
-      autocomplete="off"
-      placeholder="say something..."
-      aria-label="Message Midnight"
-    />
+```
+<input
+  id="midnight-input"
+  type="text"
+  maxlength="1000"
+  autocomplete="off"
+  placeholder="say something..."
+  aria-label="Message Midnight"
+/>
 
-    <button
-      id="midnight-send"
-      type="submit"
-      aria-label="Send message"
-    >
-      ✦
-    </button>
+<button
+  id="midnight-send"
+  type="submit"
+  aria-label="Send message"
+>
+  ✦
+</button>
+```
 
   </form>
 
 </div>
-
 
 <!-- =====================================================
      POEM INTERACTION
@@ -2954,6 +3035,33 @@ Stay awhile. Read slowly.
 <script>
 
 const poems = document.querySelectorAll(".poem");
+
+
+/* -----------------------------------------------------
+   AUTOMATIC POEM NUMBERING
+   ----------------------------------------------------- */
+
+poems.forEach((poem, index) => {
+
+  const title = poem.querySelector("h3");
+
+  if (title && !title.querySelector(".poem-number")) {
+
+    const number =
+      document.createElement("span");
+
+    number.className =
+      "poem-number";
+
+    number.textContent =
+      String(index + 1).padStart(2, "0");
+
+    title.prepend(number);
+
+  }
+
+});
+
 
 const hoverDevice = window.matchMedia(
   "(hover: hover) and (pointer: fine)"
@@ -3138,7 +3246,6 @@ hoverDevice.addEventListener("change", () => {
 });
 
 </script>
-
 
 <!-- =====================================================
      MIDNIGHT AI FUNCTION
@@ -3345,7 +3452,6 @@ midnightForm.addEventListener(
 
 </script>
 
-
 <!-- =====================================================
      FOOTER
      ===================================================== -->
@@ -3356,13 +3462,11 @@ midnightForm.addEventListener(
 
 </footer>
 
-
 <div class="ziggy-signature">
 
 Rd.ziggy
 
 </div>
-
 
 </body>
 </html>
