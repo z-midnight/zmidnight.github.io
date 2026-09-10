@@ -938,19 +938,7 @@ h2 {
    ----------------------------------------------------- */
 
 .poem-number {
-  display: inline-block;
-
-  width: 32px;
-
-  margin-right: 8px;
-
-  color: #68655f;
-
-  font-size: .75rem;
-
-  letter-spacing: .12em;
-
-  vertical-align: middle;
+  display: none;
 }
 
 
@@ -1120,7 +1108,7 @@ h2 {
     0 0 25px;
 
   padding:
-    30px 40px 35px;
+    12px 40px 35px;
 
   border:
     1px solid rgba(150,165,195,.23);
@@ -1869,6 +1857,7 @@ footer {
 
   <div class="cat">
 
+```
 <div class="cat-head">
 
   <div class="ear left"></div>
@@ -1889,6 +1878,7 @@ footer {
 <div class="leg four"></div>
 
 <div class="tail"></div>
+```
 
   </div>
 
@@ -1978,7 +1968,7 @@ May shelter a candle till dawn finds its way;
 And even the heart, though exhausted and worn,
 May yet be reclaimed by the mercy of morn. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2047,7 +2037,7 @@ And start whispering,
 
 “ I survived this one, too.” </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2123,7 +2113,7 @@ nor for what we couldn't retrieve,
 but for the ruthless way I left—
 and the trace I chose to leave. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2171,7 +2161,7 @@ Of something real I had to break.
 Not flesh, not bone—yet still it’s true,
 I lost a love when I lost you. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2217,7 +2207,7 @@ Turning old pain into some peace.
 For even hearts that fall apart
 Can leave behind a work of art. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2273,7 +2263,7 @@ I'll leave a little piece of you—
 not as a wound I have to hide,
 but as a beautiful goodbye. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2324,7 +2314,7 @@ I know my flaws, I know my bends.
 But if you stay, then stay for me—
 not for the version you want me to be. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2360,7 +2350,7 @@ letting every line reveal my heart.
 Maybe he’ll feel what I can’t show,
 in every stroke, he’ll somehow know. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2418,7 +2408,7 @@ but stay a little longer.
 
 This is not yet the end. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2496,7 +2486,7 @@ And still—
 I have to learn
 how to say goodbye. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2562,7 +2552,7 @@ Into the quiet atavism of a feeling
 that refuses to die
 simply because it was never allowed to live. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2613,7 +2603,7 @@ then let me remain unsure—
 for some souls are meant to be cherished,
 but never meant to be yours. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2659,7 +2649,7 @@ and let my feelings fade,
 you’ll never know what you mean to me—
 or how much love I’ve betrayed. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2695,7 +2685,7 @@ but learning how to write without writing you.
 No more leaving empty spaces for you to stay—
 some stories must be mourned, then fade away. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2727,7 +2717,7 @@ I think I have moved on.
 Other nights
 the moon remembers for me. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2761,7 +2751,7 @@ until silence
 became heavier
 than the truth. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2797,7 +2787,7 @@ Perhaps it is simply
 learning how to remember
 without reaching back. </p>
 
-  <span class="signature">z.midnight</span>
+<span class="signature">z.midnight</span>
 
 </div>
 
@@ -2899,7 +2889,7 @@ aria-label="Open Midnight AI"
 
 <div class="midnight-title">
 
-  <strong>midnight</strong>
+<strong>midnight</strong>
 
   <span>
     a quiet little AI
@@ -2908,12 +2898,13 @@ aria-label="Open Midnight AI"
 </div>
 
 <button
-  id="midnight-close"
-  type="button"
-  aria-label="Close Midnight AI"
+id="midnight-close"
+type="button"
+aria-label="Close Midnight AI"
+
 >
-  ×
-</button>
+
+× </button>
 
   </div>
 
@@ -2928,21 +2919,22 @@ aria-label="Open Midnight AI"
   <form id="midnight-form">
 
 <input
-  id="midnight-input"
-  type="text"
-  maxlength="1000"
-  autocomplete="off"
-  placeholder="say something..."
-  aria-label="Message Midnight"
+id="midnight-input"
+type="text"
+maxlength="1000"
+autocomplete="off"
+placeholder="say something..."
+aria-label="Message Midnight"
 />
 
 <button
-  id="midnight-send"
-  type="submit"
-  aria-label="Send message"
+id="midnight-send"
+type="submit"
+aria-label="Send message"
+
 >
-  ✦
-</button>
+
+✦ </button>
 
   </form>
 
