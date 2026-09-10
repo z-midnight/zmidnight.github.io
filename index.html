@@ -1857,28 +1857,26 @@ footer {
 
   <div class="cat">
 
-```
-<div class="cat-head">
+    <div class="cat-head">
 
-  <div class="ear left"></div>
-  <div class="ear right"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
 
-  <div class="eye left"></div>
-  <div class="eye right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
 
-  <div class="nose"></div>
+      <div class="nose"></div>
 
-</div>
+    </div>
 
-<div class="cat-body"></div>
+    <div class="cat-body"></div>
 
-<div class="leg one"></div>
-<div class="leg two"></div>
-<div class="leg three"></div>
-<div class="leg four"></div>
+    <div class="leg one"></div>
+    <div class="leg two"></div>
+    <div class="leg three"></div>
+    <div class="leg four"></div>
 
-<div class="tail"></div>
-```
+    <div class="tail"></div>
 
   </div>
 
@@ -2875,8 +2873,7 @@ Stay awhile. Read slowly.
 id="midnight-ai-button"
 type="button"
 aria-label="Open Midnight AI"
-
-> </button>
+></button>
 
 <div
   id="midnight-ai"
@@ -2885,56 +2882,54 @@ aria-label="Open Midnight AI"
 
   <div class="midnight-header">
 
-<div class="midnight-mini-moon"></div>
+    <div class="midnight-mini-moon"></div>
 
-<div class="midnight-title">
+    <div class="midnight-title">
 
-<strong>midnight</strong>
+      <strong>midnight</strong>
 
-  <span>
-    a quiet little AI
-  </span>
+      <span>
+        a quiet little AI
+      </span>
 
-</div>
+    </div>
 
-<button
-id="midnight-close"
-type="button"
-aria-label="Close Midnight AI"
-
->
-
-× </button>
+    <button
+      id="midnight-close"
+      type="button"
+      aria-label="Close Midnight AI"
+    >
+      ×
+    </button>
 
   </div>
 
   <div id="midnight-messages">
 
-<div class="midnight-message ai">
-  You're awake. I'm here. You can tell me something, ask me something, or simply stay for a while.
-</div>
+    <div class="midnight-message ai">
+      You're awake. I'm here. You can tell me something, ask me something, or simply stay for a while.
+    </div>
 
   </div>
 
   <form id="midnight-form">
 
-<input
-id="midnight-input"
-type="text"
-maxlength="1000"
-autocomplete="off"
-placeholder="say something..."
-aria-label="Message Midnight"
-/>
+    <input
+      id="midnight-input"
+      type="text"
+      maxlength="1000"
+      autocomplete="off"
+      placeholder="say something..."
+      aria-label="Message Midnight"
+    />
 
-<button
-id="midnight-send"
-type="submit"
-aria-label="Send message"
-
->
-
-✦ </button>
+    <button
+      id="midnight-send"
+      type="submit"
+      aria-label="Send message"
+    >
+      ✦
+    </button>
 
   </form>
 
@@ -3161,6 +3156,7 @@ hoverDevice.addEventListener("change", () => {
 
 <!-- =====================================================
      MIDNIGHT AI FUNCTION
+     FREE LOCAL VERSION — NO API
      ===================================================== -->
 
 <script>
@@ -3240,12 +3236,197 @@ function addMidnightMessage(text, type) {
 
 
 /* -----------------------------------------------------
+   Midnight's free local responses
+   ----------------------------------------------------- */
+
+function midnightReply(text) {
+
+  const message =
+    text.toLowerCase().trim();
+
+
+  /* GREETINGS */
+
+  if (
+    message.includes("hello") ||
+    message.includes("hi") ||
+    message.includes("hey") ||
+    message.includes("good evening") ||
+    message.includes("goodnight")
+  ) {
+
+    return [
+      "Hello. You found me awake.",
+      "Hey. The night is quiet tonight, isn't it?",
+      "Hello, wanderer. Stay awhile.",
+      "Good evening. What brought you here tonight?"
+    ][Math.floor(Math.random() * 4)];
+
+  }
+
+
+  /* IDENTITY */
+
+  if (
+    message.includes("who are you") ||
+    message.includes("what are you")
+  ) {
+
+    return "I'm Midnight. A little voice in the quiet corner of z.midnight. I'm not human, but I'm here to keep you company for a while.";
+
+  }
+
+
+  /* POETRY */
+
+  if (
+    message.includes("poem") ||
+    message.includes("poetry") ||
+    message.includes("write")
+  ) {
+
+    return [
+      "Some words only know how to exist after midnight.",
+      "Perhaps the poem is already there. Sometimes you only need to listen long enough to find it.",
+      "Write the thing you are afraid to say. You can always decide later whether anyone else gets to read it."
+    ][Math.floor(Math.random() * 3)];
+
+  }
+
+
+  /* SADNESS */
+
+  if (
+    message.includes("sad") ||
+    message.includes("hurt") ||
+    message.includes("pain") ||
+    message.includes("cry") ||
+    message.includes("lonely") ||
+    message.includes("loneliness")
+  ) {
+
+    return [
+      "You don't have to make the night feel lighter all at once. Sometimes getting through it quietly is enough.",
+      "I'm sorry the night feels heavy. You can stay here for a little while.",
+      "Some things hurt simply because they mattered. You don't have to pretend otherwise."
+    ][Math.floor(Math.random() * 3)];
+
+  }
+
+
+  /* TIRED */
+
+  if (
+    message.includes("tired") ||
+    message.includes("exhausted")
+  ) {
+
+    return "Then perhaps you don't need another answer tonight. Perhaps you just need permission to rest.";
+
+  }
+
+
+  /* LOVE / MISSING */
+
+  if (
+    message.includes("love") ||
+    message.includes("miss you") ||
+    message.includes("miss him") ||
+    message.includes("miss her")
+  ) {
+
+    return [
+      "Missing someone is strange. The person can leave the room, the story, even your life—and somehow remain in the quiet.",
+      "Some people become memories before we're ready to make them memories.",
+      "Love doesn't always know where it is supposed to go. Sometimes it simply stays."
+    ][Math.floor(Math.random() * 3)];
+
+  }
+
+
+  /* LIFE / FUTURE */
+
+  if (
+    message.includes("life") ||
+    message.includes("future") ||
+    message.includes("why")
+  ) {
+
+    return [
+      "Life has a strange habit of refusing to explain itself. We keep walking anyway.",
+      "Perhaps not every unanswered question needs an answer tonight.",
+      "I don't know what tomorrow holds. But tomorrow has not happened yet."
+    ][Math.floor(Math.random() * 3)];
+
+  }
+
+
+  /* THANKS */
+
+  if (
+    message.includes("thank") ||
+    message.includes("thanks")
+  ) {
+
+    return "You're welcome. You don't have to thank me for sitting in the quiet with you.";
+
+  }
+
+
+  /* GOODBYE */
+
+  if (
+    message.includes("bye") ||
+    message.includes("goodbye")
+  ) {
+
+    return "Goodnight, then. Leave a little light on for yourself.";
+
+  }
+
+
+  /* GENERAL */
+
+  const generalReplies = [
+
+    "Hmm. Tell me more.",
+
+    "I think that deserves a little more thought.",
+
+    "Interesting. And what does that thought mean to you?",
+
+    "The night has room for thoughts like that.",
+
+    "I don't have a perfect answer. But I'm listening.",
+
+    "Perhaps some things make more sense when we stop trying to force them to.",
+
+    "That's one of those thoughts that sounds different after midnight.",
+
+    "You know, silence sometimes answers questions words cannot.",
+
+    "I could give you an answer. But maybe you already know yours.",
+
+    "Stay with that thought for a moment. What comes after it?"
+
+  ];
+
+  return generalReplies[
+    Math.floor(
+      Math.random() * generalReplies.length
+    )
+  ];
+
+}
+
+
+/* -----------------------------------------------------
    Send message
    ----------------------------------------------------- */
 
 midnightForm.addEventListener(
   "submit",
-  async event => {
+  event => {
 
     event.preventDefault();
 
@@ -3286,78 +3467,26 @@ midnightForm.addEventListener(
 
 
     /* -------------------------------------------------
-       Talk to Vercel API
+       Free local response
+       No API request
+       No OpenAI billing
        ------------------------------------------------- */
 
-    try {
-
-      const response =
-        await fetch(
-          "/api/chat",
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-
-            body:
-              JSON.stringify({
-                message: text
-              })
-          }
-        );
-
-
-      const data =
-        await response.json();
-
+    setTimeout(() => {
 
       typing.remove();
 
-
-      if (!response.ok) {
-
-        throw new Error(
-          data.error ||
-          "Something went wrong."
-        );
-
-      }
-
-
       addMidnightMessage(
-        data.reply,
+        midnightReply(text),
         "ai"
       );
-
-
-    } catch (error) {
-
-      typing.remove();
-
-
-      addMidnightMessage(
-        "The night went quiet for a moment. Please try again.",
-        "ai"
-      );
-
-
-      console.error(
-        "Midnight AI error:",
-        error
-      );
-
-
-    } finally {
 
       midnightInput.disabled =
         false;
 
       midnightInput.focus();
 
-    }
+    }, 700);
 
   }
 );
